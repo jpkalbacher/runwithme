@@ -25,14 +25,20 @@ Minimum Viable Product
 
 In phase one I will implement user signpu and authentication using BCrypt. After Signup/Login the user will be placed on a page that contains the container for the applications root React component. I will also set up a full JSON API for Events. After phase one, users will be able to create an account and login, and be placed on an empty page.
 
+[details](docs/Phase1.md)
+
 
 ## Phase 2: Flux Architecture, GoogleMaps integration and Event CRUD (3.5 days)
 
 Phase 2 is focused on setting up Flux, the React Router, and the React views. I will also integrate with GoogleMaps. After the basic Flux architecture has been set up, an Event store will be implemented and a set of actions corresponding to the needed CRUD functionality created. Still undetermined whether or not I will need a marker store. At the end of Phase 2, all event CRUD operations will be working in the browser. All events (not just the current users) should be viewable on the map at this point.
 
+[details](docs/Phase2.md)
+
 ## Phase 3: User Profile Page (1 day)
 
 I will set up a user profile page that allows users to upload a profile picture. I will also create the view and routers for followers and for searching for users. User search and display will NOT be working after Phase 3.
+
+[details](docs/Phase3.md)
 
 ## Phase 4: Search for follow users (1 day)
 
