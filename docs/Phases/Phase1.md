@@ -11,10 +11,10 @@
 - Api::EventsController (create, destroy, index, show, update)
  
 ##Views
-users/new.html.erb
-session/new.html.erb
-events/index.json.jbuilder
-events/show.json.jbuilder
+- users/new.html.erb
+- session/new.html.erb
+- events/index.json.jbuilder
+- events/show.json.jbuilder
 
 #Flux
 
