@@ -16,5 +16,5 @@ Minimum Viable Product
 
 # Design Docs
 
-[Wireframes](docs/wireframes.md)
-[Schema](docs/schema.md)
+- [Wireframes](docs/wireframes.md)
+- [Schema](docs/schema.md)
