@@ -23,7 +23,7 @@ Minimum Viable Product
 
 ## Phase 1 - User Authentication (1.5 days)
 
-In phase one I will implement user signpu and authentication using BCrypt. After Signup/Login the user will be placed on a page that contains the container for the applications root React component. I will also set up a full JSON API for Events. After phase one, users will be able to create an account and login, and be placed on an empty page.
+In phase one I will implement user signup and authentication using BCrypt. After Signup/Login the user will be placed on a page that contains the container for the applications root React component. I will also set up a full JSON API for Events. After phase one, users will be able to create an account and login, and be placed on an empty page.
 
 [details](docs/Phases/Phase1.md)
 
