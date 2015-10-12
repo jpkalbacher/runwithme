@@ -9,12 +9,13 @@
 #Flux
 
 ##Views (React Components)
-- NotesIndex
-- NotesIndexItem
-- NoteForm
+- EventsIndex
+- EventsIndexItem
+- CreateEventForm
 
 ##Stores
 - EventStore
+- (possibly) MarkerStore
 
 ##Actions
 - ApiActions.receiveUpcomingEvents
@@ -24,6 +25,7 @@
 ##ApiUtil
 - ApiUtil.fetchAllEvents
 - ApiUtil.fetchSingleEvent
+- ApiUtil.fetchUpcomingEvents
 - ApiUtil.createEvent
 - ApiUtil.editEvent
 - ApiUtil.destroyEvent
