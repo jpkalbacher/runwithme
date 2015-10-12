@@ -2,9 +2,10 @@
 
 ## Rails
 ### Models
-
+* follower
 
 ### Controllers
+FollowersController (create, destroy, index, show, update)
 
 
 ### Views
@@ -23,6 +24,8 @@
 ### Actions
 * ApiActions.receiveAllFollowers
 * ApiActions.receiveSingleFollower
+* ApiActions.receiveAllUsers
+* ApiActions.receiveSingleUser
 * ApiActions.deleteFollower
 
 ### ApiUtil
@@ -30,5 +33,7 @@
 * ApiUtil.fetchSingleFollower
 * ApiUtil.createFollower
 * ApiUtil.destroyFollower
+* ApiUtil.fetchAllUsers
+* ApiUtil.fetchSingleUser
 
 ## Gems/Libraries
