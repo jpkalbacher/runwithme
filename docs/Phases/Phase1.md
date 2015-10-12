@@ -1,19 +1,20 @@
 #Rails
 
 ##Models
-User
-Note
+- User
+- Event
+- Location
 
 ##Controllers
-UsersController (create, new)
-SessionsController (create, new, destroy)
-Api::NotesController (create, destroy, index, show, update)
-
+- UsersController (create, new)
+- SessionsController (create, new, destroy)
+- Api::EventsController (create, destroy, index, show, update)
+ 
 ##Views
 users/new.html.erb
 session/new.html.erb
-notes/index.json.jbuilder
-notes/show.json.jbuilder
+events/index.json.jbuilder
+events/show.json.jbuilder
 
 #Flux
 
@@ -27,4 +28,4 @@ notes/show.json.jbuilder
 
 #Gems/Libraries
 
-- [ ]BCrypt
+- BCrypt
