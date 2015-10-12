@@ -29,3 +29,11 @@ id          | integer   | not null, primary key
 latitude    | float     | not null
 longitude   | float     | not null
 description | string    | not null
+
+## followers
+column name       | data type | details
+------------------|-----------|-----------------------
+owner_id          | integer   | not null
+follower_id       | integer   | not null
+following_status  | integer   | not null
+
