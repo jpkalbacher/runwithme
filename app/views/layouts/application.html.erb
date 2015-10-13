@@ -5,6 +5,11 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <% if current_user %>
+    <script>
+      window.CURRENT_USER_ID = <%= current_user.id %>
+    </script>
+  <% end %>
 </head>
 <body>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANEtT0YyTWgXxBkTmXd3hlegItLe394-g"
