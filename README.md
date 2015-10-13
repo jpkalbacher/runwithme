@@ -28,11 +28,15 @@ In phase one I will implement user signup and authentication using BCrypt. After
 [details](docs/Phases/Phase1.md)
 
 
-## Phase 2: Flux Architecture, GoogleMaps integration and Event CRUD (3.5 days)
+## Phase 2: Flux Architecture, GoogleMaps integration and Event CRUD (2.0 days)
 
-Phase 2 is focused on setting up Flux, the React Router, and the React views. I will also integrate with GoogleMaps. After the basic Flux architecture has been set up, an Event store will be implemented and a set of actions corresponding to the needed CRUD functionality created. Still undetermined whether or not I will need a marker store. At the end of Phase 2, all event CRUD operations will be working in the browser. All events (not just the current users) should be viewable on the map at this point.
+Phase 2 is focused on setting up Flux, the React Router, and the React views. After the basic Flux architecture has been set up, an Event store will be implemented and a set of actions corresponding to the needed CRUD functionality created. At the end of Phase 2, all event CRUD operations will be working in the browser. Users should be able to create, edit and destroy events.
 
 [details](docs/Phases/Phase2.md)
+
+## Phase 2a: Google Maps (1.5 days)
+
+Phase 2a - integrate with google maps. Google maps should display markers for each event that is in view. Map actions (click on owned_event, click on other_event, click on map should render the proper child component of Main.
 
 ## Phase 3: User Profile Page (1 day)
 
