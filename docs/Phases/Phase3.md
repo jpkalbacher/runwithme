@@ -5,7 +5,7 @@
 * follower
 
 ### Controllers
-FollowersController (create, destroy, index, show, update)
+* FollowersController (create, destroy, index, show, update)
 
 
 ### Views
