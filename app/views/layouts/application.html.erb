@@ -7,16 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANEtT0YyTWgXxBkTmXd3hlegItLe394-g"
+    type="text/javascript"></script>
 
-<% if current_user %>
-  <%= current_user.email %>
-  <%= button_to "Sign Out", session_url, :method => :delete %>
-<% else %>
-  <%= link_to "Sign In", new_session_url %>
-  <%= link_to "Sign Up", new_user_url %>
-<% end %>
-
-<%= render flash[:errors] if flash[:errors] %>
+<%= flash[:errors].join(", ") if flash[:errors] %>
 
 <%= yield %>
 

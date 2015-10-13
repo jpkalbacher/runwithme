@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      render json: "you're in!"
+      redirect_to :root
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
