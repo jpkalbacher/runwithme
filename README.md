@@ -1,8 +1,8 @@
 # MVP
 
 Minimum Viable Product
-- [ ] Create an account
-- [ ] Log in / Log out
+- [x] Create an account
+- [x] Log in / Log out
 - [ ] Create Event
   - [ ] location from google maps
   - [ ] start time and end time
