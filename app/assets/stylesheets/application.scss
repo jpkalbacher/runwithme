@@ -17,10 +17,25 @@
 @import "bootstrap";
 
 .map {
-  height: 100%;
-  width: 100%;
+  position:absolute;
+  width:100%;
+  min-height:100%;
+  top:0px;
+  left:0px;
+  z-index:-1;
 }
 
 .sign-out {
   padding-right: 75px;
+}
+
+.list {
+  float: left;
+}
+
+.form-box {
+  max-height: 400px;
+  max-width: 300px;
+  float: right;
+  background: rgba(255,0,122,0.5);
 }

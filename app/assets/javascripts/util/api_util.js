@@ -1,11 +1,12 @@
 var ApiUtil = {
-  fetchEvents: function(){
+  fetchInBounds: function(bounds){
     $.ajax({
       url: 'api/events',
       type: 'GET',
+      data: bounds,
       dataType: 'json',
-      success: function(events) {
-        ApiActions.receiveEvents(events);
+      success: function(in_bounds) {
+        ApiActions.receiveInBounds(in_bounds);
       }
     });
   },
@@ -20,13 +21,13 @@ var ApiUtil = {
     });
   },
 
-  handleNewEvent: function(){
+  handleNewEvent: function(new_event){
     $.ajax({
       url: 'api/events',
       type: 'POST',
       data: new_event,
       success: function() {
-        window.location = "/";
+        location.reload(true);
       }
     });
   }

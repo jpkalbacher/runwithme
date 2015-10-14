@@ -1,22 +1,20 @@
-class EventsController < ApplicationController
+class Api::EventsController < ApplicationController
   def new
     @event = Event.new
   end
 
+  def index
+    @events = Event.all
+  end
+
   def create
-    debugger;
-    event = Event.new(event_params)
-    event.owner_id = CURRENT_USER_ID
+    event = current_user.events.new(event_params)
 
     if event.save
-      render: "awesome!"
+      render json: {}
     else
       flash[:errors] = event.errors.full_messages
     end
-  end
-
-  def index
-    @events = Event.all
   end
 
   def update
@@ -33,7 +31,7 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:latitude, :longitude, :event_type,
+    params.require(:new_event).permit(:latitude, :longitude, :event_type,
     :start_time, :location_description)
   end
 end

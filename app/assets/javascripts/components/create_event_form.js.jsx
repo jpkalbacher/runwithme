@@ -1,44 +1,68 @@
 
 
 var CreateEventForm = React.createClass({
-  // mixins: [React.addons.LinkedStateTitle],
-  //
-  // getInitialState: function () {
-  //   return { event_type:"", start_time:"", location_description:"",
-  //   latitude:"", longitude:"" };
-  // },
-  //
-  // handleNewEvent: function(event){
-  //   event.preventDefault();
-  //   var new_event = $.extend({}, this.state);
-  //   ApiUtil.handleNewEvent(new_event);
-  // },
-  //
-  // render: function(){
-  //   return (
-  //       <div>
-  //         <h3>Create an Event!</h3>
-  //         <form onSubmit={this.handleNewEvent}>
-  //           <label>Description</label>
-  //           <input type="text" valueLink={this.linkState('event_type')}/>
-  //           <br/>
-  //           <label>Start</label>
-  //           <input type="datetime" valueLink={this.linkState('start_time')}/>
-  //           <br/>
-  //           <label>Location Name</label>
-  //           <input type="text"
-  //                  valueLink={this.linkState('location_description')}/>
-  //           <br/>
-  //           <label>Latitude</label>
-  //           <input type="number" valueLink={this.linkState('latitude')}/>
-  //           <br/>
-  //           <label>Longitude</label>
-  //           <input type="number" valueLink={this.linkState('longitude')}/>
-  //           <br/>
-  //           <input type="submit"/>
-  //         </form>
-  //         <button>Cancel</button>
-  //       </div>
-  //   );
-  // }
+  getInitialState: function () {
+    return { event_type:"", location_description:"",
+    latitude:"", start_time:"", longitude:"" };
+  },
+
+  updateDescription: function(e){
+    e.preventDefault();
+    this.setState({event_type:event.target.value});
+  },
+
+  updateStartTime: function(e){
+    var date = e.toDate();
+    this.setState({start_time:date});
+  },
+
+  updateLocationDescription: function(e){
+    e.preventDefault();
+    this.setState({location_description:event.target.value});
+  },
+
+  updateLatitude: function(e){
+    e.preventDefault();
+    this.setState({latitude:event.target.value});
+  },
+
+  updateLongitude: function(e){
+    e.preventDefault();
+    this.setState({longitude:event.target.value});
+  },
+
+  handleNewEvent: function(e){
+    e.preventDefault();
+    ApiUtil.handleNewEvent({new_event: this.state});
+  },
+
+  render: function(){
+    return (
+      <div className= "container-fluid row">
+        <div className="form-group form-inline form-control form-box">
+          <h3>Create an Event!</h3>
+          <form onSubmit={this.handleNewEvent}>
+            <label>Description</label>
+            <input type="text" onChange={this.updateDescription}/>
+            <br/>
+            <label>Start</label>
+            < Datetime onChange={this.updateStartTime}/>
+            <br/>
+            <label>Location Name</label>
+            <input type="text"
+                   onChange={this.updateLocationDescription}/>
+            <br/>
+            <label>Latitude</label>
+            <input type="number" step="0.0000001" onChange={this.updateLatitude}/>
+            <br/>
+            <label>Longitude</label>
+            <input type="number" step="0.00000001" onChange={this.updateLongitude}/>
+            <br/>
+            <input type="submit"/>
+          </form>
+          <button>Cancel</button>
+        </div>
+      </div>
+    );
+  }
 })

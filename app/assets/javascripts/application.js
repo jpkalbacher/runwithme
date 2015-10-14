@@ -18,4 +18,6 @@
 //= require flux
 //= require eventemitter
 //= require bootstrap
+//= require moment.min
+//= require datepicker.min
 //= require_tree .

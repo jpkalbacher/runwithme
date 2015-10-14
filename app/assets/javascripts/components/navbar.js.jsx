@@ -9,19 +9,16 @@ var Navbar = React.createClass({
       <nav className="navbar navbar-default navbar-fixed-top">
         <div className="container-fluid">
           <div className="container-fluid">
-
-            <ul className="nav nav-pills">
-              <li><a href="#">Map</a></li>
+            <ul className="nav nav-pills list">
+              <li><a href="#/main">Map</a></li>
               <li><a href="#">Profile</a></li>
             </ul>
-          </div>
 
-          <div className="nav navbar-nav navbar-right">
-             <input
-                type="button"
-                onClick={this.handleLogOut}
-                value="Sign Out"
-                className="btn navbar-button navbar-right sign-out"/>
+            <input
+               type="button"
+               onClick={this.handleLogOut}
+               value="Sign Out"
+               className="btn navbar-button navbar-right sign-out"/>
           </div>
         </div>
       </nav>

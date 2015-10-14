@@ -18,10 +18,12 @@ $(function (){
 
   var routes = (
     <Route path="/" component={App}>
-      <Route path="events" component={Events}>
-        <Route path="new" component={CreateEventForm} />
-        <Route path="edit/:eventId" component={EditEventForm} />
+      <Route path="main" component={Main}>
+        <Route path="events" component={Events}>
+          <Route path="new" component={CreateEventForm} />
+          <Route path="edit/:eventId" component={EditEventForm} />
         </Route>
+      </Route>
     </Route>
   );
 

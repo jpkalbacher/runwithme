@@ -1,9 +1,9 @@
 
 var ApiActions = {
-  receiveEvents: function(events) {
+  receiveInBounds: function(in_bounds) {
     AppDispatcher.dispatch({
-      actionType: EventConstants.RECEIVE_EVENTS,
-      events: events
+      actionType: EventConstants.EVENTS_RECEIVED,
+      events: in_bounds
     });
   }
 };
