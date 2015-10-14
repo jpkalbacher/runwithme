@@ -1,0 +1,3 @@
+EventConstants = {
+  EVENTS_RECEIVED: "EVENTS_RECEIVED"
+};

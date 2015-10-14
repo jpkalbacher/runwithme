@@ -1,14 +1,14 @@
-EventForm = React.createClass({
+var EditEventForm = React.createClass({
   render: function(){
     return (
         <div>
-          <h3>Create an Event!</h3>
+          <h3>Edit Event!</h3>
           <form>
             <label>Description</label>
             <input type="text"/>
             <br/>
             <label>Start</label>
-            <input min='0' type="number" valueLink={this.linkState('seating')}/>
+            <input type="datetime"/>
             <br/>
             <label>Location Name</label>
             <input type="text"/>
