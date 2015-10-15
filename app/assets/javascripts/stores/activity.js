@@ -26,7 +26,11 @@
     },
 
     all: function(){
-      return _activities.slice(0);
+      if (_activities.length > 0) {
+        return _activities.slice(0);
+      } else {
+        return [];
+        }
     },
 
     dispatcherID: AppDispatcher.register(function(payload){

@@ -5,24 +5,23 @@ var ApiUtil = {
       type: 'GET',
       data: bounds,
       dataType: 'json',
-      success: function(in_bounds) {
-        ApiActions.receiveInBounds(in_bounds);
+      success: function(activities) {
+        ApiActions.receiveInBounds(activities);
       }
     });
   },
 
   fetchSingleActivity: function(id){
     $.ajax({
-      url: 'api/activities',
+      url: 'api/activities/' + id,
       type: 'GET',
       data: id,
       dataType: 'json',
-      success: function(in_bounds) {
-        ApiActions.receiveInBounds(in_bounds);
+      success: function(activity) {
+        ApiActions.receiveInBounds(activity);
       }
     });
   },
-
 
   logOut: function(){
     $.ajax({

@@ -9,12 +9,12 @@ class Api::ActivitiesController < ApplicationController
 
   def create
     activity = current_user.activities.new(activity_params)
-
     if activity.save
       render json: {}
     else
       flash[:errors] = activity.errors.full_messages
     end
+
   end
 
   def update
@@ -27,6 +27,8 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def show
+    @activity = Activity.find(params[:id])
+
   end
 
   private

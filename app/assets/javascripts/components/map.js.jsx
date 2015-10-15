@@ -1,5 +1,7 @@
 window.Map = React.createClass({
+	mixins: [React.addons.LinkedStateMixin, ReactRouter.history],
 	_onChange: function() {
+		that = this;
 		var activities = ActivityStore.all();
 
 		activities.forEach(function(activity){
@@ -11,6 +13,10 @@ window.Map = React.createClass({
 					position: {lat: activity.latitude, lng: activity.longitude},
 					animation: google.maps.Animation.DROP,
 				});
+
+				marker.addListener('click', function () {
+        	that.props.onMarkerClick(activity);
+      	});
 
 				marker.activityId = activity.id;
 				this.markers.push(activity.id);
@@ -48,17 +54,13 @@ window.Map = React.createClass({
 
       ApiUtil.fetchInBounds(bounds);
     });
-
-    google.maps.event.addListener(this.map, 'click', function(event) {
-     var coords = { lat: event.latLng.lat(), lng: event.latLng.lng() };
-     that.props.onMapClick(coords);
-    });
   },
 
   render: function() {
 		return (
       <div>
-			   <div className="map" ref="map" />
+			   <div className="map"
+				 			ref="map"/>
       </div>
 		)
 	}
