@@ -18,7 +18,7 @@ var ApiUtil = {
       data: id,
       dataType: 'json',
       success: function(activity) {
-        ApiActions.receiveInBounds(activity);
+        ApiActions.receiveSingleActivity(activity);
       }
     });
   },
@@ -42,5 +42,16 @@ var ApiUtil = {
         location.reload(true);
       }
     });
+  },
+
+  editActivity: function(edited_activity) {
+    $.ajax({
+      url: 'api/activites/' + edited_activity.id,
+      type: 'PATCH',
+      data: edited_activity,
+      success: function() {
+        location.reload(true);
+      }
+    })
   }
 };

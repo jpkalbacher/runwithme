@@ -1,7 +1,12 @@
 (function(root){
-  var _activities = [];
-
   var CHANGE_EVENT = "change";
+
+  var _activities = [];
+  var _selected_activity = {};
+
+  var resetSelectedActivity = function(activity) {
+    _selected_activity = activity;
+  };
 
   var resetActivities = function(activities){
     _activities = activities;
@@ -15,7 +20,6 @@
     removeMapChangeListener: function(callback) {
       this.removeChangeListener(CHANGE_EVENT, callback);
     },
-
 
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);
@@ -34,10 +38,16 @@
     },
 
     dispatcherID: AppDispatcher.register(function(payload){
-      if(payload.actionType === ActivityConstants.ACTIVITIES_RECEIVED){
-        resetActivities(payload.activities);
-        ActivityStore.emit(CHANGE_EVENT);
-      }
+      switch(payload.actionType){
+        case ActivityConstants.ACTIVITIES_RECEIVED:
+          resetActivities(payload.activities);
+          ActivityStore.emit(CHANGE_EVENT);
+          break;
+        case ActivityConstants.SINGLE_ACTIVITY_RECEIVED:
+          resetSelectedActivity(payload.activity);
+          ActivityStore.emit(CHANGE_EVENT);
+          break;
+        }
     })
   });
 })(this);
