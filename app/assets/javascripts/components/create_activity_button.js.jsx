@@ -3,7 +3,7 @@ var CreateButton = React.createClass({
     return (
       <div className="create-button">
         <button class="btn btn-default btn-lg" type="button">
-          Create Event <span class="caret"></span>
+          Create Activity <span class="caret"></span>
         </button>
       </div>
     )

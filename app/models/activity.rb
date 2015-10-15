@@ -13,9 +13,9 @@
 #  event_type           :string
 #
 
-class Event < ActiveRecord::Base
+class Activity < ActiveRecord::Base
   validates :start_time, :owner_id, :latitude, :longitude, :location_description,
-    :event_type, presence: true
+    :activity_type, presence: true
 
   belongs_to :owner,
     class_name: "User",
@@ -32,12 +32,12 @@ class Event < ActiveRecord::Base
 
      in_bounds = Array.new
 
-     events = Event.all
+     activities = Activity.all
 
-     events.each do |bench|
-       if (event.latitude > south_west_lat && event.latitude < north_east_lat) &&
-         (event.longitude < north_east_lng && event.longitude > south_west_lng)
-         in_bounds << event
+     activities.each do |bench|
+       if (activity.latitude > south_west_lat && activity.latitude < north_east_lat) &&
+         (activity.longitude < north_east_lng && activity.longitude > south_west_lng)
+         in_bounds << activity
        end
      end
 

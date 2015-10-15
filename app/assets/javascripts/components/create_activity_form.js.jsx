@@ -1,14 +1,14 @@
 
 
-var CreateEventForm = React.createClass({
+var CreateActivityForm = React.createClass({
   getInitialState: function () {
-    return { event_type:"", location_description:"",
+    return { activity_type:"", location_description:"",
     latitude:"", start_time:"", longitude:"" };
   },
 
   updateDescription: function(e){
     e.preventDefault();
-    this.setState({event_type:event.target.value});
+    this.setState({activity_type:event.target.value});
   },
 
   updateStartTime: function(e){
@@ -31,17 +31,17 @@ var CreateEventForm = React.createClass({
     this.setState({longitude:event.target.value});
   },
 
-  handleNewEvent: function(e){
+  handleNewActivity: function(e){
     e.preventDefault();
-    ApiUtil.handleNewEvent({new_event: this.state});
+    ApiUtil.handleNewActivity({new_activity: this.state});
   },
 
   render: function(){
     return (
       <div className= "container-fluid row">
         <div className="form-group form-inline form-control form-box">
-          <h3>Create an Event!</h3>
-          <form onSubmit={this.handleNewEvent}>
+          <h3>Create an Activity!</h3>
+          <form onSubmit={this.handleNewActivity}>
             <div className="form-group">
               <label>Description</label>
               <input type="text" onChange={this.updateDescription}/>

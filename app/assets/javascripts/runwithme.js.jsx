@@ -19,10 +19,10 @@ $(function (){
   var routes = (
     <Route path="/" component={App}>
       <Route path="main" component={Main}>
-        <Route path="events" component={Events}>
-          <Route path="new" component={CreateEventForm} />
-          <Route path="edit/:eventId" component={EditEventForm} />
-          <Route path="/main/events/:eventId" component={ShowEvent} />
+        <Route path="activities" component={Activities}>
+          <Route path="new" component={CreateActivityForm} />
+          <Route path="edit/:activityId" component={EditActivityForm} />
+          <Route path="/main/activities/:activityId" component={ShowActivity} />
         </Route>
       </Route>
     </Route>

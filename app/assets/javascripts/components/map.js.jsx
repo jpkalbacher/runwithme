@@ -1,19 +1,19 @@
 window.Map = React.createClass({
 	_onChange: function() {
-		var events = EventStore.all();
+		var activities = ActivityStore.all();
 
-		events.forEach(function(event){
+		activities.forEach(function(activity){
 
-			if ($.inArray(event.id, this.markers) === -1) {
+			if ($.inArray(activity.id, this.markers) === -1) {
 				var marker = new google.maps.Marker({
 					map: this.map,
 					draggable: true,
-					position: {lat: event.latitude, lng: event.longitude},
+					position: {lat: activity.latitude, lng: activity.longitude},
 					animation: google.maps.Animation.DROP,
 				});
 
-				marker.eventId = event.id;
-				this.markers.push(event.id);
+				marker.activityId = activity.id;
+				this.markers.push(activity.id);
 			}
 		}.bind(this));
   },
@@ -30,7 +30,7 @@ window.Map = React.createClass({
 
     this.map = new google.maps.Map(map, mapOptions);
 
-    EventStore.addMapChangeListener(this._onChange);
+    ActivityStore.addMapChangeListener(this._onChange);
 
     this.map.addListener('idle', function() {
       var bounds = this.getBounds();
@@ -59,7 +59,6 @@ window.Map = React.createClass({
 		return (
       <div>
 			   <div className="map" ref="map" />
-         < CreateButton />
       </div>
 		)
 	}

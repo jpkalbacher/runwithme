@@ -1,8 +1,8 @@
-var EditEventForm = React.createClass({
+var EditActivityForm = React.createClass({
   render: function(){
     return (
         <div>
-          <h3>Edit Event!</h3>
+          <h3>Edit Activity!</h3>
           <form>
             <label>Description</label>
             <input type="text"/>

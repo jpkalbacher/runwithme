@@ -1,0 +1,3 @@
+ActivityConstants = {
+  ACTIVITY_RECEIVED: "ACTIVITY_RECEIVED"
+};
