@@ -22,6 +22,7 @@ $(function (){
         <Route path="events" component={Events}>
           <Route path="new" component={CreateEventForm} />
           <Route path="edit/:eventId" component={EditEventForm} />
+          <Route path="/main/events/:eventId" component={ShowEvent} />
         </Route>
       </Route>
     </Route>

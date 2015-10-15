@@ -42,22 +42,27 @@ var CreateEventForm = React.createClass({
         <div className="form-group form-inline form-control form-box">
           <h3>Create an Event!</h3>
           <form onSubmit={this.handleNewEvent}>
-            <label>Description</label>
-            <input type="text" onChange={this.updateDescription}/>
-            <br/>
-            <label>Start</label>
-            < Datetime onChange={this.updateStartTime}/>
-            <br/>
-            <label>Location Name</label>
-            <input type="text"
-                   onChange={this.updateLocationDescription}/>
-            <br/>
-            <label>Latitude</label>
-            <input type="number" step="0.0000001" onChange={this.updateLatitude}/>
-            <br/>
-            <label>Longitude</label>
-            <input type="number" step="0.00000001" onChange={this.updateLongitude}/>
-            <br/>
+            <div className="form-group">
+              <label>Description</label>
+              <input type="text" onChange={this.updateDescription}/>
+            </div>
+            <div className="form-group">
+              <label>Location Name</label>
+              <input type="text"
+                     onChange={this.updateLocationDescription}/>
+            </div>
+            <div className="form-group">
+              <label>Latitude</label>
+              <input type="number" step="0.0000001" onChange={this.updateLatitude}/>
+            </div>
+            <div className="form-group">
+              <label>Longitude</label>
+              <input type="number" step="0.00000001" onChange={this.updateLongitude}/>
+            </div>
+            <div className="form-group">
+              <label>Start</label>
+              < Datetime onChange={this.updateStartTime}/>
+            </div>
             <input type="submit"/>
           </form>
           <button>Cancel</button>
