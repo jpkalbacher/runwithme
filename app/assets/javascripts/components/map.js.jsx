@@ -1,31 +1,5 @@
 window.Map = React.createClass({
-	mixins: [React.addons.LinkedStateMixin, ReactRouter.history],
-
-	_onChange: function() {
-		that = this;
-		var activities = ActivityStore.all();
-
-		activities.forEach(function(activity){
-
-			if ($.inArray(activity.id, this.markers) === -1) {
-				var marker = new google.maps.Marker({
-					map: this.map,
-					draggable: true,
-					position: {lat: activity.latitude, lng: activity.longitude},
-					animation: google.maps.Animation.DROP,
-				});
-
-				marker.addListener('click', function () {
-        	that.props.onMarkerClick(activity);
-      	});
-
-				marker.activityId = activity.id;
-				this.markers.push(activity.id);
-			}
-		}.bind(this));
-  },
-
-  componentDidMount: function(){
+	componentDidMount: function(){
     this.markers = [];
 
     var map = React.findDOMNode(this.refs.map);
@@ -54,8 +28,35 @@ window.Map = React.createClass({
       };
 
       ApiUtil.fetchInBounds(bounds);
+			debugger;
     });
   },
+	
+	_onChange: function() {
+		that = this;
+		var activities = ActivityStore.all();
+
+		activities.forEach(function(activity){
+
+			if ($.inArray(activity.id, this.markers) === -1) {
+				var marker = new google.maps.Marker({
+					map: this.map,
+					draggable: true,
+					position: {lat: activity.latitude, lng: activity.longitude},
+					animation: google.maps.Animation.DROP,
+				});
+
+				marker.addListener('click', function () {
+        	that.props.onMarkerClick(activity);
+      	});
+
+				marker.activityId = activity.id;
+				this.markers.push(activity.id);
+			}
+		}.bind(this));
+  },
+
+
 
   render: function() {
 		return (

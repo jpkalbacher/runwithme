@@ -1,24 +1,47 @@
 var EditActivityForm = React.createClass({
+  getInitialState: function () {
+    var activity = ActivityStore.find(this.props.params.activityId);
+    debugger;
+    return {
+      activity_type:activity.activity_type,
+      start_time:activity.start_time,
+      owner_id:activity.owner_id,
+      latitude:activity.latitude,
+      longitude:activity.longitude,
+      location_description:activity.location_description
+    };
+  },
+
+  _findActivityById: function (id) {
+    var res;
+    ActivityStore.all().forEach(function (activity) {
+      if (id == activity.id) {
+        res = activity;
+      }
+    }.bind(this));
+    ApiUtil.fetchSingleActivity(this.props.params.activityId);
+    return res;
+  },
 
   componentWillReceiveProps: function() {
     ApiUtil.fetchSingleActivity(this.props.params.activityId);
     var activity = ActivityStore.singleActivity();
     this.setState({activity: activity});
-
   },
 
   handleEditActivity: function(event){
-    debugger;
     event.preventDefault();
     ApiUtil.editActivity(this.state.activity);
   },
 
   updateDescription: function(e){
+
     e.preventDefault();
     this.setState({activity_type:event.target.value});
   },
 
   updateStartTime: function(e){
+
     var date = e.toDate();
     this.setState({start_time:date});
   },

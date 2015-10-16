@@ -38,7 +38,7 @@ var CreateActivityForm = React.createClass({
 
   render: function(){
     return (
-      <div className= "container-fluid row">
+      <div className= "container-fluid row model-lrg">
         <div className="form-group form-inline form-control form-box">
           <h3>Create an Activity!</h3>
           <form onSubmit={this.handleNewActivity}>

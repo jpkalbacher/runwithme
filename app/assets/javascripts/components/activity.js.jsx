@@ -1,9 +1,9 @@
-var Activities = React.createClass({
-  render: function(){
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    )
-  }
-});
+// var Activities = React.createClass({
+//   render: function(){
+//     return (
+//       <div>
+//         {this.props.children}
+//       </div>
+//     )
+//   }
+// });

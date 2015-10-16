@@ -2,14 +2,10 @@
   var CHANGE_EVENT = "change";
 
   var _activities = [];
-  var _selected_activity = {};
-
-  var resetSelectedActivity = function(activity) {
-    _selected_activity = activity;
-  };
 
   var resetActivities = function(activities){
     _activities = activities;
+    debugger;
   };
 
   root.ActivityStore = $.extend({}, EventEmitter.prototype, {
@@ -29,14 +25,6 @@
       this.removeChangeListener(CHANGE_EVENT, callback);
     },
 
-    addSingleChangeListener: function(callback){
-      this.on(CHANGE_EVENT, callback);
-    },
-
-    removeSingleChangeListener:function(callback){
-      this.removeChangeListener(CHANGE_EVENT, callback);
-    },
-
     all: function(){
       if (_activities.length > 0) {
         return _activities.slice(0);
@@ -45,8 +33,16 @@
         }
     },
 
-    singleActivity: function(){
-      return _selected_activity;
+    find: function(id){
+      var a = {};
+      _activities.forEach(function(activity){
+        if(activity.id === id) {
+          a = _activities[id];
+        }
+      });
+      debugger;
+
+      return a;
     },
 
     dispatcherID: AppDispatcher.register(function(payload){
