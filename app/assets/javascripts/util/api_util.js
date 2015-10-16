@@ -33,11 +33,12 @@ var ApiUtil = {
     });
   },
 
-  handleNewActivity: function(new_activity){
+  handleNewActivity: function(activity){
+    debugger;
     $.ajax({
       url: 'api/activities',
       type: 'POST',
-      data: new_activity,
+      data: activity,
       success: function() {
         location.reload(true);
       }
@@ -52,6 +53,6 @@ var ApiUtil = {
       success: function() {
         location.reload(true);
       }
-    })
+    });
   }
 };

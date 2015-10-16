@@ -21,7 +21,7 @@ $(function (){
       <Route path="main" component={Main}>
         <Route path="activities" component={Activities}>
           <Route path="new" component={CreateActivityForm} />
-          <Route path="edit/:activityId" component={EditActivityForm} />
+          <Route path=":activityId/edit" component={EditActivityForm} />
           <Route path="/main/activities/:activityId" component={ShowActivity} />
         </Route>
       </Route>

@@ -1,5 +1,6 @@
 window.Map = React.createClass({
 	mixins: [React.addons.LinkedStateMixin, ReactRouter.history],
+
 	_onChange: function() {
 		that = this;
 		var activities = ActivityStore.all();

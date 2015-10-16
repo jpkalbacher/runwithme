@@ -29,12 +29,24 @@
       this.removeChangeListener(CHANGE_EVENT, callback);
     },
 
+    addSingleChangeListener: function(callback){
+      this.on(CHANGE_EVENT, callback);
+    },
+
+    removeSingleChangeListener:function(callback){
+      this.removeChangeListener(CHANGE_EVENT, callback);
+    },
+
     all: function(){
       if (_activities.length > 0) {
         return _activities.slice(0);
       } else {
         return [];
         }
+    },
+
+    singleActivity: function(){
+      return _selected_activity;
     },
 
     dispatcherID: AppDispatcher.register(function(payload){

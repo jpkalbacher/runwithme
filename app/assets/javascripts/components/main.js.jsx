@@ -3,7 +3,8 @@ var Main = React.createClass({
 
   handleMarkerClick: function(activity) {
     if(activity.owner_id === window.CURRENT_USER_ID){
-      this.props.history.pushState(null, "/main/activities/edit/" + activity.id)
+      this.props.history.pushState(null, "/main/activities/"
+          + activity.id + "/edit/");
     } else {
       this.props.history.pushState(null, "/main/activities/" + activity.id);
     }
@@ -14,6 +15,7 @@ var Main = React.createClass({
       <div>
         < Map onMarkerClick={this.handleMarkerClick} />
         {this.props.children}
+        < CreateButton />
       </div>
     )
   }

@@ -14,10 +14,11 @@ class Api::ActivitiesController < ApplicationController
     else
       flash[:errors] = activity.errors.full_messages
     end
-
   end
 
   def update
+    debugger
+    activity = Activity.find(params)
   end
 
   def edit

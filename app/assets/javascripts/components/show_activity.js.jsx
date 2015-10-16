@@ -24,10 +24,6 @@ var ShowActivity = React.createClass({
     });
   },
 
-  componentWillUnmount: function(){
-    ActivityStore.removeChangeListener(this._activityChanged);
-  },
-
   _activityChanged: function () {
     var activityId = this.props.params.activityId;
     var activity = this._findActivityById(activityId);
