@@ -5,7 +5,6 @@
 
   var resetActivities = function(activities){
     _activities = activities;
-    debugger;
   };
 
   root.ActivityStore = $.extend({}, EventEmitter.prototype, {
@@ -36,12 +35,10 @@
     find: function(id){
       var a = {};
       _activities.forEach(function(activity){
-        if(activity.id === id) {
-          a = _activities[id];
+        if(activity.id == id) {
+          a = activity;
         }
       });
-      debugger;
-
       return a;
     },
 
@@ -49,10 +46,6 @@
       switch(payload.actionType){
         case ActivityConstants.ACTIVITIES_RECEIVED:
           resetActivities(payload.activities);
-          ActivityStore.emit(CHANGE_EVENT);
-          break;
-        case ActivityConstants.SINGLE_ACTIVITY_RECEIVED:
-          resetSelectedActivity(payload.activity);
           ActivityStore.emit(CHANGE_EVENT);
           break;
         }

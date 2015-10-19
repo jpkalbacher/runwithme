@@ -1,6 +1,6 @@
 var ShowActivity = React.createClass({
   getInitialState: function () {
-    return { activity: this._findActivityById(this.props.params.activityId) };
+    return { activity: ActivityStore.find(this.props.params.activityId) };
   },
 
   _findActivityById: function (id) {
@@ -15,7 +15,6 @@ var ShowActivity = React.createClass({
 
   componentDidMount: function () {
     ActivityStore.addChangeListener(this._activityChanged);
-    ApiUtil.fetchSingleActivity(this.props.params.activityId);
   },
 
   componentWillReceiveProps: function (nextProps) {
@@ -33,13 +32,13 @@ var ShowActivity = React.createClass({
   render: function() {
     if (this.state.activity) {
       return (
-        <div className="container-fluid row show-activity">
+        <div className="show-activity container-fluid row">
           <div className="panel panel-default">
             <div className="panel-body">
-              <h3>Activity: {this.state.activity.activity_type}</h3>
-              <h3>Owner: {this.state.activity.owner_id}</h3>
-              <h3>Location: {this.state.activity.location_description}</h3>
-              <h3>Start: {this.state.activity.start_time}</h3>
+              <h6>Activity: {this.state.activity.activity_type}</h6>
+              <h6>Owner: {this.state.activity.owner_id}</h6>
+              <h6>Location: {this.state.activity.location_description}</h6>
+              <h6>Start: {this.state.activity.start_time}</h6>
             </div>
           </div>
         </div>

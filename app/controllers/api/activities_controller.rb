@@ -4,7 +4,7 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.all
+    @activities = Activity.in_bounds(bounds)
   end
 
   def create
@@ -17,7 +17,6 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def update
-    debugger
     activity = Activity.find(params)
   end
 
@@ -35,5 +34,9 @@ class Api::ActivitiesController < ApplicationController
   def activity_params
     params.require(:new_activity).permit(:latitude, :longitude, :activity_type,
     :start_time, :location_description)
+  end
+
+  def bounds
+    params[:bounds]
   end
 end

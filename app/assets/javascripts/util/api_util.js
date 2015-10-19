@@ -34,7 +34,6 @@ var ApiUtil = {
   },
 
   handleNewActivity: function(activity){
-    debugger;
     $.ajax({
       url: 'api/activities',
       type: 'POST',
@@ -47,7 +46,7 @@ var ApiUtil = {
 
   editActivity: function(edited_activity) {
     $.ajax({
-      url: 'api/activites/' + edited_activity.id,
+      url: 'api/activities/' + edited_activity.id,
       type: 'PATCH',
       data: edited_activity,
       success: function() {

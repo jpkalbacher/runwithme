@@ -25,9 +25,10 @@
   z-index:-1;
 }
 .show-activity {
-  top: 200px;
-  float: right;
-  padding-top: 200px;
+  position: absolute;
+  top: 55px;
+  right: 7px;
+  z-index: 200;
 }
 
 .sign-out {
