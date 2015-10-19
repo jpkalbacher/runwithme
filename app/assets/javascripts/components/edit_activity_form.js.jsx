@@ -62,8 +62,8 @@ var EditActivityForm = React.createClass({
 
   render: function(){
     return (
-        <div className= "container-fluid row show-activity">
-          <div className="form-group form-inline form-control form-box">
+        <div className= "container-fluid show-activity">
+          <div className="panel panel-default panel-body">
             <h3>Edit Activity!</h3>
             <form onSubmit={this.handleEditActivity}>
               <div className="form-group">
@@ -101,7 +101,7 @@ var EditActivityForm = React.createClass({
                      value="Edit Activity"/>
             </form>
             <button>Cancel</button>
-          </div>
+            </div>
         </div>
     );
   }

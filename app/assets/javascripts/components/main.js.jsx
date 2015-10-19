@@ -40,8 +40,8 @@ var Main = React.createClass({
               activities={this.state.activities}/>
         {this.props.children}
         <div className="create-button">
-          <button type="button" class="btn btn-default btn-lg" onClick={this.handleCreate}>
-                <span class="glyphicon glyphicon-edit"></span>
+          <button type="button" className="btn btn-default btn-lg" onClick={this.handleCreate}>
+                <span className="glyphicon glyphicon-edit"></span>
             New Activity</button>
         </div>
       </div>

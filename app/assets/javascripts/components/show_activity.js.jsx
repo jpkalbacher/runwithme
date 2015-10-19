@@ -17,8 +17,6 @@ var ShowActivity = React.createClass({
     ActivityStore.addChangeListener(this._activityChanged);
   },
 
-
-
   componentWillReceiveProps: function (nextProps) {
     this.setState({
       activity: this._findActivityById(nextProps.params.activityId)
@@ -35,13 +33,11 @@ var ShowActivity = React.createClass({
     if (this.state.activity) {
       return (
         <div className="show-activity container-fluid row">
-          <div className="panel panel-default">
-            <div className="panel-body">
-              <h6>Activity: {this.state.activity.activity_type}</h6>
-              <h6>Owner: {this.state.activity.owner_id}</h6>
-              <h6>Location: {this.state.activity.location_description}</h6>
-              <h6>Start: {this.state.activity.start_time}</h6>
-            </div>
+          <div className="panel panel-default panel-body">
+            <h6>Activity: {this.state.activity.activity_type}</h6>
+            <h6>Owner: {this.state.activity.owner_id}</h6>
+            <h6>Location: {this.state.activity.location_description}</h6>
+            <h6>Start: {this.state.activity.start_time}</h6>
           </div>
         </div>
       )

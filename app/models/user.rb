@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def name
+    self.first_name.capitalize + self.last_name[0].capitalize
+  end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
