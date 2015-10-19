@@ -17,13 +17,12 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def update
-    activity = Activity.find(params)
-  end
-
-  def edit
-  end
-
-  def destroy
+    activity = Activity.find(params[:activity][:id])
+    if activity.update(activity_params)
+      render json: {}
+    else
+      flash[:errors] = activity.errors.full_messages
+    end
   end
 
   def show
@@ -32,7 +31,7 @@ class Api::ActivitiesController < ApplicationController
 
   private
   def activity_params
-    params.require(:new_activity).permit(:latitude, :longitude, :activity_type,
+    params.require(:activity).permit(:latitude, :longitude, :activity_type,
     :start_time, :location_description)
   end
 

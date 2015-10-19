@@ -31,7 +31,8 @@ var EditActivityForm = React.createClass({
 
   handleEditActivity: function(event){
     event.preventDefault();
-    ApiUtil.editActivity(this.state);
+    var activity = {activity: this.state};
+    ApiUtil.editActivity(activity);
   },
 
   updateDescription: function(e){

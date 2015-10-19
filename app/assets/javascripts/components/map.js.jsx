@@ -23,7 +23,6 @@ window.Map = React.createClass({
           southEast: {lat: seLat, lng: seLng}
         }
       };
-
       ApiUtil.fetchInBounds(bounds);
     });
   },

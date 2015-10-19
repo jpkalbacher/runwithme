@@ -17,6 +17,8 @@ var ShowActivity = React.createClass({
     ActivityStore.addChangeListener(this._activityChanged);
   },
 
+
+
   componentWillReceiveProps: function (nextProps) {
     this.setState({
       activity: this._findActivityById(nextProps.params.activityId)

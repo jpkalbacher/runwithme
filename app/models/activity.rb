@@ -22,24 +22,22 @@ class Activity < ActiveRecord::Base
     foreign_key: :owner_id,
     primary_key: :id
 
-
-
   def self.in_bounds(bounds)
     north_west_lat = bounds["northWest"]["lat"].to_f
     north_west_lng = bounds["northWest"]["lng"].to_f
     south_east_lat = bounds["southEast"]["lat"].to_f
     south_east_lng = bounds["southEast"]["lng"].to_f
 
-     in_bounds = Array.new
+    in_bounds = Array.new
 
-     activities = Activity.all
+    activities = Activity.where('start_time > ?', Time.now)
 
-     activities.each do |activity|
-       if (activity.latitude > south_east_lat && activity.latitude < north_west_lat) &&
-         (activity.longitude > north_west_lng && activity.longitude < south_east_lng)
-         in_bounds << activity
-       end
-     end
-     in_bounds
+    activities.each do |activity|
+      if (activity.latitude > south_east_lat && activity.latitude < north_west_lat) &&
+        (activity.longitude > north_west_lng || activity.longitude < south_east_lng)
+        in_bounds << activity
+      end
+    end
+    in_bounds
   end
 end

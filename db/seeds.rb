@@ -64,34 +64,58 @@ Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
   location_description: Faker::Address.city, start_time: Time.now)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 3,
   latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-  location_description: Faker::Address.city, start_time: Time.now)
+  location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 4,
   latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-  location_description: Faker::Address.city, start_time: Time.now)
+  location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 5,
   latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-  location_description: Faker::Address.city, start_time: Time.now)
+  location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 6,
   latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-  location_description: Faker::Address.city, start_time: Time.now)
+  location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 2,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 3,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 4,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
+Activity.create(activity_type: Faker::Team.sport, owner_id: 5,
+latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
+Activity.create(activity_type: Faker::Team.sport, owner_id: 6,
+latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
+Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
+latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
+Activity.create(activity_type: Faker::Team.sport, owner_id: 2,
+latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
+Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
+latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
+Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
+latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
+Activity.create(activity_type: Faker::Team.sport, owner_id: 3,
+latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
+Activity.create(activity_type: Faker::Team.sport, owner_id: 4,
+latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
+location_description: Faker::Address.city, start_time: Time.now + 4.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 5,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
 location_description: Faker::Address.city, start_time: Time.now)
@@ -166,52 +190,28 @@ latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
 location_description: Faker::Address.city, start_time: Time.now)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 5,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 6.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 6,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 6.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 6.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 2,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 6.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 6.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 6.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 3,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 6.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 4,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
-Activity.create(activity_type: Faker::Team.sport, owner_id: 5,
-latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
-Activity.create(activity_type: Faker::Team.sport, owner_id: 6,
-latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
-Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
-latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
-Activity.create(activity_type: Faker::Team.sport, owner_id: 2,
-latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
-Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
-latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
-Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
-latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
-Activity.create(activity_type: Faker::Team.sport, owner_id: 3,
-latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
-Activity.create(activity_type: Faker::Team.sport, owner_id: 4,
-latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 6.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 5,
 latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
 location_description: Faker::Address.city, start_time: Time.now)
@@ -307,14 +307,14 @@ Activity.create(activity_type: Faker::Team.sport, owner_id: 3,
 latitude: 39.754356, longitude: -123.3453453,
 location_description: Faker::Address.city, start_time: Time.now)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 4,
-latitude: 37.746299, longitude: -122.438630, 
-location_description: Faker::Address.city, start_time: Time.now)
+latitude: 37.746299, longitude: -122.438630,
+location_description: Faker::Address.city, start_time: Time.now + 14.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 5,
 latitude: 37.782125, longitude: -122.488068,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 14.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 6,
 latitude: 37.782396, longitude: -122.418717,
-location_description: Faker::Address.city, start_time: Time.now)
+location_description: Faker::Address.city, start_time: Time.now + 14.days)
 
 
 

@@ -7,6 +7,9 @@ var ApiUtil = {
       dataType: 'json',
       success: function(activities) {
         ApiActions.receiveInBounds(activities);
+      },
+      error: function(error) {
+        console.log(error);
       }
     });
   },

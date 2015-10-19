@@ -33,7 +33,7 @@ var CreateActivityForm = React.createClass({
 
   handleNewActivity: function(e){
     e.preventDefault();
-    ApiUtil.handleNewActivity({new_activity: this.state});
+    ApiUtil.handleNewActivity({activity: this.state});
   },
 
   render: function(){
