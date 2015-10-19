@@ -1,4 +1,6 @@
 window.Map = React.createClass({
+
+
 	componentDidMount: function(){
     this.markers = [];
     var map = React.findDOMNode(this.refs.map);
@@ -9,6 +11,8 @@ window.Map = React.createClass({
 
     this.map = new google.maps.Map(map, mapOptions);
     ActivityStore.addMapChangeListener(this._onChange);
+
+
 
     this.map.addListener('idle', function() {
       var bounds = this.getBounds();

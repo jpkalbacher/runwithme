@@ -4,6 +4,7 @@ var EditActivityForm = React.createClass({
     return {
       id:activity.id,
       activity_type:activity.activity_type,
+      google_place: "",
       start_time:activity.start_time,
       owner_id:activity.owner_id,
       latitude:activity.latitude,
@@ -21,6 +22,7 @@ var EditActivityForm = React.createClass({
     this.setState({
       id:activity.id,
       activity_type:activity.activity_type,
+      google_place: "",
       start_time:activity.start_time,
       owner_id:activity.owner_id,
       latitude:activity.latitude,
@@ -33,6 +35,11 @@ var EditActivityForm = React.createClass({
     event.preventDefault();
     var activity = {activity: this.state};
     ApiUtil.editActivity(activity);
+  },
+
+  updateGooglePlace: function(e){
+    e.preventDefault();
+    this.setState({google_place:event.target.value});
   },
 
   updateDescription: function(e){
@@ -78,6 +85,12 @@ var EditActivityForm = React.createClass({
                        onChange={this.updateLocationDescription}
                        value={this.state.location_description}/>
               </div>
+              <div className="form-group pac-input" >
+                <label>Google places</label>
+                <input type="text"
+                       onChange={this.updateGooglePlace}
+                       value={this.state.google_place}/>
+              </div>
               <div className="form-group" >
                 <label>Latitude</label>
                 <input type="number"
@@ -101,7 +114,7 @@ var EditActivityForm = React.createClass({
                      value="Edit Activity"/>
             </form>
             <button>Cancel</button>
-            </div>
+          </div>
         </div>
     );
   }

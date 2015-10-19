@@ -1,9 +1,49 @@
-
-
 var CreateActivityForm = React.createClass({
+
+  // setUpAutoComplete: function(){
+  //   var input = (document.getElementById('pac-input'));
+  //
+	// 	var autocomplete = new google.maps.places.Autocomplete(input);
+  //   debugger;
+	// 	autocomplete.addListener('place_changed', this.getPlace);
+  // },
+  //
+  // getPlace: function(){
+  //   var place = autocomplete.getPlace();
+  //
+  //   var lat = place.geometry.location.lat();
+  //   var lng = place.geometry.location.lng();
+  //
+  //   updateLatitude(lat);
+  //   updateLongitude(lng);
+  //   debugger;
+  //
+  // },
+  //
+  componentDidMount: function(){
+    var that = this;
+    var input = (document.getElementById('pac-input'));
+
+    var getPlace = function(){
+      var place = autocomplete.getPlace();
+
+      var lat = place.geometry.location.lat();
+      var lng = place.geometry.location.lng();
+      var description = place.formatted_address.split(",")[0];
+
+      that.setState({latitude:lat});
+      that.setState({longitude:lng});
+      that.setState({location_description: description});
+      debugger;
+    };
+
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.addListener('place_changed', getPlace);
+  },
+
   getInitialState: function () {
     return { activity_type:"", location_description:"",
-    latitude:"", start_time:"", longitude:"" };
+     start_time:"" };
   },
 
   updateDescription: function(e){
@@ -21,16 +61,6 @@ var CreateActivityForm = React.createClass({
     this.setState({location_description:event.target.value});
   },
 
-  updateLatitude: function(e){
-    e.preventDefault();
-    this.setState({latitude:event.target.value});
-  },
-
-  updateLongitude: function(e){
-    e.preventDefault();
-    this.setState({longitude:event.target.value});
-  },
-
   handleNewActivity: function(e){
     e.preventDefault();
     ApiUtil.handleNewActivity({activity: this.state});
@@ -43,24 +73,16 @@ var CreateActivityForm = React.createClass({
           <h3>Create an Activity!</h3>
           <form onSubmit={this.handleNewActivity}>
             <div className="form-group">
-              <label>Description</label>
-              <input type="text" onChange={this.updateDescription}/>
-            </div>
-            <div className="form-group">
-              <label>Location Name</label>
               <input type="text"
-                     onChange={this.updateLocationDescription}/>
+                     onChange={this.updateDescription}
+                     placeholder="Activity"/>
+            </div>
+            <div className="form-group" >
+              <input type="text"
+                     placeholder="Where are you going?"
+                     id="pac-input"/>
             </div>
             <div className="form-group">
-              <label>Latitude</label>
-              <input type="number" step="0.0000001" onChange={this.updateLatitude}/>
-            </div>
-            <div className="form-group">
-              <label>Longitude</label>
-              <input type="number" step="0.00000001" onChange={this.updateLongitude}/>
-            </div>
-            <div className="form-group">
-              <label>Start</label>
               < Datetime onChange={this.updateStartTime}/>
             </div>
             <input type="submit"/>
