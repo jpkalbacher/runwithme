@@ -1,6 +1,4 @@
 window.Map = React.createClass({
-
-
 	componentDidMount: function(){
     this.markers = [];
     var map = React.findDOMNode(this.refs.map);
@@ -8,12 +6,8 @@ window.Map = React.createClass({
       center: {lat: 37.7758, lng: -122.435},
       zoom: 13
     };
-
     this.map = new google.maps.Map(map, mapOptions);
     ActivityStore.addMapChangeListener(this._onChange);
-
-
-
     this.map.addListener('idle', function() {
       var bounds = this.getBounds();
 

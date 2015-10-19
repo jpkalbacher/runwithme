@@ -13,7 +13,7 @@
     },
 
     removeMapChangeListener: function(callback) {
-      this.removeChangeListener(CHANGE_EVENT, callback);
+      this.removeListener(CHANGE_EVENT, callback);
     },
 
     addChangeListener: function(callback){
@@ -21,7 +21,7 @@
     },
 
     removeChangeListener: function(callback) {
-      this.removeChangeListener(CHANGE_EVENT, callback);
+      this.removeListener(CHANGE_EVENT, callback);
     },
 
     all: function(){

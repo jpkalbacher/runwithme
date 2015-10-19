@@ -1,44 +1,25 @@
 var CreateActivityForm = React.createClass({
-
-  // setUpAutoComplete: function(){
-  //   var input = (document.getElementById('pac-input'));
-  //
-	// 	var autocomplete = new google.maps.places.Autocomplete(input);
-  //   debugger;
-	// 	autocomplete.addListener('place_changed', this.getPlace);
-  // },
-  //
-  // getPlace: function(){
-  //   var place = autocomplete.getPlace();
-  //
-  //   var lat = place.geometry.location.lat();
-  //   var lng = place.geometry.location.lng();
-  //
-  //   updateLatitude(lat);
-  //   updateLongitude(lng);
-  //   debugger;
-  //
-  // },
-  //
   componentDidMount: function(){
-    var that = this;
+    this.setupAutoComplete();
+  },
+
+  setupAutoComplete: function(){
     var input = (document.getElementById('pac-input'));
-
-    var getPlace = function(){
-      var place = autocomplete.getPlace();
-
-      var lat = place.geometry.location.lat();
-      var lng = place.geometry.location.lng();
-      var description = place.formatted_address.split(",")[0];
-
-      that.setState({latitude:lat});
-      that.setState({longitude:lng});
-      that.setState({location_description: description});
-      debugger;
-    };
-
     var autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.addListener('place_changed', getPlace);
+    autocomplete.addListener('place_changed', this.getPlace.bind(this, autocomplete));
+  },
+
+  getPlace: function(autocomplete){
+    var place = autocomplete.getPlace();
+
+    var lat = place.geometry.location.lat();
+    var lng = place.geometry.location.lng();
+    var description = place.formatted_address.split(",")[0];
+
+    this.setState({latitude:lat});
+    this.setState({longitude:lng});
+    this.setState({location_description: description});
+    debugger;
   },
 
   getInitialState: function () {
@@ -66,6 +47,12 @@ var CreateActivityForm = React.createClass({
     ApiUtil.handleNewActivity({activity: this.state});
   },
 
+  autocomplete: function(e){
+    if (e.keyCode == 13) {
+      e.preventDefault();
+    }
+  },
+
   render: function(){
     return (
       <div className="show-activity container-fluid">
@@ -79,6 +66,7 @@ var CreateActivityForm = React.createClass({
             </div>
             <div className="form-group" >
               <input type="text"
+                     onKeyDown={this.autocomplete}
                      placeholder="Where are you going?"
                      id="pac-input"/>
             </div>

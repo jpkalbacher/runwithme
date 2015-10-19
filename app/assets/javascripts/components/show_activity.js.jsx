@@ -17,6 +17,10 @@ var ShowActivity = React.createClass({
     ActivityStore.addChangeListener(this._activityChanged);
   },
 
+  componentWillUnmount: function() {
+    ActivityStore.removeChangeListener(this._activityChanged);
+  },
+
   componentWillReceiveProps: function (nextProps) {
     this.setState({
       activity: this._findActivityById(nextProps.params.activityId)
