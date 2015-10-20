@@ -1,15 +1,48 @@
 var EditActivityForm = React.createClass({
+  componentDidMount: function(){
+    if (this.state.owner_id !== window.CURRENT_USER_ID){
+      this.props.history.pushState(null, "main/");
+    }
+    this.setupAutoComplete();
+    ActivityStore.addSingleChangeListener(this._onChange);
+    ApiUtil.fetchSingleActivity(this.props.params.activityId);
+  },
+
+  componentWillUnmount: function() {
+    ActivityStore.removeSingleChangeListener(this._onChange);
+  },
+
+  _onChange: function(){
+    ActivityStore.current();
+  },
+
+  setupAutoComplete: function(){
+    var input = (document.getElementById('pac-input'));
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.addListener('place_changed', this.getPlace.bind(this, autocomplete));
+  },
+
+  getPlace: function(autocomplete){
+    var place = autocomplete.getPlace();
+
+    var lat = place.geometry.location.lat();
+    var lng = place.geometry.location.lng();
+    var description = place.formatted_address.split(",")[0];
+
+    this.setState({latitude:lat});
+    this.setState({longitude:lng});
+    this.setState({location_description: description});
+  },
+
   getInitialState: function () {
     var activity = ActivityStore.find(this.props.params.activityId);
     return {
       id:activity.id,
-      activity_type:activity.activity_type,
-      google_place: "",
-      start_time:activity.start_time,
       owner_id:activity.owner_id,
-      latitude:activity.latitude,
-      longitude:activity.longitude,
-      location_description:activity.location_description
+      activity_type:activity.activity_type,
+      start_time:activity.start_time,
+      location_description:activity.location_description,
+      canceled:activity.canceled
     };
   },
 
@@ -27,19 +60,9 @@ var EditActivityForm = React.createClass({
       owner_id:activity.owner_id,
       latitude:activity.latitude,
       longitude:activity.longitude,
-      location_description:activity.location_description
+      location_description:activity.location_description,
+      canceled:activity.canceled
     });
-  },
-
-  handleEditActivity: function(event){
-    event.preventDefault();
-    var activity = {activity: this.state};
-    ApiUtil.editActivity(activity);
-  },
-
-  updateGooglePlace: function(e){
-    e.preventDefault();
-    this.setState({google_place:event.target.value});
   },
 
   updateDescription: function(e){
@@ -57,14 +80,24 @@ var EditActivityForm = React.createClass({
     this.setState({location_description:event.target.value});
   },
 
-  updateLatitude: function(e){
-    e.preventDefault();
-    this.setState({latitude:event.target.value});
+  autocomplete: function(e){
+    if (e.keyCode == 13) {
+      e.preventDefault();
+    }
   },
 
-  updateLongitude: function(e){
+  handleCancel: function(e){
     e.preventDefault();
-    this.setState({longitude:event.target.value});
+    this.state.canceled = true;
+    var activity = {activity: this.state};
+    ApiUtil.editActivity(activity);
+    this.setState({canceled:true});
+  },
+
+  handleEditActivity: function(event){
+    event.preventDefault();
+    var activity = {activity: this.state};
+    ApiUtil.editActivity(activity);
   },
 
   render: function(){
@@ -74,36 +107,16 @@ var EditActivityForm = React.createClass({
             <h3>Edit Activity!</h3>
             <form onSubmit={this.handleEditActivity}>
               <div className="form-group">
-                <label>Description</label>
                 <input type="text"
                        onChange={this.updateDescription}
                        value={this.state.activity_type}/>
               </div>
               <div className="form-group" >
-                <label>Location Name</label>
                 <input type="text"
                        onChange={this.updateLocationDescription}
-                       value={this.state.location_description}/>
-              </div>
-              <div className="form-group pac-input" >
-                <label>Google places</label>
-                <input type="text"
-                       onChange={this.updateGooglePlace}
-                       value={this.state.google_place}/>
-              </div>
-              <div className="form-group" >
-                <label>Latitude</label>
-                <input type="number"
-                       step="0.0000001"
-                       onChange={this.updateLatitude}
-                       value={this.state.latitude}/>
-              </div>
-              <div className="form-group" >
-                <label>Longitude</label>
-                <input type="number"
-                       step="0.00000001"
-                       onChange={this.updateLongitude}
-                       value={this.state.longitude}/>
+                       onKeyDown={this.autocomplete}
+                       value={this.state.location_description}
+                       id="pac-input"/>
               </div>
               <div className="form-group" >
                 <label>Start</label>
@@ -113,7 +126,7 @@ var EditActivityForm = React.createClass({
               <input type="submit"
                      value="Edit Activity"/>
             </form>
-            <button>Cancel</button>
+            <button onClick={this.handleCancel}>Cancel Activity</button>
           </div>
         </div>
     );

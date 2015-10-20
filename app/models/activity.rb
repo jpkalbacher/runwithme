@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: events
+# Table name: activities
 #
 #  id                   :integer          not null, primary key
 #  start_time           :datetime         not null
@@ -10,7 +10,8 @@
 #  location_description :string           not null
 #  created_at           :datetime         not null
 #  updated_at           :datetime         not null
-#  event_type           :string
+#  activity_type        :string
+#  canceled             :boolean          default(FALSE), not null
 #
 
 class Activity < ActiveRecord::Base
@@ -30,7 +31,7 @@ class Activity < ActiveRecord::Base
 
     in_bounds = Array.new
 
-    activities = Activity.where('start_time > ?', Time.now)
+    activities = Activity.where('start_time > ?', Time.now).where(canceled: false)
 
     activities.each do |activity|
       if (activity.latitude > south_east_lat && activity.latitude < north_west_lat) &&

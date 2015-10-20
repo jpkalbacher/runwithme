@@ -1,0 +1,3 @@
+UserConstants = {
+  FOUND_USERS_RECEIVED: "FOUND_USERS_RECEIVED",
+};

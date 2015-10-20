@@ -56,5 +56,19 @@ var ApiUtil = {
         location.reload(true);
       }
     });
+  },
+
+  findUsers: function(fragment) {
+    $.ajax({
+      url: 'users',
+      type: 'GET',
+      data: {user: {search_fragment: fragment}},
+      success: function(found_users) {
+        UserActions.receiveFoundUsers(found_users);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
   }
 };

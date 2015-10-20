@@ -11,7 +11,7 @@ var Navbar = React.createClass({
           <div className="container-fluid">
             <ul className="nav nav-pills list">
               <li><a href="#/main">Map</a></li>
-              <li><a href="#">Profile</a></li>
+              <li><a href="#/profile">Profile</a></li>
             </ul>
 
             <input

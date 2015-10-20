@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.display_name = @user.first_name.downcase.capitalize + " " +
+                            @user.last_name.downcase.capitalize
 
     if @user.save
       sign_in(@user)
@@ -16,6 +18,10 @@ class UsersController < ApplicationController
   end
 
   def index
+    if params[:user][:search_fragment]
+      @users = User.find_by_search_fragment(params[:user][:search_fragment])
+    end
+    @users
   end
 
   def update
@@ -30,6 +36,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:password, :first_name, :last_name, :email)
+    params.require(:user).permit(:password, :first_name, :last_name, :email,
+                                 :search_fragment)
   end
 end

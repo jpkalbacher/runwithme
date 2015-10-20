@@ -19,7 +19,6 @@ var CreateActivityForm = React.createClass({
     this.setState({latitude:lat});
     this.setState({longitude:lng});
     this.setState({location_description: description});
-    debugger;
   },
 
   getInitialState: function () {
@@ -44,6 +43,7 @@ var CreateActivityForm = React.createClass({
 
   handleNewActivity: function(e){
     e.preventDefault();
+    this.setState({canceled:false});
     ApiUtil.handleNewActivity({activity: this.state});
   },
 

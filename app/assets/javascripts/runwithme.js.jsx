@@ -23,6 +23,8 @@ $(function (){
         <Route path=":activityId/edit" component={EditActivityForm} />
         <Route path="/main/:activityId" component={ShowActivity} />
       </Route>
+      <Route path="profile" component={Profile}>
+      </Route>
     </Route>
   );
 

@@ -11,23 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151015135430) do
+ActiveRecord::Schema.define(version: 20151020180320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.datetime "start_time",           null: false
-    t.integer  "owner_id",             null: false
-    t.float    "latitude",             null: false
-    t.float    "longitude",            null: false
-    t.string   "location_description", null: false
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "start_time",                           null: false
+    t.integer  "owner_id",                             null: false
+    t.float    "latitude",                             null: false
+    t.float    "longitude",                            null: false
+    t.string   "location_description",                 null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "activity_type"
+    t.boolean  "canceled",             default: false, null: false
   end
 
   add_index "activities", ["owner_id"], name: "index_activities_on_owner_id", using: :btree
+
+  create_table "follows", force: :cascade do |t|
+    t.integer  "followee_id", null: false
+    t.integer  "follower_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "follows", ["followee_id", "follower_id"], name: "index_follows_on_followee_id_and_follower_id", unique: true, using: :btree
+  add_index "follows", ["followee_id"], name: "index_follows_on_followee_id", using: :btree
+  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",               null: false
@@ -38,6 +50,7 @@ ActiveRecord::Schema.define(version: 20151015135430) do
     t.string   "profile_picture_url"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
+    t.string   "display_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

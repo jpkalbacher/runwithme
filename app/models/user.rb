@@ -19,8 +19,11 @@ class User < ActiveRecord::Base
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :activities,
-    foreign_key: :owner_id
+  has_many :in_follows, class_name: "Follow", foreign_key: "followee_id"
+  has_many :out_follows, class_name: "Follow", foreign_key: "follower_id"
+  has_many :followers, through: :in_follows, source: :follower
+  has_many :followees, through: :out_follows, source: :followee
+  has_many :activities, foreign_key: :owner_id
 
   attr_reader :password
 
@@ -48,8 +51,13 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def self.find_by_search_fragment(search_fragment)
+    search_fragment = search_fragment.downcase
+    results = self.where("LOWER(display_name) LIKE ?", "%#{search_fragment}%")
+  end
+
   def name
-    self.first_name.capitalize + self.last_name[0].capitalize
+    self.first_name.downcase.capitalize + self.last_name[0].downcase.capitalize
   end
 
   private

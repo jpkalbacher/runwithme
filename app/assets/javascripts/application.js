@@ -20,5 +20,6 @@
 //= require bootstrap
 //= require moment.min
 //= require datepicker.min
+//= require underscore
 //= require_tree ./components
 //= require_tree .
