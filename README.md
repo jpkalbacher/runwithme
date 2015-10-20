@@ -3,11 +3,11 @@
 Minimum Viable Product
 - [x] Create an account
 - [x] Log in / Log out
-- [ ] Create Event
-  - [ ] location from google maps
-  - [ ] start time and end time
-  - [ ] event name
-- [ ] Edit/Delete event
+- [x] Create Event
+  - [x] location from google maps
+  - [x] start time and end time
+  - [x] event name
+- [x] Edit/Delete event
 - [ ] As a user I should be able to view all of my upcoming activities on the map
 - [ ] Search for users
 - [ ] Follow users
