@@ -25,6 +25,54 @@ User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
 User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
+User.create(email: Faker::Internet.email, first_name: Faker::Name.first_name,
+  last_name: Faker::Name.last_name, password: Faker::Internet.password(8))
 
 Activity.create(activity_type: Faker::Team.sport, owner_id: 1,
   latitude: Faker::Address.latitude, longitude: Faker::Address.longitude,
@@ -315,6 +363,51 @@ location_description: Faker::Address.city, start_time: Time.now + 14.days)
 Activity.create(activity_type: Faker::Team.sport, owner_id: 6,
 latitude: 37.782396, longitude: -122.418717,
 location_description: Faker::Address.city, start_time: Time.now + 14.days)
+
+Follow.create(follower_id: 1, followee_id: 2)
+Follow.create(follower_id: 1, followee_id: 3)
+Follow.create(follower_id: 1, followee_id: 4)
+Follow.create(follower_id: 1, followee_id: 5)
+Follow.create(follower_id: 1, followee_id: 6)
+Follow.create(follower_id: 2, followee_id: 6)
+Follow.create(follower_id: 2, followee_id: 2)
+Follow.create(follower_id: 2, followee_id: 2)
+Follow.create(follower_id: 4, followee_id: 3)
+Follow.create(follower_id: 6, followee_id: 2)
+Follow.create(follower_id: 1, followee_id: 2)
+Follow.create(follower_id: 1, followee_id: 3)
+Follow.create(follower_id: 3, followee_id: 4)
+Follow.create(follower_id: 3, followee_id: 5)
+Follow.create(follower_id: 3, followee_id: 6)
+Follow.create(follower_id: 3, followee_id: 1)
+Follow.create(follower_id: 5, followee_id: 2)
+Follow.create(follower_id: 5, followee_id: 4)
+Follow.create(follower_id: 6, followee_id: 3)
+Follow.create(follower_id: 7, followee_id: 1)
+Follow.create(follower_id: 7, followee_id: 3)
+Follow.create(follower_id: 7, followee_id: 4)
+Follow.create(follower_id: 7, followee_id: 5)
+Follow.create(follower_id: 7, followee_id: 6)
+Follow.create(follower_id: 8, followee_id: 1)
+Follow.create(follower_id: 8, followee_id: 2)
+Follow.create(follower_id: 8, followee_id: 4)
+Follow.create(follower_id: 8, followee_id: 3)
+Follow.create(follower_id: 9, followee_id: 1)
+Follow.create(follower_id: 10, followee_id: 3)
+Follow.create(follower_id: 10, followee_id: 4)
+Follow.create(follower_id: 10, followee_id: 5)
+Follow.create(follower_id: 10, followee_id: 6)
+Follow.create(follower_id: 11, followee_id: 1)
+Follow.create(follower_id: 11, followee_id: 2)
+Follow.create(follower_id: 12, followee_id: 4)
+Follow.create(follower_id: 13, followee_id: 3)
+Follow.create(follower_id: 14, followee_id: 1)
+
+
+User.all.each do |user|
+  user.display_name = user.first_name + " " + user.last_name
+  user.save
+end
 
 
 

@@ -56,8 +56,8 @@ class User < ActiveRecord::Base
     results = self.where("LOWER(display_name) LIKE ?", "%#{search_fragment}%")
   end
 
-  def name
-    self.first_name.downcase.capitalize + self.last_name[0].downcase.capitalize
+  def followed_by?(user)
+    followers.include?(user)
   end
 
   private

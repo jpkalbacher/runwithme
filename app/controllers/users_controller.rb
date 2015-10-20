@@ -18,8 +18,9 @@ class UsersController < ApplicationController
   end
 
   def index
+
     if params[:user][:search_fragment]
-      @users = User.find_by_search_fragment(params[:user][:search_fragment])
+      @users = User.find_by_search_fragment(params[:user][:search_fragment]).includes(:followees)
     end
     @users
   end

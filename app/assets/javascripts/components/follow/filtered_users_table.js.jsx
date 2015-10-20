@@ -21,12 +21,7 @@ var FilteredUsersTable = React.createClass({
       rows.push(<UserRow user={user} key={user.id} />);
     });
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-          </tr>
-        </thead>
+      <table className="table table-striped">
         <tbody>{rows}</tbody>
       </table>
     );
