@@ -6,10 +6,10 @@
     _found_users = foundUsers;
   };
 
-  var handleSingleFollowerUpdate = function(followee_id){
-    _found_users.forEach(function(user){
-      if(user.id === followee_id) {
-        user.followee = !user.followee;
+  var handleSingleFollowerUpdate = function(user){
+    _found_users.forEach(function(found_user){
+      if(found_user === user) {
+        found_user.followee = !found_user.followee;
       }
     });
   };
@@ -33,8 +33,8 @@
           resetFoundUsers(payload.found_users);
           UserSearchStore.emit(CHANGE_EVENT);
           break;
-        case UserConstants.FOLLOWEE_ID_RECEIVED:
-          handleSingleFollowerUpdate(payload.followee_id);
+        case UserConstants.USER_RECEIVED:
+          handleSingleFollowerUpdate(payload.user);
           UserSearchStore.emit(CHANGE_EVENT);
           break;
       }

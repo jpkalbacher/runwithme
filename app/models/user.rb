@@ -64,6 +64,12 @@ class User < ActiveRecord::Base
     followers
   end
 
+  def self.find_followee(id, current_user)
+    user = User.find(id)
+    is_follower = user.followed_by?(current_user)
+    followee = {id: user.id, display_name: user.display_name, followee: is_follower}
+  end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)

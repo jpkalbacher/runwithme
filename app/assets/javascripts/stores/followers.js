@@ -6,9 +6,9 @@
     _followers = followers;
   };
 
-  var handleSingleFollowerUpdate = function(followee_id){
-    _followers.forEach(function(user){
-      if(user.id === followee_id) {
+  var handleSingleFollowerUpdate = function(user){
+    _followers.forEach(function(follower){
+      if(user === follower) {
         user.followee = !user.followee;
       }
     });
@@ -33,8 +33,8 @@
           resetFollowers(payload.followers);
           FollowersStore.emit(CHANGE_EVENT);
           break;
-        case UserConstants.FOLLOWEE_ID_RECEIVED:
-          handleSingleFollowerUpdate(payload.followee_id);
+        case UserConstants.USER_RECEIVED:
+          handleSingleFollowerUpdate(payload.user);
           FollowersStore.emit(CHANGE_EVENT);
           break;
       }

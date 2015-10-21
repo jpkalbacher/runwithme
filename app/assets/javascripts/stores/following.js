@@ -6,13 +6,19 @@
     _following = following;
   };
 
-  var handleSingleFollowingUpdate = function(following_id){
-    debugger;
-    _following.forEach(function(user){
-      if(user.id === followee_id) {
-        user.followee = !user.followee;
+  var handleSingleFollowingUpdate = function(user){
+    var idx = -1;
+
+    for(var i = 0; i < _following.length; i++) {
+      if(_following[i].id == user.id && user.followee === false){
+        idx = i;
+        _following.splice(idx, 1);
+        break;
       }
-    });
+    }
+    if (idx == -1) {
+      _following.push(user);
+    }    
   };
 
   root.FollowingStore = $.extend({}, EventEmitter.prototype, {
@@ -34,8 +40,8 @@
           resetFollowing(payload.following);
           FollowingStore.emit(CHANGE_EVENT);
           break;
-        case UserConstants.FOLLOWEE_ID_RECEIVED:
-          handleSingleFollowingUpdate(payload.followee_id);
+        case UserConstants.USER_RECEIVED:
+          handleSingleFollowingUpdate(payload.user);
           FollowingStore.emit(CHANGE_EVENT);
           break;
       }

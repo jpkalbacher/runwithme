@@ -21,10 +21,10 @@ var UserActions = {
     });
   },
 
-  receiveFolloweeId: function(followee_id){
+  receiveUser: function(user){
     AppDispatcher.dispatch({
-      actionType: UserConstants.FOLLOWEE_ID_RECEIVED,
-      followee_id: followee_id
+      actionType: UserConstants.USER_RECEIVED,
+      user: user
     });
   }
 };

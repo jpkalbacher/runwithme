@@ -105,8 +105,8 @@ var ApiUtil = {
       url: 'users/' + window.CURRENT_USER_ID + '/follow/',
       type: 'POST',
       data: {follow: {followee_id: followee_id}},
-      success: function(followee_id){
-        UserActions.receiveFolloweeId(followee_id);
+      success: function(user){
+        UserActions.receiveUser(user);
       }
     });
   },
@@ -116,8 +116,8 @@ var ApiUtil = {
       url: 'users/' + window.CURRENT_USER_ID + '/follow/',
       type: 'DELETE',
       data: {follow: {followee_id: followee_id}},
-      success: function(followee_id){
-        UserActions.receiveFolloweeId(followee_id);
+      success: function(user){
+        UserActions.receiveUser(user);
       }
     });
   }
