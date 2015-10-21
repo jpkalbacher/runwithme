@@ -7,6 +7,13 @@ var UserActions = {
     });
   },
 
+  receiveFollowers: function(followers) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.FOUND_FOLLOWERS,
+      followers: followers
+    });
+  },
+
   receiveFolloweeId: function(followee_id){
     AppDispatcher.dispatch({
       actionType: UserConstants.FOLLOWEE_ID_RECEIVED,

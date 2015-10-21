@@ -72,6 +72,20 @@ var ApiUtil = {
     });
   },
 
+  findFollowers: function() {
+    $.ajax({
+      url: 'users',
+      type: 'GET',
+      data: {user: {all_followers: true}},
+      success: function(followers) {
+        UserActions.receiveFollowers(followers);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  },
+
   createFollow: function(followee_id){
     $.ajax({
       url: 'users/' + window.CURRENT_USER_ID + '/follow/',

@@ -19,7 +19,8 @@ var ProfileNav = React.createClass({
           <button type="button"
                   id="favorites"
                   className="btn btn-default"
-                  href="#tab2" data-toggle="tab">
+                  href="#tab2"
+                  data-toggle="tab">
                   <span className="glyphicon glyphicon-user" aria-hidden="true">
                   </span>
                 <div className="hidden-xs">Followers</div>
@@ -29,7 +30,8 @@ var ProfileNav = React.createClass({
           <button type="button"
                   id="following"
                   className="btn btn-default"
-                  href="#tab3" data-toggle="tab">
+                  href="#tab3"
+                  data-toggle="tab">
                   <span className="glyphicon glyphicon-user" aria-hidden="true">
                   </span>
                   <div className="hidden-xs">following</div>

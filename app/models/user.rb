@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
     followers.include?(user)
   end
 
+  def find_followers
+    followers
+  end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
