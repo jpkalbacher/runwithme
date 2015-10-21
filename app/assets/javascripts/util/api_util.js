@@ -70,5 +70,27 @@ var ApiUtil = {
         console.log(error);
       }
     });
+  },
+
+  createFollow: function(followee_id){
+    $.ajax({
+      url: 'users/' + window.CURRENT_USER_ID + '/follow/',
+      type: 'POST',
+      data: {follow: {followee_id: followee_id}},
+      success: function(followee_id){
+        UserActions.receiveFolloweeId(followee_id);
+      }
+    });
+  },
+
+  deleteFollow: function(followee_id){
+    $.ajax({
+      url: 'users/' + window.CURRENT_USER_ID + '/follow/',
+      type: 'DELETE',
+      data: {follow: {followee_id: followee_id}},
+      success: function(followee_id){
+        UserActions.receiveFolloweeId(followee_id);
+      }
+    });
   }
 };

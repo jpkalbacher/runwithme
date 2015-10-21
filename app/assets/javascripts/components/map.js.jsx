@@ -34,7 +34,7 @@ window.Map = React.createClass({
 		var toAdd = [], toRemove = this.markers.slice(0);
 
 		activities.forEach(function(activity, idx){
-			var idx = -1;
+			idx = -1;
 
 			for(var i = 0; i < toRemove.length; i++){
 				if(toRemove[i].activityId == activity.id){

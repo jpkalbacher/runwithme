@@ -4,4 +4,8 @@ class Follow < ActiveRecord::Base
 
   validates :followee, :follower, presence: true
   validates :follower, uniqueness: { scope: :followee }
+
+  def find_by_followee_id(followee_id)
+    Follow.where(follower_id: current_user.id).where(followee_id: followee_id)
+  end
 end

@@ -13,7 +13,6 @@ var Navbar = React.createClass({
               <li><a href="#/main">Map</a></li>
               <li><a href="#/profile">Profile</a></li>
             </ul>
-
             <input
                type="button"
                onClick={this.handleLogOut}
