@@ -34,6 +34,9 @@ gem 'bootstrap-sass'
 
 gem 'underscore-rails'
 
+group :production do
+  gem 'rails_12factor'
+end
 
 
 
