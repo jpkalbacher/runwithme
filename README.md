@@ -8,9 +8,9 @@ Minimum Viable Product
   - [x] start time and end time
   - [x] event name
 - [x] Edit/Delete event
-- [ ] As a user I should be able to view all of my upcoming activities on the map
-- [ ] Search for users
-- [ ] Follow users
+- [x] As a user I should be able to view all of my upcoming activities on the map
+- [x] Search for users
+- [x] Follow users
 - [ ] View all of followed users upcoming activities on map
 
 
