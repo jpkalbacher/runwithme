@@ -22,6 +22,8 @@ class UsersController < ApplicationController
       @users = User.find_by_search_fragment(params[:user][:search_fragment]).includes(:followees)
     elsif params[:user][:all_followers]
       @users = current_user.find_followers
+    elsif params[:user][:all_following]
+      @users = current_user.followees
     end
     @users
   end

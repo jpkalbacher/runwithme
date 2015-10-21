@@ -5,11 +5,12 @@ var FollowContainer = React.createClass({
         <div className="tab-content">
           <div className="tab-pane fade in" id="tab1">
             <UsersTable />
-            </div>
+          </div>
           <div className="tab-pane fade in" id="tab2">
             <FollowersTable />
           </div>
           <div className="tab-pane fade in" id="tab3">
+            <FollowingTable />
           </div>
         </div>
       </div>

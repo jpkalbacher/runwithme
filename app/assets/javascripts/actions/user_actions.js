@@ -14,6 +14,13 @@ var UserActions = {
     });
   },
 
+  receiveFollowing: function(following) {
+    AppDispatcher.dispatch({
+      actionType: UserConstants.FOUND_FOLLOWING,
+      following: following
+    });
+  },
+
   receiveFolloweeId: function(followee_id){
     AppDispatcher.dispatch({
       actionType: UserConstants.FOLLOWEE_ID_RECEIVED,
