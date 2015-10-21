@@ -36,7 +36,7 @@ var ShowActivity = React.createClass({
   render: function() {
     if (this.state.activity) {
       return (
-        <div className="show-activity container-fluid row">
+        <div className="show-activity container-fluid row span-3">
           <div className="panel panel-default panel-body">
             <h6>Activity: {this.state.activity.activity_type}</h6>
             <h6>Owner: {this.state.activity.owner_id}</h6>

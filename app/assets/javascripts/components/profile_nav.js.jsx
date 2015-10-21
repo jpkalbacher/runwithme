@@ -7,7 +7,7 @@ var ProfileNav = React.createClass({
         <div className="btn-group" role="group">
           <button type="button"
                   id="stars"
-                  className="btn btn-primary"
+                  className="btn btn-default  "
                   href="#tab1"
                   data-toggle="tab">
                   <span className="glyphicon glyphicon-search" aria-hidden="true">
