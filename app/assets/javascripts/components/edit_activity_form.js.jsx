@@ -102,31 +102,34 @@ var EditActivityForm = React.createClass({
 
   render: function(){
     return (
-        <div className= "container-fluid show-activity">
-          <div className="panel panel-default panel-body">
-            <h3>Edit Activity!</h3>
-            <form onSubmit={this.handleEditActivity}>
-              <div className="form-group">
-                <input type="text"
-                       onChange={this.updateDescription}
-                       value={this.state.activity_type}/>
-              </div>
-              <div className="form-group" >
-                <input type="text"
-                       onChange={this.updateLocationDescription}
-                       onKeyDown={this.autocomplete}
-                       value={this.state.location_description}
-                       id="pac-input"/>
-              </div>
-              <div className="form-group" >
-                <label>Start</label>
-                < Datetime onChange={this.updateStartTime}
-                           value={this.state.start_time}/>
-              </div>
-              <input type="submit"
-                     value="Edit Activity"/>
-            </form>
-            <button onClick={this.handleCancel}>Cancel Activity</button>
+
+        <div className= "container">
+          <div className= "row">
+            <div className="col-xs-3 col-xs-offset-8 panel panel-default panel-body">
+              <h3>Edit Activity!</h3>
+              <form onSubmit={this.handleEditActivity}>
+                <div className="form-group">
+                  <input type="text"
+                         onChange={this.updateDescription}
+                         value={this.state.activity_type}/>
+                </div>
+                <div className="form-group" >
+                  <input type="text"
+                         onChange={this.updateLocationDescription}
+                         onKeyDown={this.autocomplete}
+                         value={this.state.location_description}
+                         id="pac-input"/>
+                </div>
+                <div className="form-group" >
+                  <label>Start</label>
+                  < Datetime onChange={this.updateStartTime}
+                             value={this.state.start_time}/>
+                </div>
+                <input type="submit"
+                       value="Edit Activity"/>
+              </form>
+              <button onClick={this.handleCancel}>Cancel Activity</button>
+            </div>
           </div>
         </div>
     );
