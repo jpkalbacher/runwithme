@@ -11,7 +11,7 @@ Minimum Viable Product
 - [x] As a user I should be able to view all of my upcoming activities on the map
 - [x] Search for users
 - [x] Follow users
-- [ ] View all of followed users upcoming activities on map
+- [x] View all of followed users upcoming activities on map
 
 
 # Design Docs
