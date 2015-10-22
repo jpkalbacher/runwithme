@@ -97,7 +97,24 @@ Activity.create!([
   {start_time: "2015-11-03 22:37:04", owner_id: 6, latitude: 37.782396, longitude: -122.418717, location_description: "Port Verdaport", activity_type: "basketball", canceled: false},
   {start_time: "2015-11-07 08:00:00", owner_id: 33, latitude: 36.9741171, longitude: -122.0307963, location_description: "Santa Cruz", activity_type: "surfing", canceled: false}
 ])
-
+Follow.create!([
+  {followee_id: 5, follower_id: 1},
+  {followee_id: 5, follower_id: 3},
+  {followee_id: 29, follower_id: 33},
+  {followee_id: 5, follower_id: 7},
+  {followee_id: 28, follower_id: 33},
+  {followee_id: 21, follower_id: 33},
+  {followee_id: 1, follower_id: 33},
+  {followee_id: 32, follower_id: 33},
+  {followee_id: 5, follower_id: 10},
+  {followee_id: 31, follower_id: 33},
+  {followee_id: 23, follower_id: 33},
+  {followee_id: 33, follower_id: 1},
+  {followee_id: 33, follower_id: 3},
+  {followee_id: 33, follower_id: 24},
+  {followee_id: 33, follower_id: 22},
+  {followee_id: 33, follower_id: 21}
+])
 User.create!([
   {email: "zula.daniel@gulgowski.net", password_digest: "$2a$10$xK3MmhuMWLTbuZc7rQClHemeioE4bCJ1lyypVM4rileEjxUFjEht.", session_token: "jtGEvlk8c6aqg_VB1lTlSw", first_name: "Keaton", last_name: "Trantow", profile_picture_url: nil, display_name: "Keaton Trantow"},
   {email: "reina.white@brakus.biz", password_digest: "$2a$10$AzQEziXRSkPj.RC92iXhcOPRbXJQTqGQsca/qm3p20FJ719BkV1Ri", session_token: "LHZSmjfh8_EGVLDDGeZpnA", first_name: "Jamal", last_name: "Prosacco", profile_picture_url: nil, display_name: "Jamal Prosacco"},
@@ -132,24 +149,4 @@ User.create!([
   {email: "tiara@grimes.co", password_digest: "$2a$10$GNWJS62B18RMIfje1PjPb.9/t9rDijxtseEiQYC0A1.ZQl2U9QOJq", session_token: "yZNZZXRmRp1p_UMx83TAEg", first_name: "Ashley", last_name: "Lindgren", profile_picture_url: nil, display_name: "Ashley Lindgren"},
   {email: "lelah@sauerwiegand.org", password_digest: "$2a$10$g//bLOO/Mz4.QPs5TFzpmuU/UebxNaxHooLXzPbFrfEV8sGC2GDIa", session_token: "JYzMGbUiu_KmMA4UXVTxEg", first_name: "Felipa", last_name: "Mitchell", profile_picture_url: nil, display_name: "Felipa Mitchell"},
   {email: "jpkalbacher@gmail.com", password_digest: "$2a$10$zTwxt7JUAd58WR3lj.RkTOHfAfgxt.UCTdUB4.8QYcD.dVeaKBOYy", session_token: "SskmQX9KS8x8oW0BOmV8Ug", first_name: "jeff", last_name: "kalbacher", profile_picture_url: nil, display_name: "Jeff Kalbacher"}
-])
-
-
-Follow.create!([
-  {followee_id: 5, follower_id: 1},
-  {followee_id: 5, follower_id: 3},
-  {followee_id: 29, follower_id: 33},
-  {followee_id: 5, follower_id: 7},
-  {followee_id: 28, follower_id: 33},
-  {followee_id: 21, follower_id: 33},
-  {followee_id: 1, follower_id: 33},
-  {followee_id: 32, follower_id: 33},
-  {followee_id: 5, follower_id: 10},
-  {followee_id: 31, follower_id: 33},
-  {followee_id: 23, follower_id: 33},
-  {followee_id: 33, follower_id: 1},
-  {followee_id: 33, follower_id: 3},
-  {followee_id: 33, follower_id: 24},
-  {followee_id: 33, follower_id: 22},
-  {followee_id: 33, follower_id: 21}
 ])

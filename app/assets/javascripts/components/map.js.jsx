@@ -11,14 +11,14 @@ window.Map = React.createClass({
     this.map.addListener('idle', function() {
       var bounds = this.getBounds();
 
-      var nwLat = bounds.Pa.j;
-      var nwLng = bounds.La.j;
-      var seLat = bounds.Pa.I;
-      var seLng = bounds.La.I;
+      var neLat = bounds.getNorthEast().lat();
+      var neLng = bounds.getNorthEast().lng();
+      var swLat = bounds.getSouthWest().lat();
+      var swLng = bounds.getSouthWest().lng();
 
       bounds = { bounds: {
-          northWest: {lat: nwLat, lng: nwLng},
-          southEast: {lat: seLat, lng: seLng}
+          northEast: {lat: neLat, lng: neLng},
+          southWest: {lat: swLat, lng: swLng}
         }
       };
       ApiUtil.fetchInBounds(bounds);

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :activities
   end
 
-  resources :users, only: [:new, :create, :index, :show] do
+  resources :users, only: [:new, :create, :index, :show, :update] do
     resource :follow, only: [:create, :destroy]
   end
 

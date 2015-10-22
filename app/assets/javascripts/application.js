@@ -21,5 +21,6 @@
 //= require moment.min
 //= require datepicker.min
 //= require underscore
+//= require cloudinary
 //= require_tree ./components
 //= require_tree .

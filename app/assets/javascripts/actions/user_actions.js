@@ -26,5 +26,12 @@ var UserActions = {
       actionType: UserConstants.USER_RECEIVED,
       user: user
     });
+  },
+
+  receiveCurrentUser: function(user){
+    AppDispatcher.dispatch({
+      actionType: UserConstants.CURRENT_USER_RECEIVED,
+      currentUser: user
+    });
   }
 };

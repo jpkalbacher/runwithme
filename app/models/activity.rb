@@ -24,18 +24,18 @@ class Activity < ActiveRecord::Base
     primary_key: :id
 
   def self.in_bounds(bounds)
-    north_west_lat = bounds["northWest"]["lat"].to_f
-    north_west_lng = bounds["northWest"]["lng"].to_f
-    south_east_lat = bounds["southEast"]["lat"].to_f
-    south_east_lng = bounds["southEast"]["lng"].to_f
+    north_east_lat = bounds["northEast"]["lat"].to_f
+    north_east_lng = bounds["northEast"]["lng"].to_f
+    south_west_lat = bounds["southWest"]["lat"].to_f
+    south_west_lng = bounds["southWest"]["lng"].to_f
 
     in_bounds = Array.new
 
     activities = Activity.where('start_time > ?', Time.now).where(canceled: false)
 
     activities.each do |activity|
-      if (activity.latitude > south_east_lat && activity.latitude < north_west_lat) &&
-        (activity.longitude > north_west_lng || activity.longitude < south_east_lng)
+      if (activity.latitude > south_west_lat && activity.latitude < north_east_lat) &&
+        (activity.longitude < north_east_lng || activity.longitude > south_west_lng)
         in_bounds << activity
       end
     end

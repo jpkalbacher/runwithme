@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dbw79utiw
+  api_key: '411539279654898'
+  api_secret: fE8DGWxQj2v6oX68JMRW2Qe40ME
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dbw79utiw
+  api_key: '411539279654898'
+  api_secret: fE8DGWxQj2v6oX68JMRW2Qe40ME
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dbw79utiw
+  api_key: '411539279654898'
+  api_secret: fE8DGWxQj2v6oX68JMRW2Qe40ME
+  enhance_image_tag: true
+  static_image_support: false

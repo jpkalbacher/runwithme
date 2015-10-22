@@ -29,12 +29,26 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find()
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      render json: @user
+    end
   end
 
   private
   def user_params
-    params.require(:user).permit(:password, :first_name, :last_name, :email,
-                                 :search_fragment)
+    params.require(:user).permit(:password,
+                                 :first_name,
+                                 :last_name,
+                                 :display_name,
+                                 :id,
+                                 :email,
+                                 :search_fragment,
+                                 :current_user,
+                                 :profile_picture_url)
   end
 end

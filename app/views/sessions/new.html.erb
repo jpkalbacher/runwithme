@@ -1,25 +1,34 @@
 
-<div class="form container center-div center">
-  <form action="<%= session_url %>" method="post">
-    <div><h1>Sign In</h1></div>
-    <div class="form-group">
-      <input type="hidden"
-             name="authenticity_token"
-             value="<%= form_authenticity_token %>">
-    </div>
-    <div class="form-group">
-      <label class="sign-in">
-        Email
-        <input type="text" name="user[email]" value="">
-      </label>
-    </div>
-    <div class="form-group">
-      <label class="sign-in">
-        Password
-        <input type="password" name="user[password]" value="">
-      </label>
-    </div>
-    <input class="sign_in" type="submit" value="Sign In!">
-    <p>Don't have an account? <%= link_to 'Sign Up!', new_user_url %> </p>
-  </form>
+<div class="text-center" style="padding:50px 0">
+	<div class="logo">login</div>
+	<div class="login-form-1">
+		<form id="login-form" class="text-left" action="<%= session_url %>" method="post">
+      <div>
+        <input type="hidden"
+               name="authenticity_token"
+               value="<%= form_authenticity_token %>">
+      </div>
+			<div class="login-form-main-message"></div>
+			<div class="main-login-form">
+				<div class="login-group">
+					<div class="form-group">
+						<label for="lg_username" class="sr-only">Email</label>
+						<input type="text" class="form-control" id="lg_username" name="user[email]" placeholder="email">
+					</div>
+					<div class="form-group">
+						<label for="lg_password" class="sr-only">Password</label>
+						<input type="password" class="form-control" id="lg_password" name="user[password]" placeholder="password">
+					</div>
+					<div class="form-group login-group-checkbox">
+						<input type="checkbox" id="lg_remember" name="lg_remember">
+						<label for="lg_remember">remember</label>
+					</div>
+				</div>
+				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+			</div>
+			<div class="etc-login-form">
+				<p>new user? <%= link_to 'create an account', new_user_url %></p>
+			</div>
+		</form>
+	</div>
 </div>

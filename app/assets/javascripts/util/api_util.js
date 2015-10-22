@@ -111,6 +111,28 @@ var ApiUtil = {
     });
   },
 
+  getCurrentUser: function(){
+    current_user = window.CURRENT_USER_ID;
+    $.ajax({
+      url: 'users/' + current_user + '/',
+      type: 'GET',
+      success: function(user){
+        UserActions.receiveCurrentUser(user);
+      }
+    });
+  },
+
+  editCurrentUser: function(currentUser){
+    $.ajax({
+      url: '/users/' + window.CURRENT_USER_ID,
+      type: 'PATCH',
+      data: {user: currentUser},
+      success: function(user) {
+        UserActions.receiveCurrentUser(user);
+      }
+    });
+  },
+
   deleteFollow: function(followee_id){
     $.ajax({
       url: 'users/' + window.CURRENT_USER_ID + '/follow/',
