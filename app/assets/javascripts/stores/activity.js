@@ -2,6 +2,8 @@
   var CHANGE_EVENT = "change";
 
   var _activities = [];
+  var _filtered_activities = [];
+  var _current_filters = [];
   var _single_activity = {};
 
   var resetActivities = function(activities){
@@ -10,6 +12,22 @@
 
   var resetSingleActivity = function(singleActivity){
     _single_activity = singleActivity;
+  };
+
+  var resetFilters = function(filters){
+    _current_filters = filters;
+  };
+
+  var resetFilteredActivities = function(filters){
+    filtered_activities = [];
+    for(var i = 0; i < _activities.length; i++){
+      for(var j = 0; i < filters.length; i++) {
+        if(_activities[i].owner == filters[j]){
+          filtered_activities.push(_activities[i]);
+        }
+      }
+    }
+    _filtered_activities = filtered_activities;
   };
 
   root.ActivityStore = $.extend({}, EventEmitter.prototype, {
@@ -42,11 +60,15 @@
     },
 
     all: function(){
-      if (_activities.length > 0) {
-        return _activities.slice(0);
-      } else {
-        return [];
+      filtered_activities = [];
+      for(var i = 0; i < _activities.length; i++){
+        for(var j = 0; j < _current_filters.length; j++) {
+          if(_activities[i].owner == _current_filters[j]){
+            filtered_activities.push(_activities[i]);
+          }
         }
+      }
+      return filtered_activities;
     },
 
     find: function(id){
@@ -67,6 +89,10 @@
           break;
         case ActivityConstants.SINGLE_ACTIVITY_RECEIVED:
           resetSingleActivity(payload.activity);
+          ActivityStore.emit(CHANGE_EVENT);
+          break;
+        case ActivityConstants.CHANGE_FILTERS:
+          resetFilters(payload.filters);
           ActivityStore.emit(CHANGE_EVENT);
           break;
         }

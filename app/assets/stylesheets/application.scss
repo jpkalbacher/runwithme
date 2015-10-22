@@ -15,6 +15,13 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+.show-filters {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  z-index: 200;
+}
+
 .profile {
   width:100%;
   min-height:100%;
@@ -35,7 +42,6 @@
   right: 7px;
   z-index: 200;
 }
-
 
 .list {
   float: left;
@@ -189,12 +195,11 @@ body {
 }
 
 /*=== 1. General Structure ===*/
-html,
-body {
-  background: #efefef;
-  padding: 10px;
-  font-family: 'Varela Round';
-}
+// html, body {
+//   background: #efefef;
+//   padding: 10px;
+//   font-family: 'Varela Round';
+// }
 /*=== 2. Anchor Link ===*/
 a {
   color: #aaaaaa;

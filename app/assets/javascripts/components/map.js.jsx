@@ -79,7 +79,7 @@ window.Map = React.createClass({
   render: function() {
 		return (
       <div>
-			   <div className="map"
+			   <div className="map container-fluid"
 				 			ref="map"/>
       </div>
 		)

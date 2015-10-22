@@ -1,7 +1,7 @@
 
 var ApiActions = {
   receiveInBounds: function(activities) {
-    AppDispatcher.dispatch({
+      AppDispatcher.dispatch({
       actionType: ActivityConstants.ACTIVITIES_RECEIVED,
       activities: activities
     });
@@ -11,6 +11,13 @@ var ApiActions = {
     AppDispatcher.dispatch({
       actionType: ActivityConstants.SINGLE_ACTIVITY_RECEIVED,
       activity: activity
+    });
+  },
+
+  changeFilters: function(filters){
+    AppDispatcher.dispatch({
+      actionType: ActivityConstants.CHANGE_FILTERS,
+      filters: filters
     });
   }
 };

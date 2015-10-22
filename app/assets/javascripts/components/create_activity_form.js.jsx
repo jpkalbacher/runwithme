@@ -1,4 +1,7 @@
 var CreateActivityForm = React.createClass({
+  mixins: [React.addons.LinkedStateMixin],
+
+
   componentDidMount: function(){
     this.setupAutoComplete();
   },
@@ -53,10 +56,14 @@ var CreateActivityForm = React.createClass({
     }
   },
 
+  cancelCreate: function(){
+    this.props.history.pushState(null, "/main/");
+  },
+
   render: function(){
     return (
-      <div className="show-activity container-fluid">
-        <div className="panel panel-default panel-body">
+      <div className=" container-fluid">
+        <div className="show-activity panel panel-default panel-body">
           <h3>Create an Activity!</h3>
           <form onSubmit={this.handleNewActivity}>
             <div className="form-group">
@@ -75,7 +82,7 @@ var CreateActivityForm = React.createClass({
             </div>
             <input type="submit"/>
           </form>
-          <button>Cancel</button>
+          <button onClick={this.cancelCreate}>Cancel</button>
         </div>
       </div>
     );

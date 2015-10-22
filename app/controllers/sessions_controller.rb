@@ -4,13 +4,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-    # debugger;
-    # if params[:user][:email].empty && params[:user][:password].empty?
-    #   user = User.find_by_credentials('guestuser@guest.user','password')
-    #   sign_in(user)
-    #   redirect_to root_url
-    # end
-
     user = User.find_by_credentials(
       params[:user][:email],
       params[:user][:password]

@@ -39,7 +39,7 @@ var ShowActivity = React.createClass({
         <div className="show-activity container-fluid row span-3">
           <div className="panel panel-default panel-body">
             <h6>Activity: {this.state.activity.activity_type}</h6>
-            <h6>Owner: {this.state.activity.owner_id}</h6>
+            <h6>Owner: {this.state.activity.owner_name}</h6>
             <h6>Location: {this.state.activity.location_description}</h6>
             <h6>Start: {this.state.activity.start_time}</h6>
           </div>
