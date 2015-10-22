@@ -7,15 +7,14 @@ var Navbar = React.createClass({
   render: function() {
     return (
       <nav className="navbar navbar-default navbar-fixed-top">
-          <ul className="nav nav-pills list">
+          <ul className="nav nav-pills list sign-in">
             <li><a href="#/main">Map</a></li>
             <li><a href="#/profile">Profile</a></li>
           </ul>
-          <input
-             type="button"
-             onClick={this.handleLogOut}
-             value="Sign Out"
-             className="btn btn-default navbar-right"/>
+          <ul className="nav nav-pills list navbar-right sign-out">
+            <li><a onClick={this.handleLogOut}
+                    href="#/main">Sign Out</a></li>
+          </ul>
       </nav>
     )
   }

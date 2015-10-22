@@ -1,4 +1,6 @@
 window.Map = React.createClass({
+	mixins: [React.addons.LinkedStateMixin],
+
 	componentDidMount: function(){
     this.markers = [];
     var map = React.findDOMNode(this.refs.map);
@@ -76,11 +78,15 @@ window.Map = React.createClass({
 		}
 	},
 
+	handleCreate: function(){
+		this.props.history.pushState(null, "/main/new");
+	},
+
   render: function() {
 		return (
-      <div>
-			   <div className="map container-fluid"
-				 			ref="map"/>
+      <div className="row">
+			   <div className="map" ref="map"/>
+				 < Filters />
       </div>
 		)
 	}

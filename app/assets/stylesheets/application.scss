@@ -15,6 +15,14 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+.display-box {
+  max-width:300px;
+  margin-top: 75px;
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+}
+
 .show-filters {
   position: absolute;
   bottom: 25px;
@@ -29,13 +37,12 @@
 }
 
 .map {
-  position:absolute;
-  width:100%;
-  min-height:100%;
-  top:40px;
-  left:0px;
-  z-index:-1;
+  width: 100vw;
+  height: calc(100vh - 50px);
+  margin-top: 50px;
+  margin-left: 15px;
 }
+
 .show-activity {
   position: absolute;
   top: 55px;
@@ -459,4 +466,19 @@ label:hover:before {
   font-size: 25px;
   color: #aaaaaa;
   font-weight: bold;
+}
+
+.sign-out {
+  padding-right: 10px;
+  margin-right: 0px !important;
+}
+
+.sign-in {
+  padding-left: 10px;
+}
+
+.clearfix:after {
+  clear: both;
+  display: block;
+  content: "";
 }

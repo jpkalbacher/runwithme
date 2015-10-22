@@ -4,7 +4,7 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.in_bounds(bounds)
+    @activities = Activity.includes(:owner).in_bounds(bounds)
   end
 
   def create
@@ -26,7 +26,7 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def show
-    @activity = Activity.find(params[:id])
+    @activity = Activity.includes(:owner).find(params[:id])
   end
 
   private

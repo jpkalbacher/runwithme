@@ -8,7 +8,7 @@ $(function (){
   var App = React.createClass({
     render: function(){
       return (
-        <div>
+        <div className="app clearfix">
           < Navbar />
           {this.props.children}
         </div>

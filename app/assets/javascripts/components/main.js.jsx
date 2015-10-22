@@ -44,7 +44,6 @@ var Main = React.createClass({
                 <span className="glyphicon glyphicon-edit"></span>
             New Activity</button>
         </div>
-        < Filters />
       </div>
     )
   }
