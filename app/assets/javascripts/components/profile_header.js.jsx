@@ -54,6 +54,7 @@ var ProfileHeader = React.createClass({
           <img alt=""
                id="upload_widget_opener"
                src={this.state.currentUser.profile_picture_url}/>
+          <div className="edit"><i className="glyphicon glyphicon-edit"></i></div>
         </div>
       </div>
     )
