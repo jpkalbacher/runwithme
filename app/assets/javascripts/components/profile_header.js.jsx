@@ -55,9 +55,6 @@ var ProfileHeader = React.createClass({
                id="upload_widget_opener"
                src={this.state.currentUser.profile_picture_url}/>
         </div>
-        <div className="card-info">
-          <span className="card-title">{this.state.currentUser.display_name}</span>
-        </div>
       </div>
     )
   }
