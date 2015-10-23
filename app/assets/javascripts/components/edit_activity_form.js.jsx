@@ -118,11 +118,11 @@ var EditActivityForm = React.createClass({
                        value={this.state.location_description}
                        id="pac-input"/>
               </div>
-              <div className="form-group" >
+              <span>
                 <label>Start</label>
-                < Datetime onChange={this.updateStartTime}
+                < MyDTPicker onChange={this.updateStartTime}
                            value={this.state.start_time}/>
-              </div>
+              </span>
               <input type="submit"
                      value="Edit Activity"/>
             </form>

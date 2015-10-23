@@ -38,10 +38,11 @@ var ShowActivity = React.createClass({
       return (
         <div className="row">
           <div className="display-box col-lg-3 col-lg-offset-8 col-sm-4 col-sm-offset-7 col-xs-10 col-xs-offset-1 panel panel-default panel-body">
-            <h6>Activity: {this.state.activity.activity_type}</h6>
-            <h6>Owner: {this.state.activity.owner_name}</h6>
-            <h6>Location: {this.state.activity.location_description}</h6>
-            <h6>Start: {this.state.activity.start_time}</h6>
+            <h3>{this.state.activity.activity_type}</h3>
+            <img src={this.state.activity.owner_profile_picture_url} />
+            <h3>{this.state.activity.owner_name}</h3>
+            <h3>@{this.state.activity.location_description}</h3>
+            <h3>{this.state.activity.start_time}</h3>
           </div>
         </div>
       )

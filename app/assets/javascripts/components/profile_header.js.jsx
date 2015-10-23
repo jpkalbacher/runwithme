@@ -26,7 +26,9 @@ var ProfileHeader = React.createClass({
     cloudinary.openUploadWidget({
       cloud_name: 'dbw79utiw',
       upload_preset: 'o31botki',
-      theme: 'minimal'
+      theme: 'minimal',
+      cropping: 'browser',
+      cropping_aspect_ratio: 1
     },
     function(error, result) {
       console.log(error, result);
