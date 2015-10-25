@@ -15,9 +15,24 @@ var ProfileHeader = React.createClass({
   buildURLs:function(){
     that = this;
     if (this.props.currentUser["profile_picture_url"]){
-      var profilePhotoObject = this.props.currentUser["profile_picture_url"]["secure_url"];
-      var coverPhotoObject = this.props.currentUser["cover_photo_url"]["secure_url"];
-      that.setState({coverPhotoURL:coverPhotoObject, profilePhotoURL:profilePhotoObject});
+      var profilePhotoObject = this.props.currentUser["profile_picture_url"];
+      var coverPhotoObject = this.props.currentUser["cover_photo_url"];
+      if (this.props.currentUser["profile_picture_url"]["coordinates"]){
+        var profileCoords = profilePhotoObject["coordinates"]["custom"][0];
+        var coverCoords = coverPhotoObject["coordinates"]["custom"][0];
+        var profilePhotoURL = "https://res.cloudinary.com/dbw79utiw/image/upload/x_" +
+          profileCoords[0] + ",y_" + profileCoords[1] + ",w_" +
+          profileCoords[2] +  ",h_" + profileCoords[2] + ",c_crop/" +
+          profilePhotoObject.path;
+        var coverPhotoURL = "https://res.cloudinary.com/dbw79utiw/image/upload/x_" +
+          coverCoords[0] + ",y_" + coverCoords[1] + ",w_" +
+          coverCoords[2] +  ",h_" + coverCoords[2] + ",c_crop/" +
+          coverPhotoObject.path;
+      } else {
+        profilePhotoURL = profilePhotoObject["secure_url"];
+        coverPhotoURL = coverPhotoObject["secure_url"];
+      }
+      that.setState({coverPhotoURL:coverPhotoURL, profilePhotoURL:profilePhotoURL});
     }
   },
 
@@ -85,11 +100,11 @@ var ProfileHeader = React.createClass({
     return (
       <div className="card hovercard">
         <div className="card-background">
+          <div className="edit">Edit photo<i className="glyphicon glyphicon-edit"></i></div>
           <img className="card-bkimg"
                id="upload_cover_widget_opener"
                alt=""
                src={this.state.coverPhotoURL} />
-          <div className="edit"><i className="glyphicon glyphicon-edit"></i></div>
         </div>
         <div className="useravatar">
 

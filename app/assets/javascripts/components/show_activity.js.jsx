@@ -13,6 +13,23 @@ var ShowActivity = React.createClass({
     return res;
   },
 
+  buildURLs:function(){
+    that = this;
+    if (this.state.activity["owner_picture_url"]){
+      var profilePhotoObject = this.state.activity["owner_picture_url"];
+      if (profilePhotoObject["coordinates"]){
+        var profileCoords = profilePhotoObject["coordinates"]["custom"][0];
+        var profilePhotoURL = "https://res.cloudinary.com/dbw79utiw/image/upload/x_" +
+          profileCoords[0] + ",y_" + profileCoords[1] + ",w_" +
+          profileCoords[2] +  ",h_" + profileCoords[2] + ",c_crop/" +
+          profilePhotoObject.path;
+      } else {
+        profilePhotoURL = profilePhotoObject["secure_url"];
+      }
+      that.setState({profilePhotoURL:profilePhotoURL});
+    }
+  },
+
   componentDidMount: function () {
     ActivityStore.addChangeListener(this._activityChanged);
   },
@@ -31,17 +48,20 @@ var ShowActivity = React.createClass({
     var activityId = this.props.params.activityId;
     var activity = this._findActivityById(activityId);
     this.setState({ activity: activity });
+    this.buildURLs();
   },
 
   render: function() {
     if (this.state.activity) {
       return (
         <div className="row">
-          <div className="display-box col-lg-3 col-lg-offset-8 col-sm-4 col-sm-offset-7 col-xs-10 col-xs-offset-1 panel panel-default panel-body">
+          <div className="display-box panel panel-default panel-body">
+            <div className="map-user-photo">
+              <img src={this.state.profilePhotoURL} />
+            </div>
             <h3>{this.state.activity.activity_type}</h3>
-            <img src={this.state.activity.owner_profile_picture_url} />
             <h3>{this.state.activity.owner_name}</h3>
-            <h3>@{this.state.activity.location_description}</h3>
+            <h3>{this.state.activity.location_description}</h3>
             <h3>{this.state.activity.start_time}</h3>
           </div>
         </div>

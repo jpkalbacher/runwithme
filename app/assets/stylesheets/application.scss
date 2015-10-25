@@ -16,21 +16,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 .display-box {
-  max-width:300px;
+  width:300px;
+  height:400px;
   margin-top: 75px;
+  right: 30px;
   position: fixed;
   top: 0px;
-  z-index: 1;
+  z-index: 10;
   font-family: Ubuntu;
   font-weight: bold;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 
 .show-filters {
-  position: absolute;
+  position: fixed;
   bottom: 25px;
   left: 25px;
-  z-index: 200;
+  z-index: 1;
 }
 
 .profile {
@@ -137,12 +141,19 @@ body {
 }
 .card.hovercard {
    position: relative;
+   display: inline-block;
    padding-top: 0;
    overflow: hidden;
    text-align: center;
    background-color: #fff;
    background-color: rgba(255, 255, 255, 1);
 }
+
+.hovercard {
+  position: relative;
+  display: inline-block;
+}
+
 .card.hovercard .card-background {
    height: 130px;
 }
@@ -154,6 +165,7 @@ body {
   //  filter: blur(25px);
   //  margin-left: -100px;
   //  margin-top: -200px;
+
    min-width: 100%;
 }
 .card.hovercard .useravatar {
@@ -204,7 +216,7 @@ body {
 }
 
 .profile-row {
-  height: 100px;
+  height: 150px;
 }
 
 /*=== 1. General Structure ===*/
@@ -498,7 +510,15 @@ label:hover:before {
   cursor: pointer;
 }
 
+.edit:hover {
+  cursor: pointer;
+}
+
 .useravatar:hover .edit {
+  display: block;
+}
+
+.hovercard:hover .card.hovercard.edit{
   display: block;
 }
 
@@ -513,4 +533,17 @@ label:hover:before {
 
 .edit a {
 	color: #000;
+}
+
+.map-user-photo img {
+  width: 100%;
+}
+
+.row-user-photo {
+  height: 130px;
+  width: 130px;
+}
+
+.row-user-photo img {
+  width: 100%;
 }
