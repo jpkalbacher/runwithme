@@ -494,6 +494,10 @@ label:hover:before {
   display: inline-block;
 }
 
+.useravatar:hover {
+  cursor: pointer;
+}
+
 .useravatar:hover .edit {
   display: block;
 }

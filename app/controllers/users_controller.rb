@@ -49,6 +49,7 @@ class UsersController < ApplicationController
                                  :email,
                                  :search_fragment,
                                  :current_user,
-                                 :profile_picture_url)
+                                 :profile_picture_url,
+                                 :cover_photo_url)
   end
 end
