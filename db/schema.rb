@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023205405) do
+ActiveRecord::Schema.define(version: 20151025233415) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,16 +42,18 @@ ActiveRecord::Schema.define(version: 20151023205405) do
   add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",               null: false
-    t.string   "password_digest",     null: false
-    t.string   "session_token",       null: false
-    t.string   "first_name",          null: false
-    t.string   "last_name",           null: false
-    t.string   "profile_picture_url"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.string   "email",                null: false
+    t.string   "password_digest",      null: false
+    t.string   "session_token",        null: false
+    t.string   "first_name",           null: false
+    t.string   "last_name",            null: false
+    t.string   "profile_photo_url"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "display_name"
     t.string   "cover_photo_url"
+    t.string   "profile_photo_object"
+    t.string   "cover_photo_object"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

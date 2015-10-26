@@ -149,6 +149,23 @@ body {
    background-color: rgba(255, 255, 255, 1);
 }
 
+.card.hovercard .useravatar img {
+   width: 150px;
+   height: 150px;
+   max-width: 150px;
+   max-height: 150px;
+   -webkit-border-radius: 5%;
+   -moz-border-radius: 5%;
+   border-radius: 5%;
+   border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+.card.hovercard.card-bkimg img {
+  min-width: 700px;
+  max-width: 1200px;
+  height: auto;
+}
+
 .hovercard {
   position: relative;
   display: inline-block;
@@ -165,8 +182,10 @@ body {
   //  filter: blur(25px);
   //  margin-left: -100px;
   //  margin-top: -200px;
-
-   min-width: 100%;
+  min-width: 700px;
+  max-width: 1200px;
+  height: auto;
+  //  width: 100%;
 }
 .card.hovercard .useravatar {
    position: absolute;
@@ -174,16 +193,7 @@ body {
    left: 15px;
   //  right: 0;
 }
-.card.hovercard .useravatar img {
-   width: 150px;
-   height: 150px;
-   max-width: 150px;
-   max-height: 150px;
-   -webkit-border-radius: 5%;
-   -moz-border-radius: 5%;
-   border-radius: 5%;
-   border: 5px solid rgba(255, 255, 255, 0.5);
-}
+
 .card.hovercard .card-info {
    position: absolute;
    bottom: 14px;

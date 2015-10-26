@@ -7,6 +7,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.display_name = @user.first_name.downcase.capitalize + " " +
                             @user.last_name.downcase.capitalize
+    @user.profile_photo_url =
+    @user.cover_photo_url =
 
     if @user.save
       sign_in(@user)
@@ -33,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    debugger;
     @user = User.find(params[:id])
     if @user.update(user_params)
       render json: @user
@@ -49,7 +52,10 @@ class UsersController < ApplicationController
                                  :email,
                                  :search_fragment,
                                  :current_user,
-                                 :profile_picture_url,
-                                 :cover_photo_url)
+                                 :profile_photo_url,
+                                 :profile_photo_object,
+                                 :cover_photo_url,
+                                 :profile_photo_object
+                                 )
   end
 end

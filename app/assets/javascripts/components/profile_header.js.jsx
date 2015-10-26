@@ -1,5 +1,6 @@
 var ProfileHeader = React.createClass({
   getInitialState: function(){
+    var currentUser = this.props.currentUser
     return {currentUser: this.props.currentUser};
   },
 
@@ -12,47 +13,40 @@ var ProfileHeader = React.createClass({
     ApiUtil.getCurrentUser();
   },
 
-  buildURLs:function(){
-    that = this;
-    if (this.props.currentUser["profile_picture_url"]){
-      var profilePhotoObject = this.props.currentUser["profile_picture_url"];
-      var coverPhotoObject = this.props.currentUser["cover_photo_url"];
-      if (this.props.currentUser["profile_picture_url"]["coordinates"]){
-        var profileCoords = profilePhotoObject["coordinates"]["custom"][0];
-        var coverCoords = coverPhotoObject["coordinates"]["custom"][0];
-        var profilePhotoURL = "https://res.cloudinary.com/dbw79utiw/image/upload/x_" +
-          profileCoords[0] + ",y_" + profileCoords[1] + ",w_" +
-          profileCoords[2] +  ",h_" + profileCoords[2] + ",c_crop/" +
-          profilePhotoObject.path;
-        var coverPhotoURL = "https://res.cloudinary.com/dbw79utiw/image/upload/x_" +
-          coverCoords[0] + ",y_" + coverCoords[1] + ",w_" +
-          coverCoords[2] +  ",h_" + coverCoords[2] + ",c_crop/" +
-          coverPhotoObject.path;
-      } else {
-        profilePhotoURL = profilePhotoObject["secure_url"];
-        coverPhotoURL = coverPhotoObject["secure_url"];
-      }
-      that.setState({coverPhotoURL:coverPhotoURL, profilePhotoURL:profilePhotoURL});
-    }
-  },
-
   componentWillUnmount: function(){
     CurrentUserStore.removeCurrentUserChangeListener(this._onChange);
-
   },
 
   handleNewProfilePhoto: function(){
+    var photo = this.state.currentUser.profilePhotoObject;
+    var photoCoords = photo.coordinates.custom[0];
+    var profilePhotoURL = "https://res.cloudinary.com/dbw79utiw/image/upload/x_" +
+      photoCoords[0] + ",y_" + photoCoords[1] + ",w_" +
+      photoCoords[2] +  ",h_" + photoCoords[2] + ",c_crop/" +
+      photo.path;
+    this.state.currentUser.profilePhotoURL = profilePhotoURL;
     var updatedUser = {
-      profile_picture_url: JSON.stringify(this.state.currentUser.profile_picture_url)
+      profile_photo_object: JSON.stringify(this.state.currentUser.profilePhotoObject),
+      profile_photo_url: this.state.currentUser.profilePhotoURL
     };
     ApiUtil.editCurrentUser(updatedUser);
+    this.setState({profilePhotoURL:profilePhotoURL});
   },
 
   handleNewCoverPhoto: function(){
+    var photo = this.state.currentUser.coverPhotoObject;
+    var photoCoords = photo.coordinates.custom[0];
+    var coverPhotoURL = "https://res.cloudinary.com/dbw79utiw/image/upload/x_" +
+      photoCoords[0] + ",y_" + photoCoords[1] + ",w_" +
+      photoCoords[2] +  ",h_" + photoCoords[2] + ",c_crop/" +
+      photo.path;
+    this.state.currentUser.coverPhotoURL = coverPhotoURL;
     var updatedUser = {
-      cover_photo_url: JSON.stringify(this.state.currentUser.cover_photo_url)
+      cover_photo_object: JSON.stringify(this.state.currentUser.coverPhotoObject),
+      cover_photo_url: this.state.currentUser.coverPhotoURL
     };
     ApiUtil.editCurrentUser(updatedUser);
+    this.setState({coverPhotoURL:coverPhotoURL});
   },
 
   profilePhotoWidget: function () {
@@ -67,9 +61,9 @@ var ProfileHeader = React.createClass({
     function(error, result) {
       console.log(error, result);
       if(result){
-        that.state.currentUser.profile_picture_url = result[0];
+        that.state.currentUser.profilePhotoObject = result[0];
         that.handleNewProfilePhoto();
-        that.setState({currentUser:{profile_pic: result[0]}});
+        that.setState({currentUser:{profilePhotoObject:result[0]}});
       }
     });
   },
@@ -85,15 +79,14 @@ var ProfileHeader = React.createClass({
     function(error, result) {
       console.log(error, result);
       if (result){
-        that.state.currentUser.cover_photo_url = result[0];
+        that.state.currentUser.coverPhotoObject = result[0];
         that.handleNewCoverPhoto();
-        that.setState({currentUser:{cover_photo_url: result[0]}});
+        that.setState({currentUser:{coverPhotoObject: result[0]}});
       }
     });
   },
   _onChange: function(){
     this.setState({currentUser: CurrentUserStore.currentUser()});
-    this.buildURLs();
   },
 
   render: function(){
@@ -104,13 +97,12 @@ var ProfileHeader = React.createClass({
           <img className="card-bkimg"
                id="upload_cover_widget_opener"
                alt=""
-               src={this.state.coverPhotoURL} />
+               src={this.state.currentUser.cover_photo_url} />
         </div>
         <div className="useravatar">
-
           <img alt=""
                id="upload_profile_widget_opener"
-               src={this.state.profilePhotoURL}/>
+               src={this.state.currentUser.profile_photo_url}/>
           <div className="edit"><i className="glyphicon glyphicon-edit"></i></div>
         </div>
       </div>
