@@ -36,6 +36,13 @@
   position: relative;
 }
 
+button[value="true"] {
+  background-color: blue;
+}
+button[value="false"] {
+  background-color: #e6e6e6;
+}
+
 .show-filters {
   float: left;
   position: fixed;

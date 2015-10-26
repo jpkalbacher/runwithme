@@ -1,6 +1,10 @@
 var Filters = React.createClass({
   getInitialState: function(){
-    return {myActivities:true, followingActivities:true, publicActivities:true};
+    return {
+      myActivities:true,
+      followingActivities:true,
+      publicActivities:true
+    };
   },
 
   componentDidMount: function(){
@@ -50,13 +54,16 @@ var Filters = React.createClass({
     return (
       <div className="show-filters">
         <button className="btn btn-default btn-lg"
-                onClick={this.toggleMyActivities}>
+                onClick={this.toggleMyActivities}
+                value={this.state.myActivities}>
                 My Activities </button>
         <button className="btn btn-default btn-lg"
-                onClick={this.toggleFollowingActivities}>
+                onClick={this.toggleFollowingActivities}
+                value={this.state.followingActivities}>
                 Following</button>
         <button className="btn btn-default btn-lg"
-                onClick={this.togglePublicActivities}>
+                onClick={this.togglePublicActivities}
+                value={this.state.publicActivities}>
                 Public</button>
       </div>
     )
