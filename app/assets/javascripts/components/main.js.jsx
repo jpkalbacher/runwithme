@@ -35,7 +35,7 @@ var Main = React.createClass({
 
   render: function(){
     return (
-      <div>
+      <div className="main-page">
         < Map onMarkerClick={this.handleMarkerClick}
               activities={this.state.activities}/>
         {this.props.children}

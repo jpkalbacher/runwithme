@@ -16,13 +16,11 @@ var FollowButton = React.createClass({
   render: function(){
     var text = this.state.following ? 'Unfollow' : 'Follow';
     return (
-      <div>
-        <button className="btn btn-default btn-lg"
-                onClick={this.handleFollow}
-                value={this.state.following}>
-                {text}
-        </button>
-      </div>
+      <button className="btn btn-default btn-lg follow-button"
+              onClick={this.handleFollow}
+              value={this.state.following}>
+              {text}
+      </button>
     )
   }
 });
