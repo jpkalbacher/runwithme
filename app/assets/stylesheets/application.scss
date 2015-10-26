@@ -198,6 +198,17 @@ body {
    border: 5px solid rgba(255, 255, 255, 0.5);
 }
 
+.search-result img{
+  width: 150px;
+  height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+  -webkit-border-radius: 5%;
+  -moz-border-radius: 5%;
+  border-radius: 5%;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
 .card.hovercard.card-bkimg img {
   min-width: 700px;
   max-width: 1200px;
@@ -610,4 +621,9 @@ label:hover:before {
 
 .activity-form {
   margin-bottom: 5px;
+}
+
+.search-result.container-fluid.profile-row td {
+  font-family: Roboto;
+  font-size: 24px;
 }
