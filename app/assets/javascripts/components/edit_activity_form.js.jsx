@@ -103,29 +103,32 @@ var EditActivityForm = React.createClass({
   render: function(){
     return (
         <div className= "row">
-          <div className="display-box col-lg-3 col-lg-offset-8 col-sm-4 col-sm-offset-7 col-xs-10 col-xs-offset-1 panel panel-default panel-body">
+          <div className="display-box panel panel-default panel-body">
             <h3>Edit Activity!</h3>
-            <form onSubmit={this.handleEditActivity}>
-              <div className="form-group">
-                <input type="text"
+            <form>
+              <div className="activity-form">
+                <input className="form-control"
+                       type="text"
                        onChange={this.updateDescription}
-                       value={this.state.activity_type}/>
+                       value={this.state.activity_type} />
               </div>
-              <div className="form-group" >
-                <input type="text"
+              <div className="activity-form" >
+                <input className="form-control"
+                       type="text"
                        onChange={this.updateLocationDescription}
                        onKeyDown={this.autocomplete}
                        value={this.state.location_description}
                        id="pac-input"/>
               </div>
-              <span>
-                <label>Start</label>
-                < MyDTPicker onChange={this.updateStartTime}
+              <div className="activity-form">
+                < Datetime onChange={this.updateStartTime}
                            value={this.state.start_time}/>
-              </span>
-              <input type="submit"
-                     value="Edit Activity"/>
+              </div>
             </form>
+            <button className="submit-button"
+                    onClick={this.handleEditActivity}>
+                    Submit
+            </button>
             <button onClick={this.handleCancel}>Cancel Activity</button>
           </div>
         </div>

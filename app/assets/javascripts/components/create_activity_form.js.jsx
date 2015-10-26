@@ -79,11 +79,17 @@ var CreateActivityForm = React.createClass({
                      id="pac-input"/>
             </div>
             <div className="activity-form">
-              < MyDTPicker onChange={this.updateStartTime}/>
+              < Datetime onChange={this.updateStartTime}/>
             </div>
           </form>
-          <button className="submit-button" onClick={this.handleNewActivity}>Submit</button>
-          <button className="submit-button" onClick={this.cancelCreate}>Cancel</button>
+          <button className="submit-button"
+                  onClick={this.handleNewActivity}>
+                  Submit
+          </button>
+          <button className="submit-button"
+                  onClick={this.cancelCreate}>
+                  Cancel
+          </button>
         </div>
       </div>
     );

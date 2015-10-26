@@ -48,10 +48,16 @@ var Filters = React.createClass({
 
   render: function(){
     return (
-      <div className="show-filters panel panel-default">
-        <button onClick={this.toggleMyActivities}>My Activities</button>
-        <button onClick={this.toggleFollowingActivities}>Following</button>
-        <button onClick={this.togglePublicActivities}>Public</button>
+      <div className="show-filters">
+        <button className="btn btn-default btn-lg"
+                onClick={this.toggleMyActivities}>
+                My Activities </button>
+        <button className="btn btn-default btn-lg"
+                onClick={this.toggleFollowingActivities}>
+                Following</button>
+        <button className="btn btn-default btn-lg"
+                onClick={this.togglePublicActivities}>
+                Public</button>
       </div>
     )
   }

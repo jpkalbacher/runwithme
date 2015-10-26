@@ -33,8 +33,13 @@ var ShowActivity = React.createClass({
     this.setState({ activity: activity });
   },
 
+  convertStartTime: function(){ 
+    var time = this.state.activity.start_time;
+  },
+
   render: function() {
     if (this.state.activity) {
+      var startTime = this.convertStartTime();
       return (
         <div className="row">
           <div className="display-box panel panel-default panel-body">
