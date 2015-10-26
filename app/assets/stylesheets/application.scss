@@ -15,6 +15,8 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "datepicker";
+
 .display-box {
   width:300px;
   height:400px;
@@ -29,6 +31,10 @@
   overflow-x: hidden;
 }
 
+.submit-button {
+  margin-top: 15px;
+  position: relative;
+}
 
 .show-filters {
   position: fixed;
@@ -49,7 +55,7 @@
   width: 100vw;
   height: calc(100vh - 50px);
   margin-top: 50px;
-  margin-left: 15px;
+  margin-left: 30px;
 }
 
 .show-activity {
@@ -556,4 +562,8 @@ label:hover:before {
 
 .row-user-photo img {
   width: 100%;
+}
+
+.activity-form {
+  margin-bottom: 5px;
 }

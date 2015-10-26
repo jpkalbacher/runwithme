@@ -1,7 +1,6 @@
 var CreateActivityForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
 
-
   componentDidMount: function(){
     this.setupAutoComplete();
   },
@@ -63,26 +62,28 @@ var CreateActivityForm = React.createClass({
   render: function(){
     return (
       <div className="row">
-        <div className="display-box col-lg-3 col-lg-offset-8 col-sm-4 col-sm-offset-7 col-xs-10 col-xs-offset-1 panel panel-default panel-body">
+        <div className="display-box panel panel-default panel-body">
           <h3>Create an Activity!</h3>
-          <form onSubmit={this.handleNewActivity}>
-            <div className="form-group">
-              <input type="text"
+          <form>
+            <div className="activity-form">
+              <input className="form-control"
+                     type="text"
                      onChange={this.updateDescription}
                      placeholder="Activity"/>
             </div>
-            <div className="form-group" >
-              <input type="text"
+            <div className="activity-form">
+              <input className="form-control"
+                     type="text"
                      onKeyDown={this.autocomplete}
                      placeholder="Where are you going?"
                      id="pac-input"/>
             </div>
-            <div className="form-group">
-              < Datetime onChange={this.updateStartTime}/>
+            <div className="activity-form">
+              < MyDTPicker onChange={this.updateStartTime}/>
             </div>
-            <input type="submit"/>
           </form>
-          <button onClick={this.cancelCreate}>Cancel</button>
+          <button className="submit-button" onClick={this.handleNewActivity}>Submit</button>
+          <button className="submit-button" onClick={this.cancelCreate}>Cancel</button>
         </div>
       </div>
     );
