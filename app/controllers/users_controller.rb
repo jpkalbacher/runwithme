@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.display_name = @user.first_name.downcase.capitalize + " " +
                             @user.last_name.downcase.capitalize
-    @user.profile_photo_url = "http://res.cloudinary.com/dbw79utiw/image/upload/v1445805052/i6qkba2yfqaf6ziadxrp.jpg"
     @user.cover_photo_url = "https://res.cloudinary.com/dbw79utiw/image/upload/x_108,y_31,w_1879,h_1879,c_crop/v1445817847/swah17i9e0zdixwf5qpq.png"
 
     if @user.save
