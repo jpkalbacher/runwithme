@@ -16,6 +16,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "datepicker";
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700);
+
+
+.unique {
+   background: url('http://res.cloudinary.com/dbw79utiw/image/upload/v1445838856/redwoods_ijijdw.jpg') no-repeat;
+   background-size: cover;
+}
 
 .display-box {
   width:300px;
@@ -25,10 +32,23 @@
   position: fixed;
   top: 0px;
   z-index: 10;
-  font-family: Ubuntu;
   font-weight: bold;
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.display-box h3 {
+  font-family: roboto;
+  text-align: center;
+  overflow-x: scroll;
+}
+
+.display-box h4 {
+  font-family: roboto;
+  text-align: center;
+  overflow-x: scroll;
+  margin-top: 25px;
+  margin-bottom:0px;
 }
 
 .submit-button {
@@ -37,10 +57,14 @@
 }
 
 button[value="true"] {
-  background-color: blue;
+  background: #fff;
+  box-shadow: none;
+  margin-bottom: -3px;
+  margin-top: 3px;
+
 }
 button[value="false"] {
-  background-color: #e6e6e6;
+  box-shadow: 0 3px 0 0 #8c8c8c;
 }
 
 .show-filters {
@@ -73,6 +97,7 @@ button[value="false"] {
 }
 
 .show-activity {
+  font-family: roboto;
   position: absolute;
   top: 55px;
   right: 7px;
@@ -266,6 +291,15 @@ a:hover {
   margin-bottom: 5px;
 }
 /*=== 4. Main Form ===*/
+.login-form-background {
+  background-color: #555555;
+  opacity: .99;
+  min-width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
 .login-form-1 {
   max-width: 300px;
   border-radius: 5px;
@@ -306,6 +340,7 @@ a:hover {
   color: #999999;
   border-radius: 8px;
   padding: 10px 20px;
+  margin-bottom: 25px;
 }
 .login-group-checkbox {
   padding: 5px 0;
@@ -560,6 +595,8 @@ label:hover:before {
 
 .map-user-photo img {
   width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .row-user-photo {

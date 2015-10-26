@@ -42,7 +42,7 @@ var Main = React.createClass({
         <div className="create-button">
           <button type="button" className="btn btn-default btn-lg" onClick={this.handleCreate}>
                 <span className="glyphicon glyphicon-edit"></span>
-            New Activity</button>
+             New Activity</button>
         </div>
       </div>
     )

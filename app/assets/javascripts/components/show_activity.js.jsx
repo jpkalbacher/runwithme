@@ -33,23 +33,18 @@ var ShowActivity = React.createClass({
     this.setState({ activity: activity });
   },
 
-  convertStartTime: function(){ 
-    var time = this.state.activity.start_time;
-  },
-
   render: function() {
     if (this.state.activity) {
-      var startTime = this.convertStartTime();
       return (
         <div className="row">
           <div className="display-box panel panel-default panel-body">
+            <h3>{this.state.activity.activity_type}</h3>
+            <h4>{this.state.activity.start_time}</h4>
+            <h3>{this.state.activity.location_description}</h3>
             <div className="map-user-photo">
               <img src={this.state.activity.owner_picture_url} />
             </div>
-            <h3>{this.state.activity.activity_type}</h3>
-            <h3>{this.state.activity.owner_name}</h3>
-            <h3>{this.state.activity.location_description}</h3>
-            <h3>{this.state.activity.start_time}</h3>
+            <h4>organizer: {this.state.activity.owner_name}</h4>
           </div>
         </div>
       )

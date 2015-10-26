@@ -1,7 +1,7 @@
 json.array! @activities do |activity|
-  json.extract! activity, :id, :owner_id, :activity_type,
-                          :location_description, :latitude, :longitude,
-                          :canceled
+  json.extract! activity, :id, :owner_id, :location_description, :latitude,
+                          :longitude, :canceled
+  json.activity_type activity.activity_type.capitalize
   json.owner_picture_url activity.owner.profile_photo_url
   json.start_time activity.start_time.strftime("%A, %d %b %Y %l:%M %p")
   if activity.owner_id == current_user.id
