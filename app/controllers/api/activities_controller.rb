@@ -8,9 +8,9 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def create
-    activity = current_user.activities.new(activity_params)
-    if activity.save
-      render json: {}
+    @activity = current_user.activities.new(activity_params)
+    if @activity.save
+      render :show
     else
       flash[:errors] = activity.errors.full_messages
     end

@@ -13,9 +13,10 @@ var Search = React.createClass({
 
   render: function(){
     return (
-      <form>
+      <form className="search-form">
           <input type="text"
-                 placeholder="Search..."
+                 className="form-control"
+                 placeholder="Search for users..."
                  onChange={this.updateSeachFragment}/>
       </form>
     )

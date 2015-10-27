@@ -41,8 +41,8 @@ var ApiUtil = {
       url: 'api/activities',
       type: 'POST',
       data: activity,
-      success: function() {
-        location.reload(true);
+      success: function(activity) {
+        ApiActions.receiveSingleActivity(activity);
       }
     });
   },
@@ -53,7 +53,7 @@ var ApiUtil = {
       type: 'PATCH',
       data: edited_activity,
       success: function() {
-        location.reload(true);
+        window.location.href = "/#/main/";
       }
     });
   },

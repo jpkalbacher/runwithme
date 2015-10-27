@@ -100,12 +100,26 @@ var EditActivityForm = React.createClass({
     ApiUtil.editActivity(activity);
   },
 
+  exitEditView: function(){
+    this.props.history.pushState(null, "/main/");
+  },
+
   render: function(){
     return (
         <div className= "row">
           <div className="display-box panel panel-default panel-body">
-            <h3>Edit Activity!</h3>
-            <form>
+            <div className="clearfix box-top">
+              <button type="button"
+                    onClick={this.exitEditView}
+                    className="btn btn-default remove"
+                    aria-label="Right Align">
+                    <span className="glyphicon glyphicon-remove"
+                          aria-hidden="true">
+                    </span>
+              </button>
+            </div>
+            <h3>Edit Activity</h3>
+            <form className="edit-activity-form">
               <div className="activity-form">
                 <input className="form-control"
                        type="text"
@@ -125,11 +139,14 @@ var EditActivityForm = React.createClass({
                            value={this.state.start_time}/>
               </div>
             </form>
-            <button className="submit-button"
+            <button className="btn btn-default btn-lg edit-button"
                     onClick={this.handleEditActivity}>
-                    Submit
+                    Edit Activity
             </button>
-            <button onClick={this.handleCancel}>Cancel Activity</button>
+            <button className="btn btn-default btn-lg edit-button"
+                    onClick={this.handleCancel}>
+                    Cancel Activity
+            </button>
           </div>
         </div>
     );

@@ -55,7 +55,7 @@ var CreateActivityForm = React.createClass({
     }
   },
 
-  cancelCreate: function(){
+  exitCreateView: function(){
     this.props.history.pushState(null, "/main/");
   },
 
@@ -63,8 +63,18 @@ var CreateActivityForm = React.createClass({
     return (
       <div className="row">
         <div className="display-box panel panel-default panel-body">
+          <div className="clearfix box-top">
+            <button type="button"
+                  onClick={this.exitCreateView}
+                  className="btn btn-default remove"
+                  aria-label="Right Align">
+                  <span className="glyphicon glyphicon-remove"
+                        aria-hidden="true">
+                  </span>
+            </button>
+          </div>
           <h3>Create an Activity!</h3>
-          <form>
+          <form className="create-activity-form">
             <div className="activity-form">
               <input className="form-control"
                      type="text"
@@ -82,13 +92,9 @@ var CreateActivityForm = React.createClass({
               < Datetime onChange={this.updateStartTime}/>
             </div>
           </form>
-          <button className="submit-button"
+          <button className="submit-button btn btn-default btn-lg"
                   onClick={this.handleNewActivity}>
-                  Submit
-          </button>
-          <button className="submit-button"
-                  onClick={this.cancelCreate}>
-                  Cancel
+                  Create New Activity
           </button>
         </div>
       </div>
