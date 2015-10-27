@@ -36,20 +36,20 @@ User.create!([
 Follow.create!([
   {followee_id: 5, follower_id: 1},
   {followee_id: 5, follower_id: 3},
-  {followee_id: 29, follower_id: 33},
+  {followee_id: 17, follower_id: 22},
   {followee_id: 5, follower_id: 7},
-  {followee_id: 28, follower_id: 33},
-  {followee_id: 21, follower_id: 33},
-  {followee_id: 1, follower_id: 33},
-  {followee_id: 32, follower_id: 33},
+  {followee_id: 11, follower_id: 21},
+  {followee_id: 21, follower_id: 17},
+  {followee_id: 1, follower_id: 18},
+  {followee_id: 19, follower_id: 11},
   {followee_id: 5, follower_id: 10},
-  {followee_id: 31, follower_id: 33},
-  {followee_id: 23, follower_id: 33},
-  {followee_id: 33, follower_id: 1},
-  {followee_id: 33, follower_id: 3},
-  {followee_id: 33, follower_id: 24},
-  {followee_id: 33, follower_id: 22},
-  {followee_id: 33, follower_id: 21}
+  {followee_id: 31, follower_id: 12},
+  {followee_id: 12, follower_id: 13},
+  {followee_id: 13, follower_id: 1},
+  {followee_id: 14, follower_id: 1},
+  {followee_id: 2, follower_id: 12},
+  {followee_id: 1, follower_id: 9},
+  {followee_id: 3, follower_id: 7}
 ])
 
 Activity.create!([
