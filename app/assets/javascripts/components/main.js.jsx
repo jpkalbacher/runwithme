@@ -29,20 +29,14 @@ var Main = React.createClass({
     }
   },
 
-  handleCreate: function(){
-    this.props.history.pushState(null, "/main/new");
-  },
-
   render: function(){
     return (
       <div className="main-page">
         < Map onMarkerClick={this.handleMarkerClick}
-              activities={this.state.activities}/>
+              activities={this.state.activities}
+              />
         {this.props.children}
-        <button type="button" className="create-button btn btn-default btn-lg" onClick={this.handleCreate}>
-              <span className="glyphicon glyphicon-edit"></span>
-               New Activity
-        </button>
+        <Profile / >
       </div>
     )
   }

@@ -1,5 +1,5 @@
 window.Map = React.createClass({
-	mixins: [React.addons.LinkedStateMixin],
+	mixins: [React.addons.LinkedStateMixin, ReactRouter.History],
 
 	componentDidMount: function(){
     this.markers = [];
@@ -79,14 +79,20 @@ window.Map = React.createClass({
 	},
 
 	handleCreate: function(){
-		this.props.history.pushState(null, "/main/new");
+		this.history.pushState(null, "/main/new");
 	},
 
   render: function() {
 		return (
-      <div className="row">
+      <div className="map-view">
 			   <div className="map" ref="map"/>
 				 < Filters />
+				 <button type="button"
+				 				 className="create-button btn btn-default btn-lg"
+				 				 onClick={this.handleCreate}>
+							   <span className="glyphicon glyphicon-edit"></span>
+								 New Activity
+				 </button>
       </div>
 		)
 	}

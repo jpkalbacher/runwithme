@@ -47,6 +47,7 @@ var CreateActivityForm = React.createClass({
     e.preventDefault();
     this.setState({canceled:false});
     ApiUtil.handleNewActivity({activity: this.state});
+    this.props.history.pushState(null, "/main/");
   },
 
   autocomplete: function(e){

@@ -31,9 +31,9 @@
 .display-box {
   padding: 0;
   width:300px;
-  max-height:400px;
+  max-height:300px;
   margin-top: 75px;
-  right: 30px;
+  right: 50px;
   position: fixed;
   top: 0px;
   z-index: 10;
@@ -74,8 +74,8 @@ button[value="false"] {
 
 .show-filters {
   float: left;
-  position: fixed;
-  bottom: 50px;
+  position: relative;
+  bottom: 70px;
   left: 50px;
 }
 
@@ -85,8 +85,8 @@ button[value="false"] {
 
 .create-button {
   float: right;
-  position: fixed;
-  bottom: 50px;
+  position: relative;
+  bottom: 70px;
   right: 50px;
   border-radius: 0;
 }
@@ -95,18 +95,18 @@ button[value="false"] {
   width:100%;
   max-width: 1300px;
   min-height:100%;
-  top: 40px;
   padding-left: 0;
   padding-right: 0;
   position: relative;
   margin: 0 auto;
+  top: -46px;
 }
 
 .map {
   width: 100vw;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 200px);
+  max-height: 500px;
   margin-top: 50px;
-  margin-left: 15px;
 }
 
 .show-activity {
@@ -176,7 +176,6 @@ body {
 }
 
 .card {
-   margin-top: 10px;
   //  padding: 30px;
    background-color: rgba(214, 224, 226, 0.2);
   //  -webkit-border-top-left-radius:5px;
@@ -572,6 +571,7 @@ label:hover:before {
 .sign-out {
   padding-right: 10px;
   margin-right: 0px !important;
+  float: right !important;
 }
 
 .sign-in {
@@ -649,8 +649,7 @@ label:hover:before {
 }
 
 .well.follow-container {
-  height: 65vh;
-  overflow-y: sroll;
+  overflow-y: scroll;
 }
 .btn.btn-default.remove {
   float:right;
@@ -692,4 +691,24 @@ label:hover:before {
 .btn.edit-button {
   width: 149px;
   border-radius: 0;
+}
+
+.map-view {
+  max-height: 500px;
+  min-height: 400px;
+}
+
+.navbar-nav {
+  width: 100%;
+  text-align: center;
+  float: none;
+  > li {
+    float: none;
+    display: inline-block;
+  }
+}
+
+.navbar-title {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 32px;
 }

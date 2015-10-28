@@ -31,7 +31,7 @@ var ApiUtil = {
       url: '/session',
       type: 'DELETE',
       success: function() {
-        window.location = "/";
+        window.location.href = "/session/new/";
       }
     });
   },
