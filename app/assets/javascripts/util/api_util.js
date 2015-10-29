@@ -142,5 +142,16 @@ var ApiUtil = {
         UserActions.receiveUser(user);
       }
     });
-  }
+  },
+
+  handleAttend: function(activity){
+    $.ajax({
+      url: 'attendees/',
+      type: 'POST',
+      data: {attendee:{activity_id:activity}},
+      success: function(){
+        window.location.href = "/#/main/";
+      }
+    });
+  },
 };

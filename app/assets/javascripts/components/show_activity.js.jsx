@@ -39,6 +39,12 @@ var ShowActivity = React.createClass({
     this.setState({ activity: activity });
   },
 
+  _handleAttend: function (e){
+    var activity = this.props.params.activityId;
+    e.preventDefault();
+    ApiUtil.handleAttend(activity);
+  },
+
   render: function() {
     if (this.state.activity) {
       return (
@@ -68,6 +74,10 @@ var ShowActivity = React.createClass({
             <div className="organizer-info">
               <h4>organizer: {this.state.activity.owner_name}</h4>
             </div>
+            <button className="submit-button btn btn-default btn-lg"
+                    onClick={this._handleAttend}>
+                    Join!
+            </button>
           </div>
         </div>
       )

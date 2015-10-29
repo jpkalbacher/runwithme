@@ -22,6 +22,12 @@ class Activity < ActiveRecord::Base
     class_name: "User",
     foreign_key: :owner_id,
     primary_key: :id
+  has_many :users,
+    class_name: "Attendee",
+    foreign_key: :activity_id
+  has_many :attendees,
+    through: :users,
+    source: :user
 
   def self.in_bounds(bounds)
     north_east_lat = bounds["northEast"]["lat"].to_f

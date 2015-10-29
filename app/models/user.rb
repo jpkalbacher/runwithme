@@ -24,6 +24,13 @@ class User < ActiveRecord::Base
   has_many :followers, through: :in_follows, source: :follower
   has_many :followees, through: :out_follows, source: :followee
   has_many :activities, foreign_key: :owner_id
+  has_many :attendee_activities,
+    class_name: "Attendee",
+    foreign_key: :user_id
+  has_many :attending_activities,
+    through: :attendee_activities,
+    source: :activity
+
 
   attr_reader :password
 
