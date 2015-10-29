@@ -33,7 +33,7 @@ class Api::ActivitiesController < ApplicationController
   private
   def activity_params
     params.require(:activity).permit(:latitude, :longitude, :activity_type,
-    :start_time, :location_description, :canceled)
+    :start_time, :location_description, :canceled, :description)
   end
 
   def bounds

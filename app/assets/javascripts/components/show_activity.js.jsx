@@ -59,6 +59,9 @@ var ShowActivity = React.createClass({
               <h4>{this.state.activity.start_time}</h4>
               <h4>{this.state.activity.location_description}</h4>
             </div>
+            <div className="description">
+              <h5>{this.state.activity.description}</h5>
+            </div>
             <div className="map-user-photo">
               <img src={this.state.activity.owner_picture_url} />
             </div>

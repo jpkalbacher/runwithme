@@ -716,3 +716,15 @@ label:hover:before {
 .navbar-default {
   background-color: rgb(184, 225, 184);
 }
+
+.description {
+  background-color: #E1B8BB;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.display-box h5 {
+  font-family: roboto;
+  text-align: center;
+  overflow-x: scroll;
+}

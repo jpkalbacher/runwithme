@@ -28,9 +28,14 @@ var CreateActivityForm = React.createClass({
      start_time:"" };
   },
 
-  updateDescription: function(e){
+  updateActivityType: function(e){
     e.preventDefault();
     this.setState({activity_type:event.target.value});
+  },
+
+  updateActivityDescription: function(e){
+    e.preventDefault();
+    this.setState({description:event.target.value});
   },
 
   updateStartTime: function(e){
@@ -79,7 +84,7 @@ var CreateActivityForm = React.createClass({
             <div className="activity-form">
               <input className="form-control"
                      type="text"
-                     onChange={this.updateDescription}
+                     onChange={this.updateActivityType}
                      placeholder="Activity"/>
             </div>
             <div className="activity-form">
@@ -91,6 +96,13 @@ var CreateActivityForm = React.createClass({
             </div>
             <div className="activity-form">
               < Datetime onChange={this.updateStartTime}/>
+            </div>
+            <div className="activity-form">
+              <textarea className="form-control"
+                        onChange={this.updateActivityDescription}
+                        rows="4"
+                        placeholder="Description...">
+              </textarea>
             </div>
           </form>
           <button className="submit-button btn btn-default btn-lg"

@@ -1,4 +1,17 @@
 var EditActivityForm = React.createClass({
+  getInitialState: function () {
+    var activity = ActivityStore.find(this.props.params.activityId);
+    return {
+      id:activity.id,
+      owner_id:activity.owner_id,
+      activity_type:activity.activity_type,
+      start_time:activity.start_time,
+      location_description:activity.location_description,
+      description:activity.description,
+      canceled:activity.canceled
+    };
+  },
+
   componentDidMount: function(){
     if (this.state.owner_id !== window.CURRENT_USER_ID){
       this.props.history.pushState(null, "main/");
@@ -10,6 +23,10 @@ var EditActivityForm = React.createClass({
 
   componentWillUnmount: function() {
     ActivityStore.removeSingleChangeListener(this._onChange);
+  },
+
+  componentDidUpdate: function() {
+    var activity = ActivityStore.find(this.props.params.activityId);
   },
 
   _onChange: function(){
@@ -34,22 +51,6 @@ var EditActivityForm = React.createClass({
     this.setState({location_description: description});
   },
 
-  getInitialState: function () {
-    var activity = ActivityStore.find(this.props.params.activityId);
-    return {
-      id:activity.id,
-      owner_id:activity.owner_id,
-      activity_type:activity.activity_type,
-      start_time:activity.start_time,
-      location_description:activity.location_description,
-      canceled:activity.canceled
-    };
-  },
-
-  componentDidUpdate: function() {
-    var activity = ActivityStore.find(this.props.params.activityId);
-  },
-
   componentWillReceiveProps: function() {
     var activity = ActivityStore.find(this.props.params.activityId);
     this.setState({
@@ -61,13 +62,19 @@ var EditActivityForm = React.createClass({
       latitude:activity.latitude,
       longitude:activity.longitude,
       location_description:activity.location_description,
-      canceled:activity.canceled
+      canceled:activity.canceled,
+      descripttion:activity.description
     });
+  },
+
+  updateActivityType: function(e){
+    e.preventDefault();
+    this.setState({activity_type:event.target.value});
   },
 
   updateDescription: function(e){
     e.preventDefault();
-    this.setState({activity_type:event.target.value});
+    this.setState({description:event.target.value});
   },
 
   updateStartTime: function(e){
@@ -105,6 +112,7 @@ var EditActivityForm = React.createClass({
   },
 
   render: function(){
+    debugger;
     return (
         <div className= "row">
           <div className="display-box panel panel-default panel-body">
@@ -123,7 +131,7 @@ var EditActivityForm = React.createClass({
               <div className="activity-form">
                 <input className="form-control"
                        type="text"
-                       onChange={this.updateDescription}
+                       onChange={this.updateActivityType}
                        value={this.state.activity_type} />
               </div>
               <div className="activity-form" >
@@ -137,6 +145,13 @@ var EditActivityForm = React.createClass({
               <div className="activity-form">
                 < Datetime onChange={this.updateStartTime}
                            value={this.state.start_time}/>
+              </div>
+              <div className="activity-form">
+                <textarea className="form-control"
+                          rows="4"
+                          onChange={this.updateDescription}
+                          value={this.state.description}>
+                </textarea>
               </div>
             </form>
             <button className="btn btn-default btn-lg edit-button"
