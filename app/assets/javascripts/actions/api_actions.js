@@ -7,6 +7,7 @@ window.ApiActions = {
   },
 
   receiveSingleActivity: function(activity) {
+    debugger;
     AppDispatcher.dispatch({
       actionType: ActivityConstants.SINGLE_ACTIVITY_RECEIVED,
       activity: activity
