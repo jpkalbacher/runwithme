@@ -5,7 +5,7 @@ var Navbar = React.createClass({
 
   render: function() {
     return (
-      <nav className="navbar-nav navbar-default navbar-fixed-top">
+      <nav className="navbar-default navbar-fixed-top">
           <ul className="nav navbar-nav">
             <li className="nav navbar-title">GetOutside</li>
             <li className="nav sign-out"><a onClick={this.handleLogOut}

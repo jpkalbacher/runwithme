@@ -112,57 +112,54 @@ var EditActivityForm = React.createClass({
   },
 
   render: function(){
-    debugger;
     return (
-        <div className= "row">
-          <div className="display-box panel panel-default panel-body">
-            <div className="clearfix box-top">
-              <button type="button"
-                    onClick={this.exitEditView}
-                    className="btn btn-default remove"
-                    aria-label="Right Align">
-                    <span className="glyphicon glyphicon-remove"
-                          aria-hidden="true">
-                    </span>
-              </button>
-            </div>
-            <h3>Edit Activity</h3>
-            <form className="edit-activity-form">
-              <div className="activity-form">
-                <input className="form-control"
-                       type="text"
-                       onChange={this.updateActivityType}
-                       value={this.state.activity_type} />
-              </div>
-              <div className="activity-form" >
-                <input className="form-control"
-                       type="text"
-                       onChange={this.updateLocationDescription}
-                       onKeyDown={this.autocomplete}
-                       value={this.state.location_description}
-                       id="pac-input"/>
-              </div>
-              <div className="activity-form">
-                < Datetime onChange={this.updateStartTime}
-                           value={this.state.start_time}/>
-              </div>
-              <div className="activity-form">
-                <textarea className="form-control"
-                          rows="4"
-                          onChange={this.updateDescription}
-                          value={this.state.description}>
-                </textarea>
-              </div>
-            </form>
-            <button className="btn btn-default btn-lg edit-button"
-                    onClick={this.handleEditActivity}>
-                    Edit Activity
-            </button>
-            <button className="btn btn-default btn-lg edit-button"
-                    onClick={this.handleCancel}>
-                    Cancel Activity
+        <div className="display-box panel panel-default panel-body">
+          <div className="clearfix box-top">
+            <button type="button"
+                  onClick={this.exitEditView}
+                  className="btn btn-default remove"
+                  aria-label="Right Align">
+                  <span className="glyphicon glyphicon-remove"
+                        aria-hidden="true">
+                  </span>
             </button>
           </div>
+          <h3>Edit Activity</h3>
+          <form className="edit-activity-form">
+            <div className="activity-form">
+              <input className="form-control"
+                     type="text"
+                     onChange={this.updateActivityType}
+                     value={this.state.activity_type} />
+            </div>
+            <div className="activity-form" >
+              <input className="form-control"
+                     type="text"
+                     onChange={this.updateLocationDescription}
+                     onKeyDown={this.autocomplete}
+                     value={this.state.location_description}
+                     id="pac-input"/>
+            </div>
+            <div className="activity-form">
+              < Datetime onChange={this.updateStartTime}
+                         value={this.state.start_time}/>
+            </div>
+            <div className="activity-form">
+              <textarea className="form-control"
+                        rows="4"
+                        onChange={this.updateDescription}
+                        value={this.state.description}>
+              </textarea>
+            </div>
+          </form>
+          <button className="btn btn-default btn-lg edit-button"
+                  onClick={this.handleEditActivity}>
+                  Edit Activity
+          </button>
+          <button className="btn btn-default btn-lg edit-button"
+                  onClick={this.handleCancel}>
+                  Cancel Activity
+          </button>
         </div>
     );
   }

@@ -85,7 +85,8 @@ window.Map = React.createClass({
   render: function() {
 		return (
       <div className="map-view">
-			   <div className="map" ref="map"/>
+			   <div className="map"
+				 			ref="map"/>
 				 < Filters />
 				 <button type="button"
 				 				 className="create-button btn btn-default btn-lg"

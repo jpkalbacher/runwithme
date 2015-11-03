@@ -18,7 +18,6 @@ var ApiUtil = {
     $.ajax({
       url: 'api/activities/' + id,
       type: 'GET',
-      data: id,
       dataType: 'json',
       success: function(activity) {
         ApiActions.receiveSingleActivity(activity);

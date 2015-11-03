@@ -4,7 +4,6 @@ class AttendeesController < ApplicationController
   end
 
   def create
-    debugger;
     attendee = Attendee.new(attendee_params)
     attendee.user_id = current_user.id
     attendee.save
