@@ -1,6 +1,6 @@
 var ProfileHeader = React.createClass({
   getInitialState: function(){
-    var currentUser = this.props.currentUser
+    var currentUser = this.props.currentUser;
     return {currentUser: this.props.currentUser};
   },
 
@@ -8,8 +8,6 @@ var ProfileHeader = React.createClass({
     CurrentUserStore.addCurrentUserChangeListener(this._onChange);
     document.getElementById("upload_profile_widget_opener").addEventListener("click",
                                                     this.profilePhotoWidget, false);
-    document.getElementById("upload_cover_widget_opener").addEventListener("click",
-                                                    this.coverPhotoWidget, false);
     ApiUtil.getCurrentUser();
   },
 
@@ -33,22 +31,6 @@ var ProfileHeader = React.createClass({
     this.setState({profilePhotoURL:profilePhotoURL});
   },
 
-  handleNewCoverPhoto: function(){
-    var photo = this.state.currentUser.coverPhotoObject;
-    var photoCoords = photo.coordinates.custom[0];
-    var coverPhotoURL = "https://res.cloudinary.com/dbw79utiw/image/upload/x_" +
-      photoCoords[0] + ",y_" + photoCoords[1] + ",w_" +
-      photoCoords[2] +  ",h_" + photoCoords[2] + ",c_crop/" +
-      photo.path;
-    this.state.currentUser.coverPhotoURL = coverPhotoURL;
-    var updatedUser = {
-      cover_photo_object: JSON.stringify(this.state.currentUser.coverPhotoObject),
-      cover_photo_url: this.state.currentUser.coverPhotoURL
-    };
-    ApiUtil.editCurrentUser(updatedUser);
-    this.setState({coverPhotoURL:coverPhotoURL});
-  },
-
   profilePhotoWidget: function () {
     that = this;
     cloudinary.openUploadWidget({
@@ -68,23 +50,6 @@ var ProfileHeader = React.createClass({
     });
   },
 
-  coverPhotoWidget: function () {
-    that = this;
-    cloudinary.openUploadWidget({
-      cloud_name: 'dbw79utiw',
-      upload_preset: 'o31botki',
-      theme: 'minimal',
-      cropping: 'browser',
-    },
-    function(error, result) {
-      console.log(error, result);
-      if (result){
-        that.state.currentUser.coverPhotoObject = result[0];
-        that.handleNewCoverPhoto();
-        that.setState({currentUser:{coverPhotoObject: result[0]}});
-      }
-    });
-  },
   _onChange: function(){
     this.setState({currentUser: CurrentUserStore.currentUser()});
   },
@@ -92,13 +57,7 @@ var ProfileHeader = React.createClass({
   render: function(){
     return (
       <div className="card hovercard">
-        <div className="card-background">
-          <div className="edit">Edit photo<i className="glyphicon glyphicon-edit"></i></div>
-          <img className="card-bkimg"
-               id="upload_cover_widget_opener"
-               alt=""
-               src={this.state.currentUser.cover_photo_url} />
-        </div>
+
         <div className="useravatar">
           <img alt=""
                id="upload_profile_widget_opener"

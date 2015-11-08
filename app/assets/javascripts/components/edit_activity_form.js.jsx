@@ -22,7 +22,7 @@ var EditActivityForm = React.createClass({
   },
 
   _onChange: function(){
-    console.log("this changed")
+    console.log("this changed");
     var activity = CurrentActivityStore.current();
     this.setState({
       id: activity.id,
