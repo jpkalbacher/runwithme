@@ -57,7 +57,7 @@ var Filters = React.createClass({
           <label>
             <input type="checkbox"
                    onClick={this.toggleMyActivities}
-                   checked={this.state.myActivities}>
+                   defaultChecked={this.state.myActivities}>
             My Activities</input>
           </label>
         </div>
@@ -65,7 +65,7 @@ var Filters = React.createClass({
           <label>
             <input type="checkbox"
                    onClick={this.toggleFollowingActivities}
-                   checked={this.state.followingActivities}>
+                   defaultChecked={this.state.followingActivities}>
                 Following</input>
           </label>
         </div>
@@ -73,7 +73,7 @@ var Filters = React.createClass({
           <label>
             <input type="checkbox"
                    onClick={this.togglePublicActivities}
-                   checked={this.state.publicActivities}>
+                   defaultChecked={this.state.publicActivities}>
                    Public</input>
           </label>
         </div>
