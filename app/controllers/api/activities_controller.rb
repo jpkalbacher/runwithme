@@ -1,5 +1,6 @@
 class Api::ActivitiesController < ApplicationController
   before_action :verify_user
+
   def new
     @activity = Activity.new
   end

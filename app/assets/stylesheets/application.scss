@@ -33,17 +33,36 @@
 
 .display-box {
   padding: 0;
-  width:300px;
-  max-height:300px;
-  margin-top: 75px;
-  right: 50px;
-  position: fixed;
+  width:100%;
+  position: relative;
+  display: block;
   top: 0px;
-  z-index: 10;
+  z-index: 20;
   font-weight: bold;
   border-radius: 0;
-  overflow-y: scroll;
+  overflow: hidden;
   overflow-x: hidden;
+}
+
+.col-xs-4.map-user-photo {
+  padding: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.display-box.panel {
+  margin-bottom: 0;
+}
+
+.container.activity-details {
+  width: 100%;
+  padding: 0;
+}
+
+.display-box ul li {
+  display: inline;
 }
 
 .display-box h3 {
@@ -74,10 +93,11 @@ button[value="false"] {
 }
 
 .show-filters {
-  float: left;
-  position: relative;
-  bottom: 70px;
-  left: 50px;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  padding: 20px;
+  background-color: #eee;
 }
 
 .show-filters button {
@@ -100,7 +120,6 @@ button[value="false"] {
   padding-right: 0;
   position: relative;
   margin: 0 auto;
-  top: -46px;
 }
 
 .map {
@@ -202,7 +221,7 @@ body {
    background-color: rgba(255, 255, 255, 1);
 }
 
-.card.hovercard .useravatar img {
+.useravatar img {
    width: 150px;
    height: 150px;
    max-width: 150px;
@@ -465,7 +484,8 @@ label:hover:before {
 }
 
 .sign-out {
-  padding-right: 10px;
+  padding-right: 15px;
+  padding-top: 5px;
   margin-right: 0px !important;
   float: right !important;
 }
@@ -558,7 +578,7 @@ label:hover:before {
 
 .clearfix .box-top {
   height: 40px;
-  background-color: rgba(62, 175, 64, 0.37);
+  background-color: rgba(5,110,0,.7);
 }
 
 .activity-description {
@@ -567,7 +587,7 @@ label:hover:before {
 }
 
 .organizer-info {
-  padding: 15px 0 15px 0;
+  padding: 178px 0 177px 0;
   background-color: rgba(71, 130, 179, 0.53);
 }
 
@@ -577,12 +597,18 @@ label:hover:before {
 
 .edit-activity-form {
   padding: 15px;
-  background-color: rgba(71, 130, 179, 0.53);
+  background-color: rgba(5,110,0,.2);
 }
 
 .create-activity-form {
   padding: 15px;
-  background-color: rgba(210,180,140, 0.85);
+  background-color: rgba(5,110,0,.2);
+}
+
+.edit-profile-form {
+  padding: 15px;
+  text-align: center;
+  background-color: rgba(5,110,0,.2);
 }
 
 .btn.edit-button {
@@ -593,31 +619,38 @@ label:hover:before {
 .map-view {
   max-height: 500px;
   min-height: 400px;
+  position:relative;
 }
 
 .navbar-nav {
   width: 100%;
-  text-align: center;
-  float: none;
   max-width: 1300px;
   margin: 0 auto;
+  float: none;
   > li {
     float: none;
     display: inline-block;
   }
 }
 
+.rsvp {
+  padding: 15px;
+  text-align: center;
+}
+
 .navbar-title {
   font-family: 'Exo 2', sans-serif;
   font-size: 40px;
+  margin-left: 30px;
+  color: rgba(5,110,0,.9);
 }
 
 .navbar-default {
-  background-color: rgba(88,202,112,.9);
+  background-color: #EEE;
 }
 
 .description {
-  background-color: #E1B8BB;
+  background-color: rgba(5,110,0,.2);
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -626,4 +659,13 @@ label:hover:before {
   font-family: roboto;
   text-align: center;
   overflow-x: scroll;
+}
+
+.dropdown-menu {
+  right: 0;
+}
+
+.btn.btn-lg.dropdown-toggle {
+  background-color: #eee;
+  border: none;
 }

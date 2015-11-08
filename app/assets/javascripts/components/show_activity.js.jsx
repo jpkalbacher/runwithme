@@ -2,40 +2,28 @@ var ShowActivity = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
 
   getInitialState: function () {
-    return { activity: ActivityStore.find(this.props.params.activityId) };
+    ApiUtil.fetchSingleActivity(this.props.params.activityId);
+    return {activity: CurrentActivityStore.current()};
   },
 
-  _findActivityById: function (id) {
-    var res;
-    ActivityStore.all().forEach(function (activity) {
-      if (id == activity.id) {
-        res = activity;
-      }
-    }.bind(this));
-    return res;
+  componentDidMount: function () {
+    ApiUtil.fetchSingleActivity(this.props.params.activityId);
+    CurrentActivityStore.addSingleChangeListener(this._activityChanged);
+    FollowingStore.addFollowingChangeListener(this._activityChanged);
+  },
+
+  componentWillUnmount: function() {
+    CurrentActivityStore.removeSingleChangeListener(this._activityChanged);
+    FollowingStore.removeFollowingChangeListener(this._activityChanged);
   },
 
   exitShowView: function(){
     this.props.history.pushState(null, "/main/");
   },
 
-  componentDidMount: function () {
-    ActivityStore.addChangeListener(this._activityChanged);
-  },
-
-  componentWillUnmount: function() {
-    ActivityStore.removeChangeListener(this._activityChanged);
-  },
-
-  componentWillReceiveProps: function (nextProps) {
-    this.setState({
-      activity: this._findActivityById(nextProps.params.activityId)
-    });
-  },
-
   _activityChanged: function () {
-    var activityId = this.props.params.activityId;
-    var activity = this._findActivityById(activityId);
+    var activity = CurrentActivityStore.current();
+    this.setState({following: FollowingStore.all()});
     this.setState({ activity: activity });
   },
 
@@ -46,39 +34,52 @@ var ShowActivity = React.createClass({
   },
 
   render: function() {
-    if (this.state.activity) {
+    var rows = [];
+    if(this.state.activity.attendees){
+      this.state.activity.attendees.forEach(function(attendee){
+        rows.push(<UserRow user={attendee} key={attendee.id} />);
+      });
+      var header = (
+          <h1> Other {this.state.activity.activity_type}s </h1>
+      )
+    }
+    if (this.state.activity.owner) {
       return (
-        <div className="display-box panel panel-default panel-body">
-          <div className="clearfix box-top">
-            <button type="button"
-                  onClick={this.exitShowView}
-                  className="btn btn-default remove"
-                  aria-label="Right Align">
-                  <span className="glyphicon glyphicon-remove"
-                        aria-hidden="true">
-                  </span>
-            </button>
+        <div className="container activity-details">
+          <div className="display-box panel panel-default panel-body">
+            <div className="clearfix box-top">
+              <button type="button"
+                    onClick={this.exitShowView}
+                    className="btn btn-default remove"
+                    aria-label="Right Align">
+                    <span className="glyphicon glyphicon-remove"
+                          aria-hidden="true">
+                    </span>
+              </button>
+            </div>
+            <div className="row">
+              <div className="col-md-4 col-xs-12 map-user-photo">
+                <img src={this.state.activity.owner.profile_photo_url} />
+              </div>
+              <div className="col-md-4 col-xs-12 activity-description">
+                <h3>{this.state.activity.activity_type}</h3>
+                <h4>{this.state.activity.start_time}</h4>
+                <h4>{this.state.activity.location_description}</h4>
+                <h4>{this.state.activity.description}</h4>
+                < RSVP activity={this.state.activity}/>
+              </div>
+              <div className="col-md-4 col-xs-12 organizer-info">
+                <h4>organizer: {this.state.activity.owner.display_name}</h4>
+              </div>
+            </div>
           </div>
-          <div className="activity-description">
-            <h3>{this.state.activity.activity_type}</h3>
-            <h4>{this.state.activity.start_time}</h4>
-            <h4>{this.state.activity.location_description}</h4>
+          <div>
+            {header}
           </div>
-          <div className="description">
-            <h5>{this.state.activity.description}</h5>
-          </div>
-          <div className="map-user-photo">
-            <img src={this.state.activity.owner_picture_url} />
-          </div>
-          <div className="organizer-info">
-            <h4>organizer: {this.state.activity.owner_name}</h4>
-          </div>
-          <button className="submit-button btn btn-default btn-lg"
-                  onClick={this._handleAttend}>
-                  Join!
-          </button>
+          <table className="table table-striped">
+            <tbody>{rows}</tbody>
+          </table>
         </div>
-
       )
     } else {
       return(

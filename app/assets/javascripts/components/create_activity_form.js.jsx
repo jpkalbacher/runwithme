@@ -1,5 +1,9 @@
 var CreateActivityForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
+  getInitialState: function () {
+    return { activity_type:"", location_description:"",
+     start_time:"" };
+  },
 
   componentDidMount: function(){
     this.setupAutoComplete();
@@ -21,11 +25,6 @@ var CreateActivityForm = React.createClass({
     this.setState({latitude:lat});
     this.setState({longitude:lng});
     this.setState({location_description: description});
-  },
-
-  getInitialState: function () {
-    return { activity_type:"", location_description:"",
-     start_time:"" };
   },
 
   updateActivityType: function(e){
@@ -82,10 +81,15 @@ var CreateActivityForm = React.createClass({
           <h3>Create an Activity!</h3>
           <form className="create-activity-form">
             <div className="activity-form">
-              <input className="form-control"
-                     type="text"
-                     onChange={this.updateActivityType}
-                     placeholder="Activity"/>
+              <select className="form-control"
+                      onChange={this.updateActivityType}>
+                  <option selected="selected">Activity</option>
+                  <option value="Surfing">Surfing</option>
+                  <option value="Running">Running</option>
+                  <option value="Cycling">Cycling</option>
+                  <option value="Climbing">Climbing</option>
+                  <option value="Swimming">Swimming</option>
+              </select>
             </div>
             <div className="activity-form">
               <input className="form-control"

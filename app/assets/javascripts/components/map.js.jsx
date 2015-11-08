@@ -6,7 +6,11 @@ window.Map = React.createClass({
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
       center: {lat: 37.7758, lng: -122.435},
-      zoom: 13
+      zoom: 13,
+			navigationControl: false,
+			mapTypeId: google.maps.MapTypeId.TERRAIN,
+			mapTypeControl: false,
+			scrollwheel: false
     };
     this.map = new google.maps.Map(map, mapOptions);
     ActivityStore.addMapChangeListener(this._onChange);
@@ -78,22 +82,12 @@ window.Map = React.createClass({
 		}
 	},
 
-	handleCreate: function(){
-		this.history.pushState(null, "/main/new");
-	},
-
   render: function() {
 		return (
       <div className="map-view">
 			   <div className="map"
 				 			ref="map"/>
 				 < Filters />
-				 <button type="button"
-				 				 className="create-button btn btn-default btn-lg"
-				 				 onClick={this.handleCreate}>
-							   <span className="glyphicon glyphicon-edit"></span>
-								 New Activity
-				 </button>
       </div>
 		)
 	}

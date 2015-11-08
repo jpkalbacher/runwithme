@@ -1,42 +1,45 @@
 var EditActivityForm = React.createClass({
   getInitialState: function () {
-    var activity = ActivityStore.find(this.props.params.activityId);
+    var activity = CurrentActivityStore.current();
     return {
-      id:activity.id,
-      owner_id:activity.owner_id,
-      activity_type:activity.activity_type,
-      start_time:activity.start_time,
-      location_description:activity.location_description,
-      description:activity.description,
-      canceled:activity.canceled
+      id: activity.id,
+      activity_type: activity.activity_type,
+      location_description: activity.location_description,
+      start_time: activity.start_time,
+      description: activity.description,
+      canceled: activity.canceled
     };
   },
 
   componentDidMount: function(){
-    if (this.state.owner_id !== window.CURRENT_USER_ID){
-      this.props.history.pushState(null, "main/");
-    }
     this.setupAutoComplete();
-    ActivityStore.addSingleChangeListener(this._onChange);
+    CurrentActivityStore.addSingleChangeListener(this._onChange);
     ApiUtil.fetchSingleActivity(this.props.params.activityId);
   },
 
   componentWillUnmount: function() {
-    ActivityStore.removeSingleChangeListener(this._onChange);
-  },
-
-  componentDidUpdate: function() {
-    var activity = ActivityStore.find(this.props.params.activityId);
+    CurrentActivityStore.removeSingleChangeListener(this._onChange);
   },
 
   _onChange: function(){
-    ActivityStore.current();
+    console.log("this changed")
+    var activity = CurrentActivityStore.current();
+    this.setState({
+      id: activity.id,
+      activity_type: activity.activity_type,
+      location_description: activity.location_description,
+      start_time: activity.start_time,
+      description: activity.description,
+      canceled: activity.canceled
+    });
   },
 
   setupAutoComplete: function(){
     var input = (document.getElementById('pac-input'));
     var autocomplete = new google.maps.places.Autocomplete(input);
-    autocomplete.addListener('place_changed', this.getPlace.bind(this, autocomplete));
+    autocomplete.addListener(
+      'place_changed', this.getPlace.bind(this, autocomplete)
+    );
   },
 
   getPlace: function(autocomplete){
@@ -49,22 +52,6 @@ var EditActivityForm = React.createClass({
     this.setState({latitude:lat});
     this.setState({longitude:lng});
     this.setState({location_description: description});
-  },
-
-  componentWillReceiveProps: function() {
-    var activity = ActivityStore.find(this.props.params.activityId);
-    this.setState({
-      id:activity.id,
-      activity_type:activity.activity_type,
-      google_place: "",
-      start_time:activity.start_time,
-      owner_id:activity.owner_id,
-      latitude:activity.latitude,
-      longitude:activity.longitude,
-      location_description:activity.location_description,
-      canceled:activity.canceled,
-      descripttion:activity.description
-    });
   },
 
   updateActivityType: function(e){
@@ -96,14 +83,14 @@ var EditActivityForm = React.createClass({
   handleCancel: function(e){
     e.preventDefault();
     this.state.canceled = true;
-    var activity = {activity: this.state};
+    var activity = this.state;
     ApiUtil.editActivity(activity);
     this.setState({canceled:true});
   },
 
   handleEditActivity: function(event){
     event.preventDefault();
-    var activity = {activity: this.state};
+    var activity = this.state;
     ApiUtil.editActivity(activity);
   },
 
@@ -127,10 +114,15 @@ var EditActivityForm = React.createClass({
           <h3>Edit Activity</h3>
           <form className="edit-activity-form">
             <div className="activity-form">
-              <input className="form-control"
-                     type="text"
-                     onChange={this.updateActivityType}
-                     value={this.state.activity_type} />
+              <select className="form-control"
+                      onChange={this.updateActivityType}>
+                  <option selected="selected">Activity</option>
+                  <option value="Surfing">Surfing</option>
+                  <option value="Running">Running</option>
+                  <option value="Cycling">Cycling</option>
+                  <option value="Climbing">Climbing</option>
+                  <option value="Swimming">Swimming</option>
+              </select>
             </div>
             <div className="activity-form" >
               <input className="form-control"

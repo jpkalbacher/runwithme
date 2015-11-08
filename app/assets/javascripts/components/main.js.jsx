@@ -22,6 +22,7 @@ var Main = React.createClass({
   },
 
   handleMarkerClick: function(activity) {
+    ApiUtil.fetchSingleActivity(activity.id);
     if(activity.owner_id === window.CURRENT_USER_ID){
       this.props.history.pushState(null, "/main/" + activity.id + "/edit/");
     } else {

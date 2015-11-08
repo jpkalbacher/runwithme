@@ -21,6 +21,7 @@ $(function (){
       <IndexRoute component={Main} />
       <Route path="main" component={Main}>
         <Route path="new" component={CreateActivityForm} />
+        <Route path="/main/profile" component={EditProfile} />
         <Route path=":activityId/edit" component={EditActivityForm} />
         <Route path="/main/:activityId" component={ShowActivity} />
       </Route>

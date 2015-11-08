@@ -55,10 +55,6 @@
       this.removeListener(CHANGE_EVENT, callback);
     },
 
-    current: function() {
-      return _single_activity;
-    },
-
     all: function(){
       filtered_activities = [];
       for(var i = 0; i < _activities.length; i++){

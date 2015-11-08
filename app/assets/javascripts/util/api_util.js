@@ -46,11 +46,11 @@ var ApiUtil = {
     });
   },
 
-  editActivity: function(edited_activity) {
+  editActivity: function(activity) {
     $.ajax({
-      url: 'api/activities/' + edited_activity.id,
+      url: 'api/activities/' + activity.id,
       type: 'PATCH',
-      data: edited_activity,
+      data: {activity},
       success: function() {
         window.location.href = "/#/main/";
       }

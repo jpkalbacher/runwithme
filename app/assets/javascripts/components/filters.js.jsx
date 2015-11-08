@@ -52,19 +52,31 @@ var Filters = React.createClass({
 
   render: function(){
     return (
-      <div className="show-filters">
-        <button className="btn btn-default btn-lg"
-                onClick={this.toggleMyActivities}
-                value={this.state.myActivities}>
-                My Activities </button>
-        <button className="btn btn-default btn-lg"
-                onClick={this.toggleFollowingActivities}
-                value={this.state.followingActivities}>
-                Following</button>
-        <button className="btn btn-default btn-lg"
-                onClick={this.togglePublicActivities}
-                value={this.state.publicActivities}>
-                Public</button>
+      <div className="show-filters form-group">
+        <div className="checkbox">
+          <label>
+            <input type="checkbox"
+                   onClick={this.toggleMyActivities}
+                   checked={this.state.myActivities}>
+            My Activities</input>
+          </label>
+        </div>
+        <div className="checkbox">
+          <label>
+            <input type="checkbox"
+                   onClick={this.toggleFollowingActivities}
+                   checked={this.state.followingActivities}>
+                Following</input>
+          </label>
+        </div>
+        <div className="checkbox">
+          <label>
+            <input type="checkbox"
+                   onClick={this.togglePublicActivities}
+                   checked={this.state.publicActivities}>
+                   Public</input>
+          </label>
+        </div>
       </div>
     )
   }
