@@ -40054,7 +40054,7 @@ $(function () {
     }
     if (idx == -1) {
       _following.push(user);
-    }    
+    }
   };
 
   root.FollowingStore = $.extend({}, EventEmitter.prototype, {
@@ -40299,17 +40299,3 @@ var ApiUtil = {
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
