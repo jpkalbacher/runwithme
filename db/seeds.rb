@@ -68,7 +68,7 @@ Activity.create!([
   {start_time: "2015-11-24 21:17:04", owner_id: 3, latitude: 36.3934565, longitude: -121.92545997, location_description: "North Oralhaven", activity_type: "Cycling", canceled: false},
   {start_time: "2015-11-24 21:17:04", owner_id: 4, latitude: 36.393453, longitude: -121.06263604, location_description: "Ziemannport", activity_type: "Cycling", canceled: false},
   {start_time: "2015-11-24 21:17:04", owner_id: 5, latitude: 36.393457, longitude: -121.8360334, location_description: "Jevonbury", activity_type: "Running", canceled: false},
-  {start_time: "2015-11-24 21:17:04", owner_id: 6, latitude: 36.39345, longitude: -121.7054336, 9cation_description: "South Bernice", activity_type: "Swimming", canceled: false},
+  {start_time: "2015-11-24 21:17:04", owner_id: 6, latitude: 36.39345, longitude: -121.7054336, location_description: "South Bernice", activity_type: "Swimming", canceled: false},
   {start_time: "2015-11-24 21:17:04", owner_id: 1, latitude: 36.393451, longitude: -121.08677416, location_description: "Bartolettimouth", activity_type: "Swimming", canceled: false},
   {start_time: "2015-11-24 21:17:04", owner_id: 2, latitude: 36.393455, longitude: -121.3872388, location_description: "New Gudrun", activity_type: "Running", canceled: false},
   {start_time: "2015-11-24 21:17:04", owner_id: 1, latitude: 39.34534565, longitude: -121.50624062, location_description: "Port Adaline", activity_type: "Swimming", canceled: false},
