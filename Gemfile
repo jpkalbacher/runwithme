@@ -32,6 +32,8 @@ gem 'pry-rails'
 
 gem 'bootstrap-sass'
 
+gem 'newrelic_rpm'
+
 gem 'underscore-rails'
 
 group :production do

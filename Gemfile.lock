@@ -102,6 +102,7 @@ GEM
     minitest (5.8.1)
     multi_json (1.11.2)
     netrc (0.10.3)
+    newrelic_rpm (3.9.9.275)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     pg (0.18.3)
@@ -210,6 +211,7 @@ DEPENDENCIES
   flux-rails-assets
   jbuilder (~> 2.0)
   jquery-rails
+  newrelic_rpm
   pg
   pry-rails
   rails (= 4.2.4)

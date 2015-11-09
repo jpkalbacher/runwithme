@@ -3,6 +3,7 @@ window.Map = React.createClass({
 
 	componentDidMount: function(){
     this.markers = [];
+
     var map = React.findDOMNode(this.refs.map);
     var mapOptions = {
       center: {lat: 37.7758, lng: -122.435},
@@ -60,11 +61,21 @@ window.Map = React.createClass({
 
 	addMarker: function(activity){
 		var that = this;
+		var markers = {
+			"Skiing": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447039368/ski9_oi7ytl.png",
+			"Running": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447039368/sprint_x6tpol.png",
+			"Cycling": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447039368/cycling_xmkkrz.png",
+			"Surfing": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447039368/surf6_oni7wc.png",
+			"Climbing": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447039368/climb_w7fdvj.png",
+			"Swimming": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447039368/stick-man1_v86nh6.png",
+			"Hiking": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447039368/hiking3_nqjhp3.png"
+		};
 		var pos = new google.maps.LatLng(activity.latitude, activity.longitude);
 		var marker = new google.maps.Marker({
 			position: pos,
 			map: this.map,
-			activityId: activity.id
+			activityId: activity.id,
+			icon: markers[activity.activity_type]
 		});
 		marker.addListener('click', function(){
 			that.props.onMarkerClick(activity);

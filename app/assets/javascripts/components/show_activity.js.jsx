@@ -42,7 +42,16 @@ var ShowActivity = React.createClass({
       var header = (
           <h1> Other {this.state.activity.activity_type}s </h1>
       )
-    }
+    };
+    var images = {
+      "Surfing": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038364/surf6_dvujuk.png",
+      "Swimming": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038365/stick-man1_dleukg.png",
+      "Running": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038363/sprint_vbmf0l.png",
+      "Skiing": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038363/ski9_hhlqrr.png",
+      "Hiking": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038363/hiking3_askemn.png",
+      "Cycling": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038363/cycling_rxdmte.png",
+      "Climbing": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038363/climb_wvbmj5.png"
+    };
     if (this.state.activity.owner) {
       return (
         <div className="container activity-details">
@@ -68,8 +77,8 @@ var ShowActivity = React.createClass({
                 <h4>{this.state.activity.description}</h4>
                 < RSVP activity={this.state.activity}/>
               </div>
-              <div className="col-md-4 col-xs-12 organizer-info">
-                <h4>organizer: {this.state.activity.owner.display_name}</h4>
+              <div className="col-md-4 col-xs-12 map-user-photo">
+                <img src={images[this.state.activity.activity_type]} />
               </div>
             </div>
           </div>
