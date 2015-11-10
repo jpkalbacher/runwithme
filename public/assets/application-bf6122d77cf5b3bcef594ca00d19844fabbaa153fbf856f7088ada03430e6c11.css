@@ -9043,20 +9043,29 @@ td.year:hover {
 }
 
 /* line 26, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+.footer {
+  background-color: #eee;
+  padding-top: 60px;
+}
+
+/* line 31, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .search-form {
   text-align: center;
   margin-bottom: 25px;
 }
 
-/* line 31, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 36, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .app {
   background-color: rgba(163, 173, 167, 0.49);
+  position: relative;
 }
 
-/* line 35, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 41, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .display-box {
   padding: 0;
   width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
   position: relative;
   display: block;
   top: 0px;
@@ -9067,52 +9076,52 @@ td.year:hover {
   overflow-x: hidden;
 }
 
-/* line 48, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 56, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .col-xs-4.map-user-photo {
   padding: 0;
 }
 
-/* line 52, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 60, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .row {
   margin: 0;
 }
 
-/* line 56, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 64, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .display-box.panel {
   margin-bottom: 0;
 }
 
-/* line 60, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 68, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .container.activity-details {
   width: 100%;
   padding: 0;
 }
 
-/* line 65, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 73, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .display-box ul li {
   display: inline;
 }
 
-/* line 69, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 77, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .display-box h3 {
   font-family: roboto;
   text-align: center;
 }
 
-/* line 74, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 82, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .display-box h4 {
   font-family: roboto;
   text-align: center;
 }
 
-/* line 79, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 87, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .submit-button {
   width: 100%;
   border-radius: 0;
   position: relative;
 }
 
-/* line 85, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 93, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 button[value="true"] {
   background: #fff;
   box-shadow: none;
@@ -9120,12 +9129,12 @@ button[value="true"] {
   margin-top: 3px;
 }
 
-/* line 92, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 100, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 button[value="false"] {
   box-shadow: 0 3px 0 0 #8c8c8c;
 }
 
-/* line 96, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 104, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .show-filters {
   position: absolute;
   top: 50px;
@@ -9134,12 +9143,12 @@ button[value="false"] {
   background-color: #eee;
 }
 
-/* line 104, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 112, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .show-filters button {
   border-radius: 0;
 }
 
-/* line 108, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 116, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .create-button {
   float: right;
   position: relative;
@@ -9148,10 +9157,10 @@ button[value="false"] {
   border-radius: 0;
 }
 
-/* line 116, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 124, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .profile {
   width: 100%;
-  max-width: 1300px;
+  max-width: 980px;
   min-height: 100%;
   padding-left: 0;
   padding-right: 0;
@@ -9159,16 +9168,16 @@ button[value="false"] {
   margin: 0 auto;
 }
 
-/* line 126, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 134, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .map {
-  width: 100vw;
+  width: 100%;
+  max-width: 980px;
   height: calc(100vh - 200px);
-  max-height: 500px;
-  max-width: 1300px;
+  max-height: 450px;
   margin-top: 57px;
 }
 
-/* line 134, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 142, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .show-activity {
   font-family: roboto;
   position: absolute;
@@ -9177,47 +9186,47 @@ button[value="false"] {
   z-index: 200;
 }
 
-/* line 142, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 150, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .list {
   float: left;
 }
 
-/* line 146, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 154, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .form-box {
   max-height: 400px;
   max-width: 300px;
   float: right;
 }
 
-/* line 152, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 160, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .center_div {
   margin: 0 auto;
   width: 100%;
 }
 
-/* line 157, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 165, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .center {
   text-align: center;
 }
 
-/* line 161, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 169, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .center form {
   display: inline-block;
 }
 
-/* line 166, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 174, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
-/* line 170, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 178, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .fb-profile img.fb-image-lg {
   z-index: 0;
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 176, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 184, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .fb-image-profile {
   margin: -90px 10px 0px 50px;
   z-index: 9;
@@ -9225,25 +9234,25 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* line 184, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+  /* line 192, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
   .fb-profile-text > h1 {
     font-weight: 700;
     font-size: 16px;
   }
 
-  /* line 189, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+  /* line 197, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
   .fb-image-profile {
     margin: -45px 10px 0px 25px;
     z-index: 9;
     width: 20%;
   }
 }
-/* line 196, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 204, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .followers-table {
   margin-top: 150px;
 }
 
-/* line 200, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 208, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card {
   background-color: rgba(214, 224, 226, 0.2);
   -webkit-box-sizing: border-box;
@@ -9253,7 +9262,7 @@ body {
   text-align: center;
 }
 
-/* line 215, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 223, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card.hovercard {
   position: relative;
   display: inline-block;
@@ -9264,7 +9273,7 @@ body {
   background-color: white;
 }
 
-/* line 225, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 233, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .useravatar img {
   width: 150px;
   height: 150px;
@@ -9273,7 +9282,7 @@ body {
   border: 5px solid rgba(255, 255, 255, 0.5);
 }
 
-/* line 236, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 244, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .search-result img {
   width: 150px;
   height: 150px;
@@ -9282,39 +9291,39 @@ body {
   border: 5px solid rgba(255, 255, 255, 0.5);
 }
 
-/* line 247, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 255, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card.hovercard.card-bkimg img {
   min-width: 700px;
   max-width: 1300px;
   height: auto;
 }
 
-/* line 253, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 261, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .hovercard {
   position: relative;
   display: inline-block;
 }
 
-/* line 258, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 266, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card.hovercard .card-background {
   height: 130px;
 }
 
-/* line 261, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 269, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card-background img {
   min-width: 700px;
   max-width: 1300px;
   height: auto;
 }
 
-/* line 274, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 282, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card.hovercard .useravatar {
   position: absolute;
   bottom: 15px;
   left: 15px;
 }
 
-/* line 281, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 289, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card.hovercard .card-info {
   position: absolute;
   bottom: 14px;
@@ -9322,7 +9331,7 @@ body {
   right: 0;
 }
 
-/* line 287, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 295, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card.hovercard .card-info .card-title {
   padding: 0 5px;
   font-size: 20px;
@@ -9331,7 +9340,7 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* line 297, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 305, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card.hovercard .card-info {
   overflow: hidden;
   font-size: 12px;
@@ -9340,50 +9349,50 @@ body {
   text-overflow: ellipsis;
 }
 
-/* line 304, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 312, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .card.hovercard .bottom {
   padding: 0 20px;
   margin-bottom: 17px;
 }
 
-/* line 308, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 316, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .btn-pref .btn {
   -webkit-border-radius: 0 !important;
 }
 
-/* line 312, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 320, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .profile-row {
   height: 150px;
 }
 
 /*=== 1. General Structure ===*/
 /*=== 2. Anchor Link ===*/
-/* line 323, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 331, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 a {
   color: #aaaaaa;
   transition: all ease-in-out 200ms;
 }
 
-/* line 327, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 335, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 a:hover {
   color: #333333;
   text-decoration: none;
 }
 
 /*=== 3. Text Outside the Box ===*/
-/* line 332, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 340, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .etc-login-form {
   color: #919191;
   padding: 10px 20px;
 }
 
-/* line 336, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 344, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .etc-login-form p {
   margin-bottom: 5px;
 }
 
 /*=== 4. Main Form ===*/
-/* line 340, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 348, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-background {
   background-color: #555555;
   opacity: .99;
@@ -9392,18 +9401,18 @@ a:hover {
   display: inline-block;
 }
 
-/* line 349, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 357, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 {
   max-width: 300px;
   display: inline-block;
 }
 
-/* line 354, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 362, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .main-login-form {
   position: relative;
 }
 
-/* line 357, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 365, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .form-control {
   border: 0;
   box-shadow: 0 0 0;
@@ -9414,19 +9423,19 @@ a:hover {
   height: auto;
 }
 
-/* line 367, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 375, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .form-control::-webkit-input-placeholder {
   color: #999999;
 }
 
-/* line 370, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 378, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .form-control:-moz-placeholder,
 .login-form-1 .form-control::-moz-placeholder,
 .login-form-1 .form-control:-ms-input-placeholder {
   color: #999999;
 }
 
-/* line 375, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 383, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .form-group {
   margin-bottom: 0;
   border-bottom: 2px solid #efefef;
@@ -9434,12 +9443,12 @@ a:hover {
   position: relative;
 }
 
-/* line 381, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 389, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .form-group:last-child {
   border-bottom: 0;
 }
 
-/* line 384, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 392, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-group {
   background: #ffffff;
   color: #999999;
@@ -9448,7 +9457,7 @@ a:hover {
 }
 
 /*=== 5. Login Button ===*/
-/* line 393, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 401, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .login-button {
   position: absolute;
   right: -25px;
@@ -9464,34 +9473,34 @@ a:hover {
   transition: all ease-in-out 500ms;
 }
 
-/* line 407, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 415, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .login-button:hover {
   color: #555555;
   transform: rotate(450deg);
 }
 
-/* line 411, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 419, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .login-button.clicked {
   color: #555555;
 }
 
-/* line 414, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 422, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .login-button.clicked:hover {
   transform: none;
 }
 
-/* line 417, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 425, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .login-button.clicked.success {
   color: #2ecc71;
 }
 
-/* line 420, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 428, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-1 .login-button.clicked.error {
   color: #e74c3c;
 }
 
 /*=== 6. Form Invalid ===*/
-/* line 424, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 432, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 label.form-invalid {
   position: absolute;
   top: 0;
@@ -9506,7 +9515,7 @@ label.form-invalid {
   font-size: 11px;
 }
 
-/* line 438, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 446, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 label.form-invalid:after {
   top: 100%;
   right: 10px;
@@ -9522,7 +9531,7 @@ label.form-invalid:after {
 }
 
 /*=== 7. Form - Main Message ===*/
-/* line 452, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 460, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-main-message {
   background: #ffffff;
   color: #999999;
@@ -9535,30 +9544,30 @@ label.form-invalid:after {
   transition: all ease-in-out 200ms;
 }
 
-/* line 464, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 472, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-main-message.show {
   height: auto;
   opacity: 1;
   padding: 10px 20px 10px 17px;
 }
 
-/* line 469, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 477, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-main-message.success {
   border-left-color: #2ecc71;
 }
 
-/* line 472, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 480, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .login-form-main-message.error {
   border-left-color: #e74c3c;
 }
 
 /* hover style just for information */
-/* line 476, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 484, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 label:hover:before {
   border: 1px solid #f6f6f6 !important;
 }
 
-/* line 480, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 488, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .logo {
   padding: 15px 0;
   font-size: 25px;
@@ -9566,7 +9575,7 @@ label:hover:before {
   font-weight: bold;
 }
 
-/* line 487, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 495, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .sign-out {
   padding-right: 15px;
   padding-top: 5px;
@@ -9574,45 +9583,45 @@ label:hover:before {
   float: right !important;
 }
 
-/* line 494, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 502, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .sign-in {
   padding-left: 10px;
 }
 
-/* line 498, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 506, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .clearfix:after {
   clear: both;
   display: block;
   content: "";
 }
 
-/* line 504, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 512, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .useravatar {
   position: relative;
   display: inline-block;
 }
 
-/* line 509, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 517, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .useravatar:hover {
   cursor: pointer;
 }
 
-/* line 513, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 521, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .edit:hover {
   cursor: pointer;
 }
 
-/* line 517, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 525, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .useravatar:hover .edit {
   display: block;
 }
 
-/* line 521, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 529, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .hovercard:hover .card.hovercard.edit {
   display: block;
 }
 
-/* line 525, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 533, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .edit {
   padding-top: 7px;
   padding-right: 7px;
@@ -9622,55 +9631,55 @@ label:hover:before {
   display: none;
 }
 
-/* line 534, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 542, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .edit a {
   color: #000;
 }
 
-/* line 538, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 546, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .map-user-photo img {
   width: 100%;
 }
 
-/* line 542, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 550, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .row-user-photo {
   height: 130px;
   width: 130px;
 }
 
-/* line 547, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 555, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .row-user-photo img {
   width: 100%;
 }
 
-/* line 551, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 559, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .activity-form {
   margin-bottom: 5px;
 }
 
-/* line 555, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 563, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .search-result.container-fluid.profile-row td {
   font-family: Roboto;
   font-size: 24px;
 }
 
-/* line 560, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 568, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .follow-button {
   border-radius: 0;
 }
 
-/* line 564, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 572, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .main-page {
-  max-width: 1300px;
   margin: 0 auto;
+  max-width: 980px;
 }
 
-/* line 569, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 577, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .well.follow-container {
   overflow-y: scroll;
 }
 
-/* line 572, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 580, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .btn.btn-default.remove {
   float: right;
   border: none;
@@ -9679,81 +9688,81 @@ label:hover:before {
   background-color: rgba(1, 1, 1, 0);
 }
 
-/* line 580, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 588, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .clearfix .box-top {
   height: 40px;
   background-color: rgba(5, 110, 0, 0.7);
 }
 
-/* line 585, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 593, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .activity-description {
   background-color: rgba(204, 204, 204, 0);
   padding: 15px 0 15px 0;
 }
 
-/* line 590, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 598, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .organizer-info {
   padding: 178px 0 177px 0;
   background-color: rgba(71, 130, 179, 0.53);
 }
 
-/* line 595, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 603, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .display-box .panel {
   border: none;
 }
 
-/* line 599, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 607, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .edit-activity-form {
   padding: 15px;
   background-color: rgba(5, 110, 0, 0.2);
 }
 
-/* line 604, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 612, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .create-activity-form {
   padding: 15px;
   background-color: rgba(5, 110, 0, 0.2);
 }
 
-/* line 609, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 617, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .edit-profile-form {
   padding: 15px;
   text-align: center;
   background-color: rgba(5, 110, 0, 0.2);
 }
 
-/* line 615, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 623, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .btn.edit-button {
   width: 149px;
   border-radius: 0;
 }
 
-/* line 620, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 628, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .map-view {
-  max-height: 500px;
+  max-height: 450px;
   min-height: 400px;
   position: relative;
 }
 
-/* line 626, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 634, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .navbar-nav {
   width: 100%;
-  max-width: 1300px;
+  max-width: 980px;
   margin: 0 auto;
   float: none;
 }
-/* line 631, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 639, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .navbar-nav > li {
   float: none;
   display: inline-block;
 }
 
-/* line 637, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 645, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .rsvp {
   padding: 15px;
   text-align: center;
 }
 
-/* line 642, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 650, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .navbar-title {
   font-family: 'Exo 2', sans-serif;
   font-size: 40px;
@@ -9761,31 +9770,31 @@ label:hover:before {
   color: rgba(5, 110, 0, 0.9);
 }
 
-/* line 649, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 657, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .navbar-default {
   background-color: #EEE;
 }
 
-/* line 653, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 661, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .description {
   background-color: rgba(5, 110, 0, 0.2);
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 659, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 667, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .display-box h5 {
   font-family: roboto;
   text-align: center;
   overflow-x: scroll;
 }
 
-/* line 665, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 673, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .dropdown-menu {
   right: 0;
 }
 
-/* line 669, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
+/* line 677, /Users/jeffkalbacher/Documents/Capstone/RunWithMe/app/assets/stylesheets/application.scss */
 .btn.btn-lg.dropdown-toggle, .btn-group-lg > .btn.dropdown-toggle {
   background-color: #eee;
   border: none;

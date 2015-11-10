@@ -39108,6 +39108,13 @@ var UsersTable = React.createClass({
     );
   }
 });
+var Footer = React.createClass({
+  displayName: "Footer",
+
+  render: function () {
+    return React.createElement("div", { className: "footer" });
+  }
+});
 var _getActivities = function () {
   return ActivityStore.all();
 };
@@ -39353,7 +39360,7 @@ var Profile = React.createClass({
   render: function () {
     return React.createElement(
       "div",
-      { className: "col-lg-6 col-sm-6 profile" },
+      { className: "profile" },
       React.createElement(ProfileNav, null),
       React.createElement(FollowContainer, null)
     );
@@ -39589,7 +39596,7 @@ var ShowActivity = React.createClass({
 
   render: function () {
     var rows = [];
-    if (this.state.activity.attendees) {
+    if (this.state.activity.attendees && this.state.activity.attendees.count !== 0) {
       this.state.activity.attendees.forEach(function (attendee) {
         rows.push(React.createElement(UserRow, { user: attendee, key: attendee.id }));
       });
@@ -39601,6 +39608,7 @@ var ShowActivity = React.createClass({
         "s "
       );
     };
+
     var images = {
       "Surfing": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038364/surf6_dvujuk.png",
       "Swimming": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038365/stick-man1_dleukg.png",
@@ -39669,11 +39677,6 @@ var ShowActivity = React.createClass({
               React.createElement("img", { src: images[this.state.activity.activity_type] })
             )
           )
-        ),
-        React.createElement(
-          "div",
-          null,
-          header
         ),
         React.createElement(
           "table",
@@ -39781,9 +39784,10 @@ $(function () {
     render: function () {
       return React.createElement(
         "div",
-        { className: "app clearfix" },
+        { className: "app clearfix container" },
         React.createElement(Navbar, null),
-        this.props.children
+        this.props.children,
+        React.createElement(Footer, null)
       );
     }
   });
