@@ -8,9 +8,10 @@ $(function (){
   var App = React.createClass({
     render: function(){
       return (
-        <div className="app clearfix">
+        <div className="app clearfix container">
           < Navbar />
           {this.props.children}
+          < Footer />
         </div>
       )
     }

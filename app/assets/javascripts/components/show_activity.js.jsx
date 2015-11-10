@@ -35,7 +35,7 @@ var ShowActivity = React.createClass({
 
   render: function() {
     var rows = [];
-    if(this.state.activity.attendees){
+    if(this.state.activity.attendees && this.state.activity.attendees.count !== 0){
       this.state.activity.attendees.forEach(function(attendee){
         rows.push(<UserRow user={attendee} key={attendee.id} />);
       });
@@ -43,6 +43,7 @@ var ShowActivity = React.createClass({
           <h1> Other {this.state.activity.activity_type}s </h1>
       )
     };
+
     var images = {
       "Surfing": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038364/surf6_dvujuk.png",
       "Swimming": "http://res.cloudinary.com/dbw79utiw/image/upload/v1447038365/stick-man1_dleukg.png",
@@ -81,9 +82,6 @@ var ShowActivity = React.createClass({
                 <img src={images[this.state.activity.activity_type]} />
               </div>
             </div>
-          </div>
-          <div>
-            {header}
           </div>
           <table className="table table-striped">
             <tbody>{rows}</tbody>

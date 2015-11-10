@@ -37,7 +37,7 @@ var Main = React.createClass({
               activities={this.state.activities}
               />
         {this.props.children}
-        <Profile / >
+        < Profile / >
       </div>
     )
   }
