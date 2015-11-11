@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='https://fonts.googleapis.com/css?family=Exo+2:400,500,700' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANEtT0YyTWgXxBkTmXd3hlegItLe394-g&libraries=geometry,places"
+    type="text/javascript"></script>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -15,12 +17,8 @@
   <% end %>
 </head>
 <body>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANEtT0YyTWgXxBkTmXd3hlegItLe394-g&libraries=geometry,places"
-    type="text/javascript"></script>
 
 <%= flash[:errors].join(", ") if flash[:errors] %>
-
-
 <%= yield %>
 
 </body>
