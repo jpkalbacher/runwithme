@@ -35,7 +35,7 @@ var RSVP = React.createClass({
     }
     return (
       <div className="rsvp">
-        <span>RSVP</span>
+        <span>RSVP</span><br /><br />
         <span>{buttons}</span>
       </div>
     )

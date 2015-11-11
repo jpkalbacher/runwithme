@@ -11,10 +11,7 @@ $(function (){
         <div className="app clearfix container">
           < Navbar />
           {this.props.children}
-          <div className="footer">
-            <div className="container">
-            </div>
-          </div>
+          < Footer />
         </div>
       )
     }

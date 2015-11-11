@@ -40,7 +40,7 @@ var ShowActivity = React.createClass({
         rows.push(<UserRow user={attendee} key={attendee.id} />);
       });
       var header = (
-          <h1> Other {this.state.activity.activity_type}s </h1>
+          <h1 className='other-attendees'>Other Attendees</h1>
       )
     };
 
@@ -83,6 +83,7 @@ var ShowActivity = React.createClass({
               </div>
             </div>
           </div>
+          {header}
           <table className="table table-striped">
             <tbody>{rows}</tbody>
           </table>
