@@ -39112,7 +39112,55 @@ var Footer = React.createClass({
   displayName: "Footer",
 
   render: function () {
-    return React.createElement("div", { className: "footer" });
+    return React.createElement(
+      "div",
+      { className: "footer" },
+      React.createElement(
+        "div",
+        { className: "container footer-container" },
+        React.createElement(
+          "div",
+          { className: "about-footer" },
+          React.createElement(
+            "h6",
+            null,
+            React.createElement(
+              "strong",
+              null,
+              "About"
+            )
+          ),
+          React.createElement(
+            "p",
+            null,
+            "GetOutside is an ongoing project born out of a frustration in finding people to surf with, bike with and run with. Hopefully you use this as a place to turn to the next time you find yourself sitting on the couch on a nice day. Please contact me with any questions or feedback!"
+          )
+        ),
+        React.createElement(
+          "div",
+          { className: "contact-footer" },
+          React.createElement(
+            "h6",
+            null,
+            React.createElement(
+              "strong",
+              null,
+              "Contact"
+            )
+          ),
+          React.createElement(
+            "p",
+            null,
+            "e: jpkalbacher@gmail.com ",
+            React.createElement("br", null),
+            "p: (860) 878-8556 ",
+            React.createElement("br", null),
+            "github.com/jpkalbacher ",
+            React.createElement("br", null)
+          )
+        )
+      )
+    );
   }
 });
 var _getActivities = function () {
@@ -39549,6 +39597,8 @@ var RSVP = React.createClass({
         null,
         "RSVP"
       ),
+      React.createElement("br", null),
+      React.createElement("br", null),
       React.createElement(
         "span",
         null,
@@ -39602,10 +39652,8 @@ var ShowActivity = React.createClass({
       });
       var header = React.createElement(
         "h1",
-        null,
-        " Other ",
-        this.state.activity.activity_type,
-        "s "
+        { className: "other-attendees" },
+        "Other Attendees"
       );
     };
 
@@ -39678,6 +39726,7 @@ var ShowActivity = React.createClass({
             )
           )
         ),
+        header,
         React.createElement(
           "table",
           { className: "table table-striped" },
