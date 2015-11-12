@@ -1,3 +1,16 @@
+#About
+
+www.getoutside.xyz is a web application built with Ruby on Rails and React.js. As a user, you can find and join activities.
+
+#TODOS
+
+- [ ] Implement activity stream to show users upcoming    activities
+- [ ] Add filter by activity
+- [ ] Add filter by time
+- [ ] Build out user profile to show friend requests
+
+
+
 # MVP
 
 Minimum Viable Product
