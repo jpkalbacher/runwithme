@@ -19,7 +19,6 @@ var Footer = React.createClass({
             </p>
           </div>
         </div>
-
       </div>
     )
   }
