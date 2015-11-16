@@ -6,6 +6,13 @@ window.ApiActions = {
     });
   },
 
+  receiveMyActivities: function(activities) {
+    AppDispatcher.dispatch({
+      actionType: ActivityConstants.MY_ACTIVITIES_RECEIVED,
+      activities: activities
+    });
+  },
+
   receiveSingleActivity: function(activity) {
     AppDispatcher.dispatch({
       actionType: ActivityConstants.SINGLE_ACTIVITY_RECEIVED,

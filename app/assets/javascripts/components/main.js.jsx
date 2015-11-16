@@ -37,6 +37,7 @@ var Main = React.createClass({
               activities={this.state.activities}
               />
         {this.props.children}
+        < ActivityFeed />
         < Profile / >
       </div>
     )

@@ -6,7 +6,30 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def index
-    @activities = Activity.includes(:owner, :attendees).in_bounds(bounds)
+    if bounds
+      @activities = Activity.includes(:owner, :attendees).in_bounds(bounds)
+    else
+      time = Time.now
+      user_id = current_user.id
+      @activities = Activity.find_by_sql(
+        "(SELECT
+            *
+          FROM
+            activities
+          WHERE
+            owner_id = #{user_id} AND start_time > '#{time}')
+          UNION
+            (SELECT
+              activities.*
+            FROM
+              activities
+            JOIN
+              attendees ON activities.id = attendees.activity_id
+            WHERE
+              attendees.user_id = #{user_id} AND
+              start_time > '#{time}')
+          ORDER BY start_time ASC")
+    end
   end
 
   def create

@@ -153,4 +153,18 @@ var ApiUtil = {
       }
     });
   },
+
+  fetchMyActivities: function(){
+    $.ajax({
+      url: 'api/activities',
+      type: 'GET',
+      dataType: 'json',
+      success: function(activities) {
+        ApiActions.receiveMyActivities(activities);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  }
 };
