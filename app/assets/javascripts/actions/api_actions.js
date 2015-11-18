@@ -25,5 +25,12 @@ window.ApiActions = {
       actionType: ActivityConstants.CHANGE_FILTERS,
       filters: filters
     });
-  }
+  },
+
+  receiveNewActivity: function(activity) {
+    AppDispatcher.dispatch({
+      actionType: ActivityConstants.NEW_ACTIVITY,
+      activity: activity
+    });
+  },
 };

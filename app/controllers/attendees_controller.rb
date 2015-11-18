@@ -7,13 +7,17 @@ class AttendeesController < ApplicationController
     attendee = Attendee.new(attendee_params)
     attendee.user_id = current_user.id
     attendee.save
-    render json: {}
+    @activities = current_user.attending_activities
+    render :index
   end
 
   def show
   end
 
+  # attendees index only renders current activities current user is attending
   def index
+    @activities = current_user.attending_activities
+    render :index
   end
 
   private

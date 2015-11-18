@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029010735) do
+ActiveRecord::Schema.define(version: 20151116230809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151029010735) do
     t.string   "activity_type"
     t.boolean  "canceled",             default: false, null: false
     t.string   "description"
+    t.boolean  "public"
   end
 
   add_index "activities", ["owner_id"], name: "index_activities_on_owner_id", using: :btree

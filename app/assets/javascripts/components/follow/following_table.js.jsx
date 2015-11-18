@@ -17,6 +17,7 @@ var FollowingTable = React.createClass({
     this.setState({following: FollowingStore.all()});
   },
 
+
   render: function() {
     var rows = [];
     this.state.following.forEach(function(following){

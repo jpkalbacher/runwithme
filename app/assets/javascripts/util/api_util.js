@@ -41,7 +41,7 @@ var ApiUtil = {
       type: 'POST',
       data: activity,
       success: function(activity) {
-        ApiActions.receiveSingleActivity(activity);
+        ApiActions.receiveNewActivity(activity);
       }
     });
   },
@@ -148,8 +148,8 @@ var ApiUtil = {
       url: 'attendees/',
       type: 'POST',
       data: {attendee:{activity_id:activity}},
-      success: function(){
-        window.location.href = "/#/main/";
+      success: function(activities){
+        ApiActions.receiveMyActivities(activities);
       }
     });
   },

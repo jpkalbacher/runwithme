@@ -9,3 +9,11 @@ else
 end
 json.attending attending
 json.start_time @activity.start_time.strftime("%A, %d %b %Y %l:%M %p")
+if @activity.owner_id == current_user.id
+  json.owner 'currentUser'
+elsif @activity.owner.followed_by?(current_user)
+  json.owner 'followee'
+else
+  json.owner 'other'
+end
+json.owner_name @activity.owner.display_name

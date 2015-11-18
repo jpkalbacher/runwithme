@@ -1,8 +1,12 @@
 var CreateActivityForm = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function () {
-    return { activity_type:"", location_description:"",
-     start_time:"" };
+    return {
+      activity_type:"",
+      location_description:"",
+      start_time:"",
+      public: true
+    };
   },
 
   componentDidMount: function(){
@@ -64,6 +68,11 @@ var CreateActivityForm = React.createClass({
     this.props.history.pushState(null, "/main/");
   },
 
+  togglePublic: function(){
+    var publicToggle = !this.state.public;
+    this.setState({public: publicToggle});
+  },
+
   render: function(){
     return (
       <div className="row">
@@ -108,6 +117,20 @@ var CreateActivityForm = React.createClass({
                         rows="4"
                         placeholder="Description...">
               </textarea>
+            </div>
+            <div className="radio-inline">
+              <label className="radio-inline">
+                <input type="radio"
+                       onChange={this.togglePublic}
+                       checked={this.state.public}>
+                       Public</input>
+              </label>
+              <label className="radio-inline">
+                <input type="radio"
+                       onChange={this.togglePublic}
+                       checked={!this.state.public}>
+                       Followers Only</input>
+              </label>
             </div>
           </form>
           <button className="submit-button btn btn-default btn-lg"

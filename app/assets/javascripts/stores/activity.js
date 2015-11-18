@@ -14,6 +14,11 @@
     _single_activity = singleActivity;
   };
 
+  var addActivity = function(activity){
+    _activities.push(activity);
+    console.log(_activities);
+  };
+
   var resetFilters = function(filters){
     _current_filters = filters;
   };
@@ -89,6 +94,10 @@
           break;
         case ActivityConstants.CHANGE_FILTERS:
           resetFilters(payload.filters);
+          ActivityStore.emit(CHANGE_EVENT);
+          break;
+        case ActivityConstants.NEW_ACTIVITY:
+          addActivity(payload.activity);
           ActivityStore.emit(CHANGE_EVENT);
           break;
         }

@@ -7,6 +7,10 @@
     _myActivities = activities;
   };
 
+  var addActivity = function(activity){
+    _myActivities.push(activity);
+  };
+
   root.MyActivitiesStore = $.extend({}, EventEmitter.prototype, {
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);
@@ -24,6 +28,10 @@
       switch(payload.actionType){
         case ActivityConstants.MY_ACTIVITIES_RECEIVED:
           resetActivities(payload.activities);
+          MyActivitiesStore.emit(CHANGE_EVENT);
+          break;
+        case ActivityConstants.MY_NEW_ACTIVITY:
+          addActivity(payload.activity);
           MyActivitiesStore.emit(CHANGE_EVENT);
           break;
         }
