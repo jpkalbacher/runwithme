@@ -11,7 +11,7 @@ class Api::ActivitiesController < ApplicationController
     else
       time = Time.now
       user_id = current_user.id
-      @activities = Activity.find_by_sql(
+      @activities = Activity.includes(:owner, :attendees).find_by_sql(
         "(SELECT
             *
           FROM
