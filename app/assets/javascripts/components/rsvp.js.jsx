@@ -1,6 +1,9 @@
 var RSVP = React.createClass({
   getInitialState: function(){
-    return {activity:this.props.activity};
+    return {
+      activity:this.props.activity,
+      attending:this.props.activity.attending
+    };
   },
 
   componentDidMount: function(){
@@ -17,26 +20,31 @@ var RSVP = React.createClass({
   },
 
   _handleAttend: function (e){
-    var activity = this.state.activity.id;
+    var activityId = this.state.activity.id;
     e.preventDefault();
-    ApiUtil.handleAttend(activity);
+    if (this.state.attending === true) {
+      ApiUtil.deleteAttend(activityId);
+    } else {
+      ApiUtil.handleAttend(activityId);
+    }
+    var attending = !this.state.attending;
+    this.setState({attending:attending});
   },
 
   render: function(){
-    if(this.state.activity.attending === false){
-      var buttons = (
-      <button className="submit-button btn btn-default btn-lg"
-        onClick={this._handleAttend}>
-        Join
-      </button>
-      );
+    var buttonLabel;
+    if(this.state.attending){
+      buttonLabel = "Not Going";
     } else {
-      buttons = "You are attending";
+      buttonLabel = "Join";
     }
     return (
       <div className="rsvp">
         <span>RSVP</span><br /><br />
-        <span>{buttons}</span>
+        <button className="submit-button btn btn-default btn-lg"
+          onClick={this._handleAttend}>
+          {buttonLabel}
+        </button>
       </div>
     )
   },

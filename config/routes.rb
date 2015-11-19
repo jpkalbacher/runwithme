@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resource :follow, only: [:create, :destroy]
   end
 
-  resources :attendees, only: [:new, :create, :index, :show]
+  resources :attendees, only: [:new, :create, :index, :show, :destroy]
   resource :session, only: [:new, :create, :destroy]
 end

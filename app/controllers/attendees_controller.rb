@@ -14,6 +14,13 @@ class AttendeesController < ApplicationController
   def show
   end
 
+  def destroy
+    attendee = Attendee.where(activity_id: attendee_params[:activity_id])
+    Attendee.destroy(attendee[0].id)
+    @activities = current_user.attending_activities
+    render :index
+  end
+
   # attendees index only renders current activities current user is attending
   def index
     @activities = current_user.attending_activities

@@ -143,11 +143,22 @@ var ApiUtil = {
     });
   },
 
-  handleAttend: function(activity){
+  handleAttend: function(activityId){
     $.ajax({
       url: 'attendees/',
       type: 'POST',
-      data: {attendee:{activity_id:activity}},
+      data: {attendee:{activity_id:activityId}},
+      success: function(activities){
+        ApiActions.receiveMyActivities(activities);
+      }
+    });
+  },
+
+  deleteAttend: function(activityId){
+    $.ajax({
+      url: 'attendees/' + activityId,
+      type: 'DELETE',
+      data: {attendee:{activity_id:activityId}},
       success: function(activities){
         ApiActions.receiveMyActivities(activities);
       }
