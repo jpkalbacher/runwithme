@@ -1,15 +1,92 @@
 #About
 
-www.getoutside.xyz is a web application built with Ruby on Rails and React.js. As a user, you can find and join activities.
+www.getoutside.xyz is a web application built with Ruby on Rails and React.js.
+As a user, you can find and join activities.
+
+#Activity feed
+
+Activity feed pulls all activities that a user has created along with activities
+that the user is attending.
+
+```
+SELECT
+    *
+FROM
+    activities
+WHERE
+  owner_id = #{user_id} AND start_time > '#{time}')
+UNION
+  (SELECT
+    activities.*
+  FROM
+    activities
+  JOIN
+    attendees ON activities.id = attendees.activity_id
+  WHERE
+    attendees.user_id = #{user_id} AND
+    start_time > '#{time}')
+ORDER BY start_time ASC
+```
+
+#Google maps and autocomplete
+Google maps autocomplete allows users to search locations. Lat/Lng and location
+name are stored in the database.
+
+```
+  setupAutoComplete: function(){
+    var input = (document.getElementById('pac-input'));
+    var autocomplete = new google.maps.places.Autocomplete(input);
+    autocomplete.addListener('place_changed', this.getPlace.bind(this, autocomplete));
+  },
+
+  getPlace: function(autocomplete){
+    var place = autocomplete.getPlace();
+
+    var lat = place.geometry.location.lat();
+    var lng = place.geometry.location.lng();
+    var description = place.formatted_address.split(",")[0];
+
+    this.setState({latitude:lat});
+    this.setState({longitude:lng});
+    this.setState({location_description: description});
+  },
+```
+
+JSON responses are built using JBuilder to serve back to the front end.
+
+```
+json.array! @activities do |activity|
+  json.extract! activity, :id, :owner_id, :location_description, :latitude,
+                          :longitude, :canceled, :description
+  json.activity_type activity.activity_type.capitalize
+  json.owner_picture_url activity.owner.profile_photo_url
+  json.start_time activity.start_time.strftime("%A, %d %b %Y %l:%M %p")
+  if activity.attendees
+    attendees_array = []
+    activity.attendees.each do |attendee|
+      name = attendee.display_name
+      photo = attendee.profile_photo_url
+      attendees_array << {display_name: name, profile_photo_url: photo}
+    end
+    json.attendees attendees_array
+  end
+  if activity.owner_id == current_user.id
+    json.owner 'currentUser'
+  elsif activity.owner.followed_by?(current_user)
+    json.owner 'followee'
+  else
+    json.owner 'other'
+  end
+  json.owner_name activity.owner.display_name
+end
+```
+
+
 
 #TODOS
-
-- [ ] Implement activity stream to show users upcoming    activities
 - [ ] Add filter by activity
 - [ ] Add filter by time
-- [ ] Build out user profile to show friend requests
-
-
+- [ ] Build out user profile to show follow requests and ability to deny/approve followers
 
 # MVP
 

@@ -35,7 +35,7 @@ var ShowActivity = React.createClass({
 
   render: function() {
     var rows = [];
-    if(this.state.activity.attendees && this.state.activity.attendees.count !== 0){
+    if(this.state.activity.attendees && typeof this.state.activity.attendees.count !== 'undefined'){
       this.state.activity.attendees.forEach(function(attendee){
         rows.push(<UserRow user={attendee} key={attendee.id} />);
       });
