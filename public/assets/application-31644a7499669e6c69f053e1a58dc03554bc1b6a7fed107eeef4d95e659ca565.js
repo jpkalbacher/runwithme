@@ -38377,8 +38377,12 @@ var CreateActivityForm = React.createClass({
 
   mixins: [React.addons.LinkedStateMixin],
   getInitialState: function () {
-    return { activity_type: "", location_description: "",
-      start_time: "" };
+    return {
+      activity_type: "",
+      location_description: "",
+      start_time: "",
+      "public": true
+    };
   },
 
   componentDidMount: function () {
@@ -38438,6 +38442,11 @@ var CreateActivityForm = React.createClass({
 
   exitCreateView: function () {
     this.props.history.pushState(null, "/main/");
+  },
+
+  togglePublic: function () {
+    var publicToggle = !this.state["public"];
+    this.setState({ "public": publicToggle });
   },
 
   render: function () {
@@ -38529,6 +38538,32 @@ var CreateActivityForm = React.createClass({
               onChange: this.updateActivityDescription,
               rows: "4",
               placeholder: "Description..." })
+          ),
+          React.createElement(
+            "div",
+            { className: "radio-inline" },
+            React.createElement(
+              "label",
+              { className: "radio-inline" },
+              React.createElement(
+                "input",
+                { type: "radio",
+                  onChange: this.togglePublic,
+                  checked: this.state["public"] },
+                "Public"
+              )
+            ),
+            React.createElement(
+              "label",
+              { className: "radio-inline" },
+              React.createElement(
+                "input",
+                { type: "radio",
+                  onChange: this.togglePublic,
+                  checked: !this.state["public"] },
+                "Followers Only"
+              )
+            )
           )
         ),
         React.createElement(
@@ -39638,7 +39673,10 @@ var RSVP = React.createClass({
   displayName: "RSVP",
 
   getInitialState: function () {
-    return { activity: this.props.activity };
+    return {
+      activity: this.props.activity,
+      attending: this.props.activity.attending
+    };
   },
 
   componentDidMount: function () {
@@ -39655,21 +39693,23 @@ var RSVP = React.createClass({
   },
 
   _handleAttend: function (e) {
-    var activity = this.state.activity.id;
+    var activityId = this.state.activity.id;
     e.preventDefault();
-    ApiUtil.handleAttend(activity);
+    if (this.state.attending === true) {
+      ApiUtil.deleteAttend(activityId);
+    } else {
+      ApiUtil.handleAttend(activityId);
+    }
+    var attending = !this.state.attending;
+    this.setState({ attending: attending });
   },
 
   render: function () {
-    if (this.state.activity.attending === false) {
-      var buttons = React.createElement(
-        "button",
-        { className: "submit-button btn btn-default btn-lg",
-          onClick: this._handleAttend },
-        "Join"
-      );
+    var buttonLabel;
+    if (this.state.attending) {
+      buttonLabel = "Not Going";
     } else {
-      buttons = "You are attending";
+      buttonLabel = "Join";
     }
     return React.createElement(
       "div",
@@ -39682,15 +39722,16 @@ var RSVP = React.createClass({
       React.createElement("br", null),
       React.createElement("br", null),
       React.createElement(
-        "span",
-        null,
-        buttons
+        "button",
+        { className: "submit-button btn btn-default btn-lg",
+          onClick: this._handleAttend },
+        buttonLabel
       )
     );
   }
 });
 var ShowActivity = React.createClass({
-  displayName: "ShowActivity",
+  displayName: 'ShowActivity',
 
   mixins: [React.addons.LinkedStateMixin],
 
@@ -39728,14 +39769,14 @@ var ShowActivity = React.createClass({
 
   render: function () {
     var rows = [];
-    if (this.state.activity.attendees && this.state.activity.attendees.count !== 0) {
+    if (this.state.activity.attendees && typeof this.state.activity.attendees.count !== 'undefined') {
       this.state.activity.attendees.forEach(function (attendee) {
         rows.push(React.createElement(UserRow, { user: attendee, key: attendee.id }));
       });
       var header = React.createElement(
-        "h1",
-        { className: "other-attendees" },
-        "Other Attendees"
+        'h1',
+        { className: 'other-attendees' },
+        'Other Attendees'
       );
     };
 
@@ -39750,77 +39791,77 @@ var ShowActivity = React.createClass({
     };
     if (this.state.activity.owner) {
       return React.createElement(
-        "div",
-        { className: "container activity-details" },
+        'div',
+        { className: 'container activity-details' },
         React.createElement(
-          "div",
-          { className: "display-box panel panel-default panel-body" },
+          'div',
+          { className: 'display-box panel panel-default panel-body' },
           React.createElement(
-            "div",
-            { className: "clearfix box-top" },
+            'div',
+            { className: 'clearfix box-top' },
             React.createElement(
-              "button",
-              { type: "button",
+              'button',
+              { type: 'button',
                 onClick: this.exitShowView,
-                className: "btn btn-default remove",
-                "aria-label": "Right Align" },
-              React.createElement("span", { className: "glyphicon glyphicon-remove",
-                "aria-hidden": "true" })
+                className: 'btn btn-default remove',
+                'aria-label': 'Right Align' },
+              React.createElement('span', { className: 'glyphicon glyphicon-remove',
+                'aria-hidden': 'true' })
             )
           ),
           React.createElement(
-            "div",
-            { className: "row" },
+            'div',
+            { className: 'row' },
             React.createElement(
-              "div",
-              { className: "col-md-4 col-xs-12 map-user-photo" },
-              React.createElement("img", { src: this.state.activity.owner.profile_photo_url })
+              'div',
+              { className: 'col-md-4 col-xs-12 map-user-photo' },
+              React.createElement('img', { src: this.state.activity.owner.profile_photo_url })
             ),
             React.createElement(
-              "div",
-              { className: "col-md-4 col-xs-12 activity-description" },
+              'div',
+              { className: 'col-md-4 col-xs-12 activity-description' },
               React.createElement(
-                "h3",
+                'h3',
                 null,
                 this.state.activity.activity_type
               ),
               React.createElement(
-                "h4",
+                'h4',
                 null,
                 this.state.activity.start_time
               ),
               React.createElement(
-                "h4",
+                'h4',
                 null,
                 this.state.activity.location_description
               ),
               React.createElement(
-                "h4",
+                'h4',
                 null,
                 this.state.activity.description
               ),
               React.createElement(RSVP, { activity: this.state.activity })
             ),
             React.createElement(
-              "div",
-              { className: "col-md-4 col-xs-12 map-user-photo" },
-              React.createElement("img", { src: images[this.state.activity.activity_type] })
+              'div',
+              { className: 'col-md-4 col-xs-12 map-user-photo' },
+              React.createElement('img', { src: images[this.state.activity.activity_type] })
             )
           )
         ),
         header,
         React.createElement(
-          "table",
-          { className: "table table-striped" },
+          'table',
+          { className: 'table table-striped' },
           React.createElement(
-            "tbody",
+            'tbody',
             null,
             rows
           )
         )
       );
     } else {
-      return React.createElement("div", null);
+      return React.createElement('div', null);
     }
   }
 });
@@ -39851,7 +39892,14 @@ window.ApiActions = {
       actionType: ActivityConstants.CHANGE_FILTERS,
       filters: filters
     });
-  }
+  },
+
+  receiveNewActivity: function(activity) {
+    AppDispatcher.dispatch({
+      actionType: ActivityConstants.NEW_ACTIVITY,
+      activity: activity
+    });
+  },
 };
 
 var UserActions = {
@@ -39899,7 +39947,9 @@ ActivityConstants = {
   MY_ACTIVITIES_RECEIVED: "MY_ACTIVITIES_RECEIVED",
   ACTIVITY_RECEIVED: "ACTIVITY_RECEIVED",
   SINGLE_ACTIVITY_RECEIVED: "SINGLE_ACTIVITY_RECEIVED",
-  CHANGE_FILTERS: "CHANGE_FILTERS"
+  CHANGE_FILTERS: "CHANGE_FILTERS",
+  NEW_ACTIVITY: "NEW_ACTIVITY",
+  MY_NEW_ACTIVITY: "MY_NEW_ACTIVITY"
 };
 UserConstants = {
   FOUND_USERS_RECEIVED: "FOUND_USERS_RECEIVED",
@@ -39969,6 +40019,11 @@ $(function () {
 
   var resetSingleActivity = function(singleActivity){
     _single_activity = singleActivity;
+  };
+
+  var addActivity = function(activity){
+    _activities.push(activity);
+    console.log(_activities);
   };
 
   var resetFilters = function(filters){
@@ -40046,6 +40101,10 @@ $(function () {
           break;
         case ActivityConstants.CHANGE_FILTERS:
           resetFilters(payload.filters);
+          ActivityStore.emit(CHANGE_EVENT);
+          break;
+        case ActivityConstants.NEW_ACTIVITY:
+          addActivity(payload.activity);
           ActivityStore.emit(CHANGE_EVENT);
           break;
         }
@@ -40216,6 +40275,10 @@ $(function () {
     _myActivities = activities;
   };
 
+  var addActivity = function(activity){
+    _myActivities.push(activity);
+  };
+
   root.MyActivitiesStore = $.extend({}, EventEmitter.prototype, {
     addChangeListener: function(callback){
       this.on(CHANGE_EVENT, callback);
@@ -40233,6 +40296,10 @@ $(function () {
       switch(payload.actionType){
         case ActivityConstants.MY_ACTIVITIES_RECEIVED:
           resetActivities(payload.activities);
+          MyActivitiesStore.emit(CHANGE_EVENT);
+          break;
+        case ActivityConstants.MY_NEW_ACTIVITY:
+          addActivity(payload.activity);
           MyActivitiesStore.emit(CHANGE_EVENT);
           break;
         }
@@ -40329,7 +40396,7 @@ var ApiUtil = {
       type: 'POST',
       data: activity,
       success: function(activity) {
-        ApiActions.receiveSingleActivity(activity);
+        ApiActions.receiveNewActivity(activity);
       }
     });
   },
@@ -40431,13 +40498,24 @@ var ApiUtil = {
     });
   },
 
-  handleAttend: function(activity){
+  handleAttend: function(activityId){
     $.ajax({
       url: 'attendees/',
       type: 'POST',
-      data: {attendee:{activity_id:activity}},
-      success: function(){
-        window.location.href = "/#/main/";
+      data: {attendee:{activity_id:activityId}},
+      success: function(activities){
+        ApiActions.receiveMyActivities(activities);
+      }
+    });
+  },
+
+  deleteAttend: function(activityId){
+    $.ajax({
+      url: 'attendees/' + activityId,
+      type: 'DELETE',
+      data: {attendee:{activity_id:activityId}},
+      success: function(activities){
+        ApiActions.receiveMyActivities(activities);
       }
     });
   },
