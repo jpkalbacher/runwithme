@@ -30,7 +30,7 @@
           resetActivities(payload.activities);
           MyActivitiesStore.emit(CHANGE_EVENT);
           break;
-        case ActivityConstants.MY_NEW_ACTIVITY:
+        case ActivityConstants.NEW_ACTIVITY:
           addActivity(payload.activity);
           MyActivitiesStore.emit(CHANGE_EVENT);
           break;
